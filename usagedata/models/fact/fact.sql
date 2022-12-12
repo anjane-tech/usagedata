@@ -9,13 +9,13 @@
   WITH query_history AS (
     SELECT * FROM {{ref("query_history_stage")}}
     {% if is_incremental() %}
-    where "END_TIME" > (select max("{{var('col_create_dts')}}") from {{this}})
+    where "END_TIME" > (select max("{{var('col_update_dts')}}") from {{this}})
     {% endif %}
   )
 
 SELECT 
-        current_timestamp as "CREATEDTS",
-        current_timestamp as "UPDATEDDTS",
+        current_timestamp as "{{var('col_create_dts')}}",
+        current_timestamp as "{{var('col_update_dts')}}",
         AH."ACCESS_HISTORY_ID",
         D."DATABASE_ID",
         E."ERROR_ID",
