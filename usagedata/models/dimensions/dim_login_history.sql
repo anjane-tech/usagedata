@@ -11,7 +11,7 @@ with login_history as (
     SELECT * 
     FROM {{ref('login_history_stage')}}
     {% if is_incremental() %}
-    where "EVENT_TIMESTAMP" > (select max("{{var('col_create_dts')}}") from {{this}})
+    where "EVENT_TIMESTAMP" > (select max("{{var('col_update_dts')}}") from {{this}})
     {% endif %}
 ),
 
@@ -22,8 +22,8 @@ sessions as (
 
 dimension as(
      SELECT DISTINCT
-            current_timestamp as "CREATEDTS",
-            current_timestamp as "UPDATEDDTS",
+            current_timestamp as "{{var('col_create_dts')}}",
+            current_timestamp as "{{var('col_update_dts')}}",
            COALESCE (l."EVENT_TIMESTAMP", '1901-01-01') AS "EVENT_TIMESTAMP",
            CASE WHEN l."EVENT_ID" IS NOT NULL THEN L."EVENT_ID"
                 WHEN s."LOGIN_EVENT_ID" IS NOT NULL THEN S."LOGIN_EVENT_ID"

@@ -11,14 +11,14 @@ with stage_table as (
     SELECT * 
     FROM {{ref('table_stage')}}
     {% if is_incremental() %}
-    where "LAST_ALTERED" > (select max("{{var('col_create_dts')}}") from {{this}})
+    where "LAST_ALTERED" > (select max("{{var('col_update_dts')}}") from {{this}})
     {% endif %}
 ),
 
 dimension as(
     SELECT DISTINCT
-            current_timestamp as "CREATEDTS",
-            current_timestamp as "UPDATEDDTS",
+            current_timestamp as "{{var('col_create_dts')}}",
+            current_timestamp as "{{var('col_update_dts')}}",
            CASE WHEN ah."database_name" IS NOT NULL THEN ah."database_name"
                 WHEN  t."TABLE_CATALOG" IS NOT NULL THEN T."TABLE_CATALOG"
                 ELSE 'N/A' END AS "TABLE_CATALOG",

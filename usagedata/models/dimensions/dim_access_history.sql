@@ -11,7 +11,7 @@ with access_history as (
     SELECT * 
     FROM {{ref('access_history_stage')}}
     {% if is_incremental() %}
-    WHERE "QUERY_START_TIME" > (SELECT max("{{var('col_create_dts')}}") from {{this}})
+    WHERE "QUERY_START_TIME" > (SELECT max("{{var('col_update_dts')}}") from {{this}})
     {% endif %}
 ),
 
@@ -19,7 +19,7 @@ query_history as (
     SELECT * 
     FROM {{ref('query_history_stage')}}
     {% if is_incremental() %}
-    WHERE "END_TIME" > (SELECT max("{{var('col_create_dts')}}") FROM {{this}})
+    WHERE "END_TIME" > (SELECT max("{{var('col_update_dts')}}") FROM {{this}})
     {% endif %}
 ),
 
