@@ -1,0 +1,65 @@
+
+# Name your project! Project names should contain only lowercase characters
+# and underscores. A good package name should reflect your organization's
+# name or the intended use of these models
+name: 'Usage Data Analytics for Snowflake'
+version: '1.0.0'
+config-version: 2
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'usagedata_pg'
+
+# These configurations specify where dbt should look for different types of files.
+# The `model-paths` config, for example, states that models in this project can be
+# found in the "models/" directory. You probably won't need to change these!
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"  # directory which will store compiled SQL files
+clean-targets:         # directories to be removed by `dbt clean`
+  - "target"
+  - "dbt_packages"
+
+vars:
+  col_create_dts: "CREATEDTS"
+  col_update_dts: 'UPDATEDDTS'
+  sf_tbl_access_history: 'access_history_csv'
+  sf_tbl_database: 'database_csv'
+  sf_tbl_errors: 'errors_csv'
+  sf_tbl_login_history: 'login_history_csv'
+  sf_tbl_query_history: 'query_history_csv'
+  sf_tbl_roles: 'roles_csv'
+  sf_tbl_schema: 'schema_csv'
+  sf_tbl_sessions: 'sessions_csv'
+  sf_tbl_table: 'table_csv'
+  sf_tbl_tags: 'tags_csv'
+  sf_tbl_users: 'users_csv'
+  sf_tbl_warehouse: 'warehouse_csv'
+  sf_src_schema_name: 'account_usage'
+  source: 'snowflake'
+
+# Configuring models
+# Full documentation: https://docs.getdbt.com/docs/configuring-models
+
+# In this example config, we tell dbt to build all models in the example/ directory
+# as tables. These settings can be overridden in the individual model files
+# using the `{{ config(...) }}` macro.
+models:
+  usagedata:
+    # Config indicated by + and applies to all files under models/example/
+    staging:
+          materialized: table
+          +schema: stg
+          +tags: staging
+    dimensions:
+          materialized: table
+          +schema: dm
+          +tags: ["dimensions", "datamart"]
+    fact:
+          materialized: table
+          +schema: dm
+          +tags: ["fact", "datamart"]

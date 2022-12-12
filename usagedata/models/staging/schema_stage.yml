@@ -1,0 +1,58 @@
+version: 2
+sources:
+  - name: "{{var('source')}}"
+    schema: "{{var('sf_src_schema_name')}}"
+    tables: 
+      - name: "{{var('sf_tbl_schema')}}"
+        columns: 
+            - name: CATALOG_NAME
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: SCHEMA_NAME
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: SCHEMA_OWNER
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: IS_TRANSIENT
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: IS_MANAGED_ACCESS
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: RETENTION_TIME
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: DEFAULT_CHARACTER_SET_CATALOG
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: DEFAULT_CHARACTER_SET_SCHEMA
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: DEFAULT_CHARACTER_SET_NAME
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: SQL_PATH
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: CREATED
+              data_type: VARCHAR(0,0)
+              quote: true
+
+            - name: LAST_ALTERED
+              data_type: VARCHAR(0,0)
+              quote: true
+
+            - name: COMMENT
+              data_type: VARCHAR(0, 0)
+              quote: true

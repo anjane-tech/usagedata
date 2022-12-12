@@ -1,0 +1,63 @@
+version: 2
+sources:
+  - name: "{{var('source')}}"
+    schema: "{{var('sf_src_schema_name')}}"
+    tables: 
+      - name: "{{var('sf_tbl_tags')}}"
+        columns: 
+            - name: TAG_ID
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: TAG_NAME
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: TAG_SCHEMA_ID
+              data_type: VARCHAR(0, 0)  
+              quote: true
+
+            - name: TAG_SCHEMA
+              data_type: TIMESTAMP(0, 0)
+              quote: true
+
+            - name: TAG_DATABASE_ID
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: TAG_DATABASE
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: TAG_OWNER
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: TAG_COMMENT
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: CREATED
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: LAST_ALTERED
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: DELETED
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: ALLOWED_VALUES
+              data_type: VARCHAR(0, 0)
+              quote: true
+              
+
+              
+
+              
+
+              
+
+              
