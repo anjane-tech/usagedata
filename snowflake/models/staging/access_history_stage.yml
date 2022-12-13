@@ -1,0 +1,31 @@
+version: 2
+sources:
+  - name: "{{var('source')}}"
+    database: "{{var('source')}}"
+    schema: "{{var('sf_src_schema_name')}}"
+    tables: 
+      - name: "{{var('sf_tbl_access_history')}}"
+        columns: 
+            - name: QUERY_ID
+              data_type: VARCHAR(0, 0)
+              quote: true
+            
+            - name: QUERY_START_TIME
+              data_type: VARCHAR(0, 0)
+              quote: true
+            
+            - name: USER_NAME
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: DIRECT_OBJECTS_ACCESSED
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: BASE_OBJECTS_ACCESSED
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: OBJECTS_MODIFIED
+              data_type: VARCHAR(0, 0)
+              quote: true

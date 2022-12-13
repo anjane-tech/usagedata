@@ -1,0 +1,96 @@
+version: 2
+sources:
+  - name: "{{var('source')}}"
+    database: "{{var('source')}}"
+    schema: "{{var('sf_src_schema_name')}}"
+    tables: 
+      - name: "{{var('sf_tbl_table')}}"
+        columns: 
+            - name: TABLE_CATALOG
+              data_type: VARCHAR(0, 0)
+              quote: true
+            
+            - name: TABLE_SCHEMA
+              data_type: VARCHAR(0, 0)
+              quote: true
+            
+            - name: TABLE_NAME
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: TABLE_OWNER
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: TABLE_TYPE
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: IS_TRANSIENT
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: CLUSTERING_KEY
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: ROW_COUNT
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: BYTES
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: RETENTION_TIME
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: SELF_REFERENCING_COLUMN_NAME
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: REFERENCE_GENERATION
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: USER_DEFINED_TYPE_CATALOG
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: USER_DEFINED_TYPE_SCHEMA
+              data_type: VARCHAR(0, 0)
+              quote: true
+              
+            - name: USER_DEFINED_TYPE_NAME
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: IS_INSERTABLE_INTO
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: IS_TYPED
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: COMMIT_ACTION
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: CREATED
+              data_type: VARCHAR(0, 0)
+              quote: true
+
+            - name: LAST_ALTERED
+              data_type: VARCHAR(0, 0)
+              quote: true
+            
+            - name: AUTO_CLUSTERING_ON
+              data_type: VARCHAR(0, 0)
+              quote: true
+            
+            - name: COMMENT
+              data_type: VARCHAR(0, 0)
+              quote: true
+            
