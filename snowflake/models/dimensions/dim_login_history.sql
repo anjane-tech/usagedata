@@ -19,19 +19,17 @@ sessions as (
 
 dimension as(
      SELECT DISTINCT
-            current_timestamp as "{{var('col_create_dts')}}",
-            current_timestamp as "{{var('col_update_dts')}}",
-           COALESCE (l."EVENT_TIMESTAMP", '1901-01-01') AS "EVENT_TIMESTAMP",
+           COALESCE (l."EVENT_TIMESTAMP", to_timestamp_ntz('1901-01-01')) AS "EVENT_TIMESTAMP",
            CASE WHEN l."EVENT_ID" IS NOT NULL THEN L."EVENT_ID"
                 WHEN s."LOGIN_EVENT_ID" IS NOT NULL THEN S."LOGIN_EVENT_ID"
-                ELSE 'N/A' END AS "EVENT_ID",
+                ELSE 0 END AS "EVENT_ID",
            COALESCE (l."EVENT_TYPE", 'N/A') AS "EVENT_TYPE",
            CASE WHEN l."USER_NAME" IS NOT NULL THEN L."USER_NAME"
                 WHEN s."USER_NAME" IS NOT NULL THEN S."USER_NAME"
                 ELSE 'N/A' END AS "USER_NAME",
            COALESCE (l."CLIENT_IP", 'N/A') AS "CLIENT_IP",
            COALESCE (l."REPORTED_CLIENT_TYPE", 'N/A') AS "REPORTED_CLIENT_TYPE",
-           COALESCE (l."REPORTED_CLIENT_VERSION", 'N/A') AS "REPORTED_CLIENT_VERSION",
+           COALESCE (l."REPORTED_CLIENT_VERSION", 0) AS "REPORTED_CLIENT_VERSION",
            COALESCE (l."FIRST_AUTHENTICATION_FACTOR", 'N/A') AS "FIRST_AUTHENTICATION_FACTOR",
            COALESCE (l."SECOND_AUTHENTICATION_FACTOR", 'N/A') AS "SECOND_AUTHENTICATION_FACTOR",
            COALESCE (l."IS_SUCCESS", 'N/A') AS "IS_SUCCESS",
@@ -46,5 +44,7 @@ dimension as(
 SELECT 
      {{ dbt_utils.generate_surrogate_key(
          ['"EVENT_ID"']
-     )}} as "LOGIN_HISTORY_ID", *
+     )}} as "LOGIN_HISTORY_ID", *,
+     current_timestamp as "{{var('col_create_dts')}}",
+      current_timestamp as "{{var('col_update_dts')}}"
 FROM dimension

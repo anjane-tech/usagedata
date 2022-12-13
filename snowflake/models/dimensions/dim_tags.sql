@@ -19,8 +19,6 @@ query_history as (
 
 dimension as(
     SELECT DISTINCT
-            current_timestamp as "{{var('col_create_dts')}}",
-            current_timestamp as "{{var('col_update_dts')}}",
            CASE WHEN t."TAG_NAME" IS NOT NULL THEN T."TAG_NAME"
                 WHEN qh."QUERY_TAG" IS NOT NULL THEN QH."QUERY_TAG"
                 ELSE 'N/A' END AS "TAG_NAME",
@@ -32,9 +30,9 @@ dimension as(
                 ELSE 'N/A' END AS "TAG_DATABASE",
            COALESCE (t."TAG_OWNER", 'N/A') AS "TAG_OWNER",
            COALESCE (t."TAG_COMMENT", 'N/A') AS "TAG_COMMENT",
-           COALESCE (t."CREATED", 'N/A') AS "CREATED",
-           COALESCE (t."LAST_ALTERED", 'N/A') AS "LAST_ALTERED",
-           COALESCE (t."DELETED", 'N/A') AS "DELETED",
+           COALESCE (t."CREATED", to_timestamp_ntz('1901-01-01')) AS "CREATED",
+           COALESCE (t."LAST_ALTERED", to_timestamp_ntz('1901-01-01')) AS "LAST_ALTERED",
+           COALESCE (t."DELETED", to_timestamp_ntz('1901-01-01')) AS "DELETED",
            COALESCE (t."ALLOWED_VALUES", 'N/A') AS "ALLOWED_VALUES"
     FROM query_history qh
     FULL OUTER JOIN tags t ON T."TAG_NAME" = QH."QUERY_TAG"
@@ -43,6 +41,8 @@ dimension as(
 SELECT 
      {{ dbt_utils.generate_surrogate_key(
          ['"TAG_NAME"','"TAG_DATABASE"','"TAG_SCHEMA"']
-     )}} as "TAGS_ID", *
+     )}} as "TAGS_ID", *,
+     current_timestamp as "{{var('col_create_dts')}}",
+      current_timestamp as "{{var('col_update_dts')}}"
 FROM dimension
 

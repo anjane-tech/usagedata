@@ -20,8 +20,6 @@ query_history as (
 
 dimension as (
     SELECT DISTINCT
-            current_timestamp as "{{var('col_create_dts')}}",
-            current_timestamp as "{{var('col_update_dts')}}",
            CASE WHEN ah."QUERY_ID" IS NOT NULL THEN AH."QUERY_ID"
                 WHEN qh."QUERY_ID" IS NOT NULL THEN QH."QUERY_ID"
                 ELSE 'N/A' END AS "QUERY_ID",
@@ -39,5 +37,7 @@ dimension as (
 SELECT
     {{dbt_utils.generate_surrogate_key(
         ['"QUERY_ID"']
-    )}} AS "ACCESS_HISTORY_ID", *
+    )}} AS "ACCESS_HISTORY_ID", *,
+    current_timestamp as "{{var('col_create_dts')}}",
+        current_timestamp as "{{var('col_update_dts')}}"
 FROM dimension    

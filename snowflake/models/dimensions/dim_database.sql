@@ -19,16 +19,14 @@ query_history as (
 
 dimension as (
     SELECT DISTINCT
-            current_timestamp as "{{var('col_create_dts')}}",
-            current_timestamp as "{{var('col_update_dts')}}",
            CASE WHEN d."DATABASE_NAME" IS NOT NULL THEN D."DATABASE_NAME"
                 WHEN qh."DATABASE_NAME" IS NOT NULL THEN QH."DATABASE_NAME"
                 ELSE 'N/A' END AS "DATABASE_NAME",
            COALESCE (d."DATABASE_OWNER", 'N/A') AS "DATABASE_OWNER",
            COALESCE (d."IS_TRANSIENT", 'N/A') AS "IS_TRANSIENT",
            COALESCE (d."COMMENT", 'N/A') AS "COMMENT",
-           COALESCE (d."CREATED", 'N/A') AS "CREATED",
-           COALESCE (d."LAST_ALTERED", 'N/A') AS "LAST_ALTERED"
+           COALESCE (d."CREATED", to_timestamp_ntz('1901-01-01')) AS "CREATED",
+           COALESCE (d."LAST_ALTERED", to_timestamp_ntz('1901-01-01')) AS "LAST_ALTERED"
     FROM query_history qh
     FULL OUTER JOIN db d ON D."DATABASE_NAME" = QH."DATABASE_NAME"
 )
@@ -36,5 +34,7 @@ dimension as (
 SELECT      
     {{dbt_utils.generate_surrogate_key(
          ['"DATABASE_NAME"']
-     )}} AS "DATABASE_ID", *
+     )}} AS "DATABASE_ID", *,
+     current_timestamp as "{{var('col_create_dts')}}",
+      current_timestamp as "{{var('col_update_dts')}}"
 FROM dimension

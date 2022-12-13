@@ -19,12 +19,10 @@ query_history as (
 
 dimensions as (
     SELECT DISTINCT
-            current_timestamp as "{{var('col_create_dts')}}",
-            current_timestamp as "{{var('col_update_dts')}}",
            COALESCE (e."ERROR_TYPE", 'N/A') AS "ERROR_TYPE",
            CASE WHEN e."ERROR_CODE" IS NOT NULL THEN E."ERROR_CODE"
                 WHEN qh."ERROR_CODE" IS NOT NULL THEN QH."ERROR_CODE"
-                ELSE 'N/A' END AS "ERROR_CODE",           
+                ELSE 0 END AS "ERROR_CODE",           
            CASE WHEN e."DESCRIPTION" IS NOT NULL THEN E."DESCRIPTION"
                 WHEN qh."ERROR_MESSAGE" IS NOT NULL THEN QH."ERROR_MESSAGE"
                 ELSE 'N/A' END AS "DESCRIPTION"
@@ -35,5 +33,7 @@ dimensions as (
 SELECT      
     {{dbt_utils.generate_surrogate_key(
          ['"ERROR_CODE"']
-     )}} AS "ERROR_ID", *
+     )}} AS "ERROR_ID", *,
+     current_timestamp as "{{var('col_create_dts')}}",
+      current_timestamp as "{{var('col_update_dts')}}"
 FROM dimensions
