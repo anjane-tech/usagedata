@@ -16,14 +16,14 @@ query_history as (
     select * 
     from {{ref('query_history_stage')}}
     {% if is_incremental() %}
-    where "END_TIME" > (select max("{{var('col_create_dts')}}") from {{this}})
+    where "END_TIME" > (select max("{{var('col_update_dts')}}") from {{this}})
     {% endif %}
 ),
 
 dimension as (
     SELECT DISTINCT
-            current_timestamp as "CREATEDTS",
-            current_timestamp as "UPDATEDDTS",
+            current_timestamp as "{{var('col_create_dts')}}",
+            current_timestamp as "{{var('col_update_dts')}}",
            COALESCE (r."CREATED_ON", 'N/A') AS "CREATED_ON",
            COALESCE (r."DELETED_ON", 'N/A') AS "DELETED_ON",
            CASE WHEN r."NAME" IS NOT NULL THEN R."NAME"

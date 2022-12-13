@@ -16,14 +16,14 @@ query_history as (
     select * 
     from {{ref('query_history_stage')}}
     {% if is_incremental() %}
-    where "END_TIME" > (select max("{{var('col_create_dts')}}") from {{this}})
+    where "END_TIME" > (select max("{{var('col_update_dts')}}") from {{this}})
     {% endif %}
 ),
 
 dimensions as(
     SELECT DISTINCT       
-            current_timestamp as "CREATEDTS",
-            current_timestamp as "UPDATEDDTS",    
+            current_timestamp as "{{var('col_create_dts')}}",
+            current_timestamp as "{{var('col_update_dts')}}",    
            CASE WHEN s."CATALOG_NAME" IS NOT NULL THEN S."CATALOG_NAME"
                 WHEN qh."DATABASE_NAME" IS NOT NULL THEN QH."DATABASE_NAME"
                 ELSE 'N/A' END AS "CATALOG_NAME",    

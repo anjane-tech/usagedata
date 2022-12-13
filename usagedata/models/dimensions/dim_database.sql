@@ -16,14 +16,14 @@ query_history as (
     SELECT * 
     FROM {{ref('query_history_stage')}}
     {% if is_incremental() %}
-    WHERE "END_TIME" > (SELECT max("{{var('col_create_dts')}}") FROM {{this}})
+    WHERE "END_TIME" > (SELECT max("{{var('col_update_dts')}}") FROM {{this}})
     {% endif %}
 ),
 
 dimension as (
     SELECT DISTINCT
-            current_timestamp as "CREATEDTS",
-            current_timestamp as "UPDATEDDTS",
+            current_timestamp as "{{var('col_create_dts')}}",
+            current_timestamp as "{{var('col_update_dts')}}",
            CASE WHEN d."DATABASE_NAME" IS NOT NULL THEN D."DATABASE_NAME"
                 WHEN qh."DATABASE_NAME" IS NOT NULL THEN QH."DATABASE_NAME"
                 ELSE 'N/A' END AS "DATABASE_NAME",
