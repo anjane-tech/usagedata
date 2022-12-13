@@ -27,8 +27,8 @@ dimension as(
                 ELSE 'N/A' END AS "TABLE_NAME",
            COALESCE (t."TABLE_OWNER", 'N/A') AS "TABLE_OWNER",
            COALESCE (t."TABLE_TYPE", 'N/A') AS "TABLE_TYPE",
-           COALESCE (t."ROW_COUNT", 'N/A') AS "ROW_COUNT",
-           COALESCE (t."CREATED", 'N/A') AS "CREATED"
+           COALESCE (t."ROW_COUNT", 0) AS "ROW_COUNT",
+           COALESCE (t."CREATED", to_timestamp_ntz('1901-01-01')) AS "CREATED"
     FROM {{ref('access_history_temp')}} ah
     FULL OUTER JOIN stage_table t ON T."TABLE_CATALOG" = ah."database_name" 
                                     and T."TABLE_SCHEMA" = ah."schema_name"

@@ -47,5 +47,5 @@
 {%- endmacro %}
 
 {% macro snowflake__flatten_json(OBJECT_NAME) -%}
-    , LATERAL flatten(input => parse_json("{{OBJECT_NAME}}"))
+    , LATERAL flatten(input => parse_json(TO_JSON("{{OBJECT_NAME}}")))
 {%- endmacro %}
