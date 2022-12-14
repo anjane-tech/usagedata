@@ -1,10 +1,10 @@
-# SNOWFLAKE - USAGE DATA ANALYTICS:
+# Snowflake - Usage Data Analytics:
 
 This snowflake usage analytics project is about creating insights about the account usage informations of snowflake.
 In this project we have mainly focused on snowflake and we have created incremental models of dimensions and fact for the account related tables available in snowflake database. 
 
 
-# PREREQUISITES:
+# Prequisites:
 
 The main requirements for this project is
 
@@ -28,34 +28,34 @@ Once all the setup is done please follow the steps given below.
     - After completing the above steps redirect to the corresponding dbt folder and run the following command
         (dbt deps) since the package.yml is already given in the folder, dbt will install the corresponding dependencies.
 
-# LIST OF TABLES AVAILABLE IN THIS PROJECT:
+# List Of Tables Available In This Project:
 
     - Access_history
     - Database
-    - Errors
+    - Errors - (seed file is given)
     - Login_history
     - Query_history
     - Roles
-    - Schema
+    - Schemata
     - Sessions
-    - Table
+    - Tables
     - Tags
     - Users
     - Warehouse
 
 
-# MODELS AND WORKFLOW OF SNOWFLAKE USAGE ANALYTICS
+# Models And Datamart Of Snowflake Usage Analytics:
 
-### STAGING:
+### Staging:
 
 In this project the data's are seeded into the database and staging files are created using dbt source and for each
 staging model yaml files are defined with column names and data_type. All the staging files in this project are created as views so that if the main table is refreshed the views will automatically gets refreshed.
 
-### DIMENSIONS:
+### Dimensions:
 
 The dimensions in this project is created referring the staging models. Most of the dimensions are created with Query_history as fact table. All the dimensions in this project are created as an incremental model. Along with all
 the columns a surrogate key column is created using (dbt_utils).
 
-### FACT:
+### Fact:
 
 The fact model is created as an incrementa model and it is created using the key columns in all the dimensions models and by aggregating some of the metrics columns available in dimensions models.

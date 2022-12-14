@@ -20,7 +20,7 @@ models:
               - unique
             
           - name: QUERY_START_TIME
-            data_type: VARCHAR(0, 0)
+            data_type: TIMESTAMP
             description: "N/A - Not_Applicable"
             quote: False
             tests:
@@ -48,14 +48,14 @@ models:
               - not_null
 
           - name: CREATEDTS
-            data_type: VARCHAR(0, 0)
+            data_type: TIMESTAMP
             description: "N/A - Not_Applicable"
             quote: False
             tests:
               - not_null
 
           - name: UPDATEDDTS
-            data_type: VARCHAR(0, 0)
+            data_type: TIMESTAMP
             description: "N/A - Not_Applicable"
             quote: False
             tests:
