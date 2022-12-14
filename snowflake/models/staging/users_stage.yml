@@ -11,11 +11,11 @@ sources:
               quote: true
 
             - name: CREATED_ON
-              data_type: VARCHAR(0, 0)
+              data_type: TIMESTAMP
               quote: true
 
             - name: DELETED_ON
-              data_type: VARCHAR(0, 0)
+              data_type: TIMESTAMP
               quote: true
 
             - name: LOGIN_NAME
@@ -35,7 +35,7 @@ sources:
               quote: true
 
             - name: EXPIRES_AT
-              data_type: VARCHAR(0, 0)
+              data_type: TIMESTAMP
               quote: true
 
             - name: DISPLAY_NAME

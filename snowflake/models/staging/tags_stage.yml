@@ -39,11 +39,11 @@ sources:
               quote: true
 
             - name: CREATED
-              data_type: VARCHAR(0, 0)
+              data_type: TIMESTAMP
               quote: true
 
             - name: LAST_ALTERED
-              data_type: VARCHAR(0, 0)
+              data_type: TIMESTAMP
               quote: true
 
             - name: DELETED

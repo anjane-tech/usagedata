@@ -1,0 +1,111 @@
+version: 2
+
+models:
+  - name: dim_schema
+    columns: 
+          - name: SCHEMA_ID
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+              - unique
+
+          - name: CATALOG_NAME
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: SCHEMA_NAME
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: SCHEMA_OWNER
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: IS_TRANSIENT
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: IS_MANAGED_ACCESS
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: DEFAULT_CHARACTER_SET_CATALOG
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: DEFAULT_CHARACTER_SET_SCHEMA
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: DEFAULT_CHARACTER_SET_NAME
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: SQL_PATH
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: CREATED
+            data_type: TIMESTAMP
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: LAST_ALTERED
+            data_type: TIMESTAMP
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: COMMENT
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: CREATEDTS
+            data_type: TIMESTAMP
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: UPDATEDDTS
+            data_type: TIMESTAMP
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+              

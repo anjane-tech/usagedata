@@ -1,0 +1,55 @@
+version: 2
+
+models:
+  - name: dim_error
+    columns: 
+          - name: ERROR_ID
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+              - unique
+
+          - name: ERROR_TYPE
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: ERROR_CODE
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+              - unique
+
+          - name: DESCRIPTION
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: ERROR_MESSAGE
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: CREATEDTS
+            data_type: TIMESTAMP
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: UPDATEDDTS
+            data_type: TIMESTAMP
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null

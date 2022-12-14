@@ -1,0 +1,64 @@
+version: 2
+
+models:
+  - name: dim_access_history
+    columns: 
+          - name: ACCESS_HISTORY_ID
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+              - unique
+          
+          - name: QUERY_ID
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+              - unique
+            
+          - name: QUERY_START_TIME
+            data_type: TIMESTAMP
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: DIRECT_OBJECTS_ACCESSED
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: BASE_OBJECTS_ACCESSED
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: OBJECTS_MODIFIED
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: CREATEDTS
+            data_type: TIMESTAMP
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: UPDATEDDTS
+            data_type: TIMESTAMP
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+            

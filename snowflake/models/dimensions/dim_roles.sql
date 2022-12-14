@@ -19,10 +19,8 @@ query_history as (
 
 dimension as (
     SELECT DISTINCT
-            current_timestamp as "{{var('col_create_dts')}}",
-            current_timestamp as "{{var('col_update_dts')}}",
-           COALESCE (r."CREATED_ON", 'N/A') AS "CREATED_ON",
-           COALESCE (r."DELETED_ON", 'N/A') AS "DELETED_ON",
+           COALESCE (r."CREATED_ON", to_timestamp_ntz('1901-01-01')) AS "CREATED_ON",
+           COALESCE (r."DELETED_ON", to_timestamp_ntz('1901-01-01')) AS "DELETED_ON",
            CASE WHEN r."NAME" IS NOT NULL THEN R."NAME"
                 WHEN qh."ROLE_NAME" IS NOT NULL THEN QH."ROLE_NAME"
                 ELSE 'N/A' END AS "NAME",
@@ -34,5 +32,7 @@ dimension as (
 SELECT      
     {{dbt_utils.generate_surrogate_key(
          ['"NAME"']
-     )}} AS "ROLES_ID", *
+     )}} AS "ROLES_ID", *,
+     current_timestamp as "{{var('col_create_dts')}}",
+      current_timestamp as "{{var('col_update_dts')}}"
 FROM dimension

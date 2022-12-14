@@ -7,7 +7,7 @@ sources:
       - name: "{{var('sf_tbl_login_history')}}"
         columns: 
             - name: EVENT_TIMESTAMP
-              data_type: VARCHAR
+              data_type: TIMESTAMP
               quote: true
 
             - name: EVENT_ID

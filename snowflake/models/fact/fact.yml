@@ -1,0 +1,139 @@
+version: 2
+
+models:
+  - name: fact
+    columns: 
+          - name: ACCESS_HISTORY_ID
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+              - unique
+          
+          - name: DATABASE_ID
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+              - unique
+
+          - name: ERROR_ID
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+              - unique
+
+          - name: LOGIN_HISTORY_ID
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+              - unique
+          
+          - name: ROLES_ID
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+              - unique
+
+          - name: SCHEMA_ID
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+              - unique
+
+          - name: COMBINED_SESSION_ID
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+              - unique
+
+          - name: TABLE_ID
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+              - unique
+
+          - name: TAGS_ID
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+              - unique
+
+          - name: COMBINED_USERS_ID
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+              - unique
+
+          - name: COMBINED_WAREHOUSE_ID
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+              - unique
+
+          - name: QUERY_ID
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+              - unique
+
+          - name: BYTES_SCANNED
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+
+          - name: OUTBOUND_DATA_TRANSFER_BYTES
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+
+          - name: INBOUND_DATA_TRANSFER_BYTES
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+
+          - name: EXTERNAL_FUNCTION_TOTAL_SENT_BYTES
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+
+          - name: CREATEDTS
+            data_type: TIMESTAMP
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: UPDATEDDTS
+            data_type: TIMESTAMP
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          
+
+          
+

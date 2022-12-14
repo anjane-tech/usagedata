@@ -1,0 +1,134 @@
+version: 2
+
+models:
+  - name: dim_login_history
+    columns: 
+          - name: LOGIN_HISTORY_ID
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: EVENT_TIMESTAMP
+            data_type: TIMESTAMP
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: EVENT_ID
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+              - unique
+
+          - name: LOGIN_EVENT_ID
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+              - unique
+
+          - name: EVENT_TYPE
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: USER_NAME
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: CLIENT_IP
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: REPORTED_CLIENT_TYPE
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: REPORTED_CLIENT_VERSION
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: FIRST_AUTHENTICATION_FACTOR
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: SECOND_AUTHENTICATION_FACTOR
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: IS_SUCCESS
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: ERROR_CODE
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: ERROR_MESSAGE
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: RELATED_EVENT_ID
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+              - unique
+
+          - name: CONNECTION
+            data_type: VARCHAR(0, 0)
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: CREATEDTS
+            data_type: TIMESTAMP
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+
+          - name: UPDATEDDTS
+            data_type: TIMESTAMP
+            description: "N/A - Not_Applicable"
+            quote: False
+            tests:
+              - not_null
+          

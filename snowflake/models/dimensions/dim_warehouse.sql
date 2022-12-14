@@ -19,8 +19,6 @@ query_history as (
 
 dimension as(
     SELECT DISTINCT
-            current_timestamp as "{{var('col_create_dts')}}",
-            current_timestamp as "{{var('col_update_dts')}}",
            CASE WHEN w."WAREHOUSE_NAME" IS NOT NULL THEN W."WAREHOUSE_NAME"
                 WHEN qh."WAREHOUSE_NAME" IS NOT NULL THEN QH."WAREHOUSE_NAME"
                 ELSE 'N/A' END AS "WAREHOUSE_NAME",
@@ -28,7 +26,7 @@ dimension as(
            COALESCE(w."MAX_CLUSTER_COUNT", 0) AS "MAX_CLUSTER_COUNT",
            COALESCE(w."AUTO_SUSPEND", 'N/A') AS "AUTO_SUSPEND",
            COALESCE(w."AUTO_RESUME", 'N/A') AS "AUTO_RESUME",
-           COALESCE(w."UUID", 'N/A') AS "UUID",
+           COALESCE(w."UUID", 0) AS "UUID",
            COALESCE(w."OWNER", 'N/A') AS "OWNER",
            COALESCE(w."STATE", 'N/A') AS "STATE",
            CASE WHEN w."SIZE" IS NOT NULL THEN W."SIZE"
@@ -44,6 +42,8 @@ dimension as(
 SELECT
      {{ dbt_utils.generate_surrogate_key(
          ['"WAREHOUSE_NAME"']
-     )}} as "COMBINED_WAREHOUSE_ID", *
+     )}} as "COMBINED_WAREHOUSE_ID", *,
+     current_timestamp as "{{var('col_create_dts')}}",
+      current_timestamp as "{{var('col_update_dts')}}"
 
 FROM dimension

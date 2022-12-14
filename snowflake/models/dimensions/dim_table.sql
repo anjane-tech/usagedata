@@ -14,8 +14,6 @@ with stage_table as (
 
 dimension as(
     SELECT DISTINCT
-            current_timestamp as "{{var('col_create_dts')}}",
-            current_timestamp as "{{var('col_update_dts')}}",
            CASE WHEN ah."database_name" IS NOT NULL THEN ah."database_name"
                 WHEN  t."TABLE_CATALOG" IS NOT NULL THEN T."TABLE_CATALOG"
                 ELSE 'N/A' END AS "TABLE_CATALOG",
@@ -38,5 +36,7 @@ dimension as(
 SELECT
     {{dbt_utils.generate_surrogate_key(
         ['"TABLE_CATALOG"','"TABLE_SCHEMA"','"TABLE_NAME"']
-    )}} AS "TABLE_ID", *
+    )}} AS "TABLE_ID", *,
+    current_timestamp as "{{var('col_create_dts')}}",
+      current_timestamp as "{{var('col_update_dts')}}"
 FROM dimension

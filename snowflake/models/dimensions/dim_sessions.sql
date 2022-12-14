@@ -19,22 +19,20 @@ query_history as (
 
 dimension as(
     SELECT DISTINCT
-            current_timestamp as "{{var('col_create_dts')}}",
-            current_timestamp as "{{var('col_update_dts')}}",
            CASE WHEN s."SESSION_ID" IS NOT NULL THEN S."SESSION_ID"
                 WHEN qh."SESSION_ID" IS NOT NULL THEN QH."SESSION_ID"
-                ELSE 'N/A' END AS "SESSION_ID",
+                ELSE 0 END AS "SESSION_ID",
            CASE WHEN s."USER_NAME" IS NOT NULL THEN S."USER_NAME"
                 WHEN qh."USER_NAME" IS NOT NULL THEN QH."USER_NAME"
                 ELSE 'N/A' END AS "USER_NAME",
-           COALESCE(s."CREATED_ON", 'N/A') AS "CREATED_ON",
+           COALESCE(s."CREATED_ON", to_timestamp_ntz('1901-01-01')) AS "CREATED_ON",
            COALESCE(s."AUTHENTICATION_METHOD", 'N/A') AS "AUTHENTICATION_METHOD",
-           COALESCE(s."LOGIN_EVENT_ID", 'N/A') AS "LOGIN_EVENT_ID",
+           COALESCE(s."LOGIN_EVENT_ID", 0) AS "LOGIN_EVENT_ID",
            COALESCE(s."CLIENT_APPLICATION_VERSION", 'N/A') AS "CLIENT_APPLICATION_VERSION",
            COALESCE(s."CLIENT_APPLICATION_ID", 'N/A') AS "CLIENT_APPLICATION_ID",
            COALESCE(s."CLIENT_ENVIRONMENT", 'N/A') AS "CLIENT_ENVIRONMENT",
-           COALESCE(s."CLIENT_BUILD_ID", 'N/A') AS "CLIENT_BUILD_ID",
-           COALESCE(s."CLIENT_VERSION", 'N/A') AS "CLIENT_VERSION"
+           COALESCE(s."CLIENT_BUILD_ID", 0) AS "CLIENT_BUILD_ID",
+           COALESCE(s."CLIENT_VERSION", 0) AS "CLIENT_VERSION"
     FROM query_history qh
     FULL OUTER JOIN session_tmp s on S."SESSION_ID" = QH."SESSION_ID"
 )
@@ -42,6 +40,8 @@ dimension as(
 SELECT      
     {{dbt_utils.generate_surrogate_key(
          ['"SESSION_ID"']
-     )}} AS "COMBINED_SESSION_ID", *
+     )}} AS "COMBINED_SESSION_ID", *,
+     current_timestamp as "{{var('col_create_dts')}}",
+      current_timestamp as "{{var('col_update_dts')}}"
       
 FROM dimension
