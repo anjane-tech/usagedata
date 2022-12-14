@@ -71,15 +71,15 @@ sources:
               quote: true
 
             - name: START_TIME
-              data_type: VARCHAR(0, 0)
+              data_type: TIMESTAMP
               quote: true
 
             - name: END_TIME
-              data_type: VARCHAR(0, 0)
+              data_type: TIMESTAMP
               quote: true
 
             - name: TOTAL_ELAPSED_TIME
-              data_type: VARCHAR(0, 0)
+              data_type: TIMESTAMP
               quote: true
             
             - name: BYTES_SCANNED
@@ -91,26 +91,26 @@ sources:
               quote: true
             
             - name: COMPILATION_TIME
-              data_type: VARCHAR(0, 0)
+              data_type: TIMESTAMP
               quote: true
             
             - name: EXECUTION_TIME
-              data_type: VARCHAR(0, 0)
+              data_type: TIMESTAMP
               quote: true
 
             - name: QUEUED_PROVISIONING_TIME
-              data_type: VARCHAR(0, 0)
+              data_type: TIMESTAMP
               quote: true
             - name: QUEUED_REPAIR_TIME
-              data_type: VARCHAR(0, 0)
+              data_type: TIMESTAMP
               quote: true
 
             - name: QUEUED_OVERLOAD_TIME
-              data_type: VARCHAR(0, 0)
+              data_type: TIMESTAMP
               quote: true
             
             - name: TRANSACTION_BLOCKED_TIME
-              data_type: VARCHAR(0, 0)
+              data_type: TIMESTAMP
               quote: true
 
             - name: OUTBOUND_DATA_TRANSFER_CLOUD

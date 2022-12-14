@@ -30,11 +30,11 @@ sources:
               quote: true
 
             - name: CREATED_ON
-              data_type: VARCHAR(0, 0)
+              data_type: TIMESTAMP
               quote: true
 
             - name: UPDATED_ON
-              data_type: VARCHAR(0, 0)
+              data_type: TIMESTAMP
               quote: true
 
             - name: AUTO_SUSPEND

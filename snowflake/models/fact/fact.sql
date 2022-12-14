@@ -11,8 +11,6 @@
   )
 
 SELECT 
-        current_timestamp as "{{var('col_create_dts')}}",
-        current_timestamp as "{{var('col_update_dts')}}",
         AH."ACCESS_HISTORY_ID",
         D."DATABASE_ID",
         E."ERROR_ID",
@@ -28,8 +26,9 @@ SELECT
         SUM(QH."BYTES_SCANNED"::DECIMAL(38, 0)) AS "BYTES_SCANNED",
         SUM(QH."OUTBOUND_DATA_TRANSFER_BYTES"::DECIMAL(38, 0)) AS "OUTBOUND_DATA_TRANSFER_BYTES",
         SUM(QH."INBOUND_DATA_TRANSFER_BYTES"::DECIMAL(38, 0)) AS "INBOUND_DATA_TRANSFER_BYTES",
-        SUM(QH."EXTERNAL_FUNCTION_TOTAL_SENT_BYTES"::DECIMAL(38, 0)) AS "EXTERNAL_FUNCTION_TOTAL_SENT_BYTES"
- --       SUM(T."BYTES"::DECIMAL(38, 0)) AS "BYTES"
+        SUM(QH."EXTERNAL_FUNCTION_TOTAL_SENT_BYTES"::DECIMAL(38, 0)) AS "EXTERNAL_FUNCTION_TOTAL_SENT_BYTES",
+        current_timestamp as "{{var('col_create_dts')}}",
+        current_timestamp as "{{var('col_update_dts')}}"
     FROM query_history QH 
     INNER JOIN {{ref("dim_access_history")}} AH ON AH."QUERY_ID" = COALESCE(QH."QUERY_ID", 'N/A')
     INNER JOIN {{ref("dim_database")}} D ON D."DATABASE_NAME" = COALESCE(QH."DATABASE_NAME", 'N/A')
