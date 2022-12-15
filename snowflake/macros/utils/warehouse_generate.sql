@@ -1,4 +1,11 @@
 {% macro generate_warehouse_metadata() %}
+  {{return(adapter.dispatch('generate_warehouse_metadata')())}}
+{% endmacro %}
+
+{% macro default__generate_warehouse_metadata() %}
+{% endmacro %}
+
+{% macro snowflake__generate_warehouse_metadata() %}
    {{log("**** Going to generate the warehouse staging table ")}}
    {% set sql %}
      show warehouses;

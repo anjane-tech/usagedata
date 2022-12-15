@@ -26,7 +26,7 @@ dimension as (
            COALESCE (u."DELETED_ON", to_timestamp_ntz('1901-01-01')) AS "DELETED_ON",
            COALESCE (u."LOGIN_NAME", 'N/A') AS "LOGIN_NAME",
            COALESCE (u."EMAIL", 'N/A') AS "EMAIL",
-           COALESCE (u."HAS_PASSWORD", 'N/A') AS "HAS_PASSWORD",
+           u."HAS_PASSWORD",
            COALESCE (u."DEFAULT_ROLE", 'N/A') AS "DEFAULT_ROLE",
            COALESCE (u."EXPIRES_AT", to_timestamp_ntz('1901-01-01')) AS "EXPIRES_AT",
            COALESCE (u."DISPLAY_NAME", 'N/A') AS "DISPLAY_NAME"
