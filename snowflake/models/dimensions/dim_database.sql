@@ -14,7 +14,7 @@ with db as (
 
 query_history as (
     SELECT * 
-    FROM {{ref('query_history_stage_vw')}}
+    FROM {{ref('query_history_stage')}}
 ),
 
 dimension as (

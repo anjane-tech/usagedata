@@ -7,7 +7,7 @@
 }}
 
   WITH query_history AS (
-    SELECT * FROM {{ref("query_history_stage_vw")}}
+    SELECT * FROM {{ref("query_history_stage")}}
   )
 
 SELECT 

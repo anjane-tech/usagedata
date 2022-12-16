@@ -9,7 +9,7 @@
 
 with login_history as (
     SELECT * 
-    FROM {{ref('login_history_stage')}}
+    FROM {{ref('login_history_stage_vw')}}
 ),
 
 sessions as (

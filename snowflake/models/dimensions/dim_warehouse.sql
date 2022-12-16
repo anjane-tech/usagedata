@@ -14,7 +14,7 @@ with warehouse as (
 
 query_history as (
     select * 
-    from {{ref('query_history_stage_vw')}}
+    from {{ref('query_history_stage')}}
 ),
 
 dimension as(
