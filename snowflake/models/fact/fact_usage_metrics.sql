@@ -7,7 +7,7 @@
 }}
 
   WITH query_history AS (
-    SELECT * FROM {{ref("query_history_stage")}}
+    SELECT * FROM {{ref("query_history_stage_vw")}}
   )
 
 SELECT 
@@ -32,9 +32,9 @@ SELECT
     FROM query_history QH 
     INNER JOIN {{ref("dim_access_history")}} AH ON AH."QUERY_ID" = COALESCE(QH."QUERY_ID", 'N/A')
     INNER JOIN {{ref("dim_database")}} D ON D."DATABASE_NAME" = COALESCE(QH."DATABASE_NAME", 'N/A')
-    INNER JOIN {{ref("dim_error")}} E ON E."ERROR_CODE" = COALESCE(QH."ERROR_CODE", 'N/A')
+    INNER JOIN {{ref("dim_error")}} E ON E."ERROR_CODE" = QH."ERROR_CODE"
     INNER JOIN {{ref("dim_sessions")}} SE ON SE."SESSION_ID" = COALESCE(QH."SESSION_ID", 'N/A')
-    INNER JOIN {{ref("dim_login_history")}} LH ON LH."EVENT_ID" = COALESCE(SE."LOGIN_EVENT_ID", 'N/A')
+    INNER JOIN {{ref("dim_login_history")}} LH ON LH."EVENT_ID" = SE."LOGIN_EVENT_ID"
     INNER JOIN {{ref("dim_roles")}} R ON R."NAME" = COALESCE(QH."ROLE_NAME", 'N/A')
     INNER JOIN {{ref("dim_schema")}} S ON S."CATALOG_NAME" = COALESCE(QH."DATABASE_NAME", 'N/A') AND
                                            S."SCHEMA_NAME" = COALESCE(QH."SCHEMA_NAME", 'N/A')
@@ -43,7 +43,7 @@ SELECT
                                      TG."TAG_DATABASE" = COALESCE(QH."DATABASE_NAME", 'N/A')
     INNER JOIN {{ref("dim_users")}} U ON U."NAME" = COALESCE(QH."USER_NAME", 'N/A')
     INNER JOIN {{ref("dim_warehouse")}} W ON W."WAREHOUSE_NAME" = COALESCE(QH."WAREHOUSE_NAME", 'N/A')
-    INNER JOIN {{ref("access_history_temp")}} A ON A."QUERY_ID" = COALESCE(QH."QUERY_ID", 'N/A')
+    INNER JOIN {{ref("access_history_vw")}} A ON A."QUERY_ID" = COALESCE(QH."QUERY_ID", 'N/A')
 
     INNER JOIN {{ref("dim_table")}} T ON T."TABLE_CATALOG" = COALESCE(A."database_name", 'N/A') AND
                                          T."TABLE_SCHEMA" = COALESCE(A."schema_name", 'N/A') AND

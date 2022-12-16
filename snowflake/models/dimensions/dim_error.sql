@@ -9,12 +9,12 @@
 
 with errors as (
     SELECT *
-    FROM {{ref('errors_stage')}}
+    FROM {{ref('errors_stage_vw')}}
 ),
 
 query_history as (
     select * 
-    from {{ref('query_history_stage')}}
+    from {{ref('query_history_stage_vw')}}
 ),
 
 dimensions as (

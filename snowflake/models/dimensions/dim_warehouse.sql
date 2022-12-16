@@ -9,12 +9,12 @@
 
 with warehouse as (
     SELECT * 
-    FROM {{ref('warehouse_stage')}}
+    FROM {{ref('warehouse_stage_vw')}}
 ),
 
 query_history as (
     select * 
-    from {{ref('query_history_stage')}}
+    from {{ref('query_history_stage_vw')}}
 ),
 
 dimension as(

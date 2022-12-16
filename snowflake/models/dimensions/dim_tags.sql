@@ -9,12 +9,12 @@
 
 with tags as (
     SELECT * 
-    FROM {{ref('tags_stage')}}
+    FROM {{ref('tags_stage_vw')}}
 ),
 
 query_history as (
     select * 
-    from {{ref('query_history_stage')}}
+    from {{ref('query_history_stage_vw')}}
 ),
 
 dimension as(

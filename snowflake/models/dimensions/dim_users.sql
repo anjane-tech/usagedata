@@ -9,12 +9,12 @@
 
 with users as (
     SELECT * 
-    FROM {{ref('users_stage')}}
+    FROM {{ref('users_stage_vw')}}
 ),
 
 query_history as (
     select * 
-    from {{ref('query_history_stage')}}
+    from {{ref('query_history_stage_vw')}}
 ),
 
 dimension as (

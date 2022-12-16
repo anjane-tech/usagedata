@@ -8,5 +8,5 @@ select ah.QUERY_ID,
        ah.BASE_OBJECTS_ACCESSED AS BASE_OBJECTS_ACCESSED,
        ah.OBJECTS_MODIFIED AS OBJECTS_MODIFIED
 from {{source(var("source"),var("sf_tbl_access_history"))}} ah
-   inner join {{ref("query_history_stage")}} qh on ah.QUERY_ID = qh.QUERY_ID
+   inner join {{ref("query_history_stage_vw")}} qh on ah.QUERY_ID = qh.QUERY_ID
  

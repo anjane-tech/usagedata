@@ -14,7 +14,7 @@ with login_history as (
 
 sessions as (
     SELECT * 
-    FROM {{ref('sessions_stage')}}
+    FROM {{ref('sessions_stage_vw')}}
 ),
 
 dimension as(
