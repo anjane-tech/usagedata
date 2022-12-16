@@ -9,12 +9,12 @@
 
 with db as (
     SELECT * 
-    FROM {{ref('database_stage')}}
+    FROM {{ref('database_stage_vw')}}
 ),
 
 query_history as (
     SELECT * 
-    FROM {{ref('query_history_stage')}}
+    FROM {{ref('query_history_stage_vw')}}
 ),
 
 dimension as (

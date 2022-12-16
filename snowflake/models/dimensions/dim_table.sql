@@ -9,7 +9,7 @@
 
 with stage_table as (
     SELECT * 
-    FROM {{ref('table_stage')}}
+    FROM {{ref('table_stage_vw')}}
 ),
 
 dimension as(
@@ -27,7 +27,7 @@ dimension as(
            COALESCE (t."TABLE_TYPE", 'N/A') AS "TABLE_TYPE",
            COALESCE (t."ROW_COUNT", 0) AS "ROW_COUNT",
            COALESCE (t."CREATED", to_timestamp_ntz('1901-01-01')) AS "CREATED"
-    FROM {{ref('access_history_temp')}} ah
+    FROM {{ref('access_history_vw')}} ah
     FULL OUTER JOIN stage_table t ON T."TABLE_CATALOG" = ah."database_name" 
                                     and T."TABLE_SCHEMA" = ah."schema_name"
                                     and T."TABLE_NAME" = ah."table_name"

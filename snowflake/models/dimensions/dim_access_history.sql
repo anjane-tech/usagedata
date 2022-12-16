@@ -14,7 +14,7 @@ with access_history as (
 
 query_history as (
     SELECT * 
-    FROM {{ref('query_history_stage')}}
+    FROM {{ref('query_history_stage_vw')}}
 ),
 
 

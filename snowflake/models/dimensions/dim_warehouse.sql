@@ -9,12 +9,12 @@
 
 with warehouse as (
     SELECT * 
-    FROM {{ref('warehouse_stage')}}
+    FROM {{ref('warehouse_stage_vw')}}
 ),
 
 query_history as (
     select * 
-    from {{ref('query_history_stage')}}
+    from {{ref('query_history_stage_vw')}}
 ),
 
 dimension as(
@@ -24,17 +24,17 @@ dimension as(
                 ELSE 'N/A' END AS "WAREHOUSE_NAME",
            COALESCE(w."MIN_CLUSTER_COUNT", 0) AS "MIN_CLUSTER_COUNT",
            COALESCE(w."MAX_CLUSTER_COUNT", 0) AS "MAX_CLUSTER_COUNT",
-           COALESCE(w."AUTO_SUSPEND", 'N/A') AS "AUTO_SUSPEND",
-           COALESCE(w."AUTO_RESUME", 'N/A') AS "AUTO_RESUME",
-           COALESCE(w."UUID", 0) AS "UUID",
+           w."AUTO_SUSPEND" AS "AUTO_SUSPEND",
+           w."AUTO_RESUME" AS "AUTO_RESUME",
+           w."UUID" AS "UUID",
            COALESCE(w."OWNER", 'N/A') AS "OWNER",
-           COALESCE(w."STATE", 'N/A') AS "STATE",
+           w."STATE" AS "STATE",
            CASE WHEN w."SIZE" IS NOT NULL THEN W."SIZE"
                 WHEN qh."WAREHOUSE_SIZE" IS NOT NULL THEN QH."WAREHOUSE_SIZE"
-                ELSE 'N/A' END AS "WAREHOUSE_SIZE",
+                ELSE NULL END AS "WAREHOUSE_SIZE",
            CASE WHEN w."TYPE" IS NOT NULL THEN W."TYPE"
                 WHEN qh."WAREHOUSE_TYPE" IS NOT NULL THEN QH."WAREHOUSE_TYPE"
-                ELSE 'N/A' END AS "WAREHOUSE_TYPE"
+                ELSE NULL END AS "WAREHOUSE_TYPE"
     FROM query_history qh
     FULL OUTER JOIN warehouse w on W."WAREHOUSE_NAME" = QH."WAREHOUSE_NAME"
 )

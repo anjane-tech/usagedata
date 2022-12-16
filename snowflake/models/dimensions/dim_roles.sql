@@ -9,12 +9,12 @@
 
 with roles as (
     SELECT * 
-    FROM {{ref('roles_stage')}}
+    FROM {{ref('roles_stage_vw')}}
 ),
 
 query_history as (
     select * 
-    from {{ref('query_history_stage')}}
+    from {{ref('query_history_stage_vw')}}
 ),
 
 dimension as (
