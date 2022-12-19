@@ -5,19 +5,24 @@ sources:
     schema: "{{var('sf_src_schema_name')}}"
     tables: 
       - name: "{{var('sf_tbl_roles')}}"
+        description: "This Account Usage view can be used to query a list of all roles defined in the account. The data is retained for 365 days (1 year)."
         columns: 
             - name: NAME
               data_type: VARCHAR(0, 0)
+              description: "Name of the role"
               quote: true
 
             - name: COMMENT
               data_type: VARCHAR(0, 0)
+              description: "Comment for the role"
               quote: true
 
             - name: CREATED_ON
               data_type: TIMESTAMP
+              description: "Date and time (in the UTC time zone) when the role was created"
               quote: true
 
             - name: DELETED_ON
               data_type: TIMESTAMP
+              description: "Date and time (in the UTC time zone) when the role was deleted"
               quote: true

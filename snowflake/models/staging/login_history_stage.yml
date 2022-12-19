@@ -5,61 +5,76 @@ sources:
     schema: "{{var('sf_src_schema_name')}}"
     tables: 
       - name: "{{var('sf_tbl_login_history')}}"
+        description: "This Account Usage view can be used to query login attempts by Snowflake users within the last 365 days (1 year)."
         columns: 
             - name: EVENT_TIMESTAMP
               data_type: TIMESTAMP
+              description: "Time (in the UTC time zone) of the event occurrence"
               quote: true
 
             - name: EVENT_ID
               data_type: VARCHAR
+              description: "Internal/system-generated identifier for the login attempt"
               quote: true
 
             - name: EVENT_TYPE
               data_type: VARCHAR
+              description: "Event type, such as LOGIN for authentication events"
               quote: true
 
             - name: USER_NAME
               data_type: VARCHAR
+              description: "User associated with this event"
               quote: true
 
             - name: CLIENT_IP
               data_type: VARCHAR
+              description: "IP address where the request originated from"
               quote: true
 
             - name: REPORTED_CLIENT_TYPE
               data_type: VARCHAR
+              description: "Reported type of the client software, such as JDBC_DRIVER, ODBC_DRIVER, etc. This information is not authenticated"
               quote: true
             
             - name: REPORTED_CLIENT_VERSION
               data_type: VARCHAR
+              description: "Reported version of the client software. This information is not authenticated"
               quote: true
 
             - name: FIRST_AUTHENTICATION_FACTOR	
               data_type: VARCHAR
+              description: "Method used to authenticate the user (the first factor, if using multi factor authentication)"
               quote: true
 
             - name: SECOND_AUTHENTICATION_FACTOR
               data_type: VARCHAR
+              description: "The second factor, if using multi factor authentication, or NULL otherwise"
               quote: true
 
             - name: IS_SUCCESS
               data_type: VARCHAR
+              description: "Whether the user’s request was successful or not"
               quote: true
 
             - name: ERROR_CODE	
               data_type: VARCHAR
+              description: "Error code, if the request was not successful"
               quote: true
 
             - name:	ERROR_MESSAGE	
               data_type: VARCHAR
+              description: "Error message returned to the user, if the request was not successful"
               quote: true
 
             - name: RELATED_EVENT_ID	
               data_type: VARCHAR
+              description: "Reserved for future use"
               quote: true
 
             - name: CONNECTION
               data_type: VARCHAR
+              description: "Name of the connection used by the client, or NULL if the client is not using a connection URL. Connection is a Snowflake object that is part of Client Redirect. It represents a connection URL that can be failed over across accounts for business continuity and disaster recovery"
               quote: true
 
             

@@ -5,7 +5,7 @@ models:
     columns: 
           - name: DATABASE_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Internal/system-generated identifier for the database"
             quote: False
             tests:
               - not_null
@@ -13,42 +13,42 @@ models:
 
           - name: DATABASE_NAME
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Name of the database."
             quote: False
             tests:
               - not_null
 
           - name: DATABASE_OWNER
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Name of the role that owns the database"
             quote: False
             tests:
               - not_null
 
           - name: IS_TRANSIENT
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Whether the database is transient"
             quote: False
             tests:
               - not_null
 
           - name: COMMENT
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Comment for the database"
             quote: False
             tests:
               - not_null
 
           - name: CREATED
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Date and time when the database was created"
             quote: False
             tests:
               - not_null
 
           - name: LAST_ALTERED
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Date and time when the database was last altered"
             quote: False
             tests:
               - not_null

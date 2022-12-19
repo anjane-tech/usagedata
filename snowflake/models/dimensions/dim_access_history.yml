@@ -13,7 +13,7 @@ models:
           
           - name: QUERY_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "An internal, system-generated identifier for the SQL statement. This value is also mentioned in the QUERY_HISTORY View"
             quote: False
             tests:
               - not_null
@@ -21,28 +21,28 @@ models:
             
           - name: QUERY_START_TIME
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "The statement start time (UTC time zone)"
             quote: False
             tests:
               - not_null
 
           - name: DIRECT_OBJECTS_ACCESSED
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "A JSON array of data objects such as tables, views, and columns directly named in the query explicitly or through shortcuts such as using an asterisk (i.e. *). Virtual columns can be returned in this field"
             quote: False
             tests:
               - not_null
 
           - name: BASE_OBJECTS_ACCESSED
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "A JSON array of all base data objects, specifically, columns of tables to execute the query"
             quote: False
             tests:
               - not_null
 
           - name: OBJECTS_MODIFIED
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "A JSON array that specifies the objects that were associated with a write operation in the query"
             quote: False
             tests:
               - not_null

@@ -13,28 +13,28 @@ models:
 
           - name: CREATED_ON
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Date and time (in the UTC time zone) when the role was created"
             quote: False
             tests:
               - not_null
 
           - name: DELETED_ON
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Date and time (in the UTC time zone) when the role was deleted"
             quote: False
             tests:
               - not_null
 
           - name: NAME
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Name of the role"
             quote: False
             tests:
               - not_null
 
           - name: COMMENT
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Comment for the role"
             quote: False
             tests:
               - not_null

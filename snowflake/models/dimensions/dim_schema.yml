@@ -13,84 +13,84 @@ models:
 
           - name: CATALOG_NAME
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Database that the schema belongs to"
             quote: False
             tests:
               - not_null
 
           - name: SCHEMA_NAME
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Name of the role that owns the schema"
             quote: False
             tests:
               - not_null
 
           - name: SCHEMA_OWNER
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Name of the role that owns the schema"
             quote: False
             tests:
               - not_null
 
           - name: IS_TRANSIENT
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Whether the schema is transient"
             quote: False
             tests:
               - not_null
 
           - name: IS_MANAGED_ACCESS
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Whether the schema is a managed access schema"
             quote: False
             tests:
               - not_null
 
           - name: DEFAULT_CHARACTER_SET_CATALOG
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Not applicable for Snowflake"
             quote: False
             tests:
               - not_null
 
           - name: DEFAULT_CHARACTER_SET_SCHEMA
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Not applicable for Snowflake"
             quote: False
             tests:
               - not_null
 
           - name: DEFAULT_CHARACTER_SET_NAME
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Not applicable for Snowflake"
             quote: False
             tests:
               - not_null
 
           - name: SQL_PATH
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Not applicable for Snowflake"
             quote: False
             tests:
               - not_null
 
           - name: CREATED
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Date and time when the schema was created"
             quote: False
             tests:
               - not_null
 
           - name: LAST_ALTERED
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Date and time when the schema was last altered"
             quote: False
             tests:
               - not_null
 
           - name: COMMENT
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Comment for the schema"
             quote: False
             tests:
               - not_null

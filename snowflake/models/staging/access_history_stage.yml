@@ -5,27 +5,34 @@ sources:
     schema: "{{var('sf_src_schema_name')}}"
     tables: 
       - name: "{{var('sf_tbl_access_history')}}"
+        description: "This Account Usage view can be used to query the access history of Snowflake objects (e.g. table, view, column) within the last 365 days (1 year)."
         columns: 
             - name: QUERY_ID
               data_type: VARCHAR(0, 0)
+              description: "An internal, system-generated identifier for the SQL statement. This value is also mentioned in the QUERY_HISTORY View"
               quote: true
             
             - name: QUERY_START_TIME
               data_type: VARCHAR(0, 0)
+              description: "The statement start time (UTC time zone)"
               quote: true
             
             - name: USER_NAME
               data_type: VARCHAR(0, 0)
+              description: "The user who issued the query"
               quote: true
 
             - name: DIRECT_OBJECTS_ACCESSED
               data_type: VARCHAR(0, 0)
+              description: "A JSON array of data objects such as tables, views, and columns directly named in the query explicitly or through shortcuts such as using an asterisk (i.e. *). Virtual columns can be returned in this field"
               quote: true
 
             - name: BASE_OBJECTS_ACCESSED
               data_type: VARCHAR(0, 0)
+              description: "A JSON array of all base data objects, specifically, columns of tables to execute the query"
               quote: true
 
             - name: OBJECTS_MODIFIED
               data_type: VARCHAR(0, 0)
+              description: "A JSON array that specifies the objects that were associated with a write operation in the query"
               quote: true

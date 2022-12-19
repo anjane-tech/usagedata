@@ -5,146 +5,184 @@ sources:
     schema: "{{var('sf_src_schema_name')}}"
     tables: 
       - name: "{{var('sf_tbl_query_history')}}"
+        description: "This Account Usage view can be used to query Snowflake query history by various dimensions (time range, session, user, warehouse, etc.) within the last 365 days (1 year)."
         columns: 
             - name: QUERY_ID
               data_type: VARCHAR(0, 0)
+              description: "Internal/system-generated identifier for the SQL statement"
               quote: true
 
             - name: QUERY_TEXT
               data_type: VARCHAR(0, 0)
+              description: "Text of the SQL statement"
               quote: true
 
             - name: DATABASE_NAME
               data_type: VARCHAR(0, 0)
+              description: "Database that was in use at the time of the query"
               quote: true
 
             - name: SCHEMA_NAME
               data_type: VARCHAR(0, 0)
+              description: "Schema that was in use at the time of the query"
               quote: true
 
             - name: QUERY_TYPE
               data_type: VARCHAR(0, 0)
+              description: "DML, query, etc. If the query failed, then the query type may be UNKNOWN"
               quote: true
 
             - name: SESSION_ID
               data_type: VARCHAR(0, 0)
+              description: "Session that executed the statement"
               quote: true
 
             - name: USER_NAME
               data_type: VARCHAR(0, 0)
-              quote: true
+              description: "User who issued the query"
+              quote: true 
 
             - name: ROLE_NAME
               data_type: VARCHAR(0, 0)
+              description: "Role that was active in the session at the time of the query"
               quote: true
 
             - name: WAREHOUSE_NAME
               data_type: VARCHAR(0, 0)
+              description: "Warehouse that the query executed on, if any"
               quote: true
 
             - name: WAREHOUSE_SIZE
               data_type: NUMBER(38, 10)
+              description: "Size of the warehouse when this statement executed"
               quote: true
 
             - name: WAREHOUSE_TYPE
               data_type: VARCHAR(0, 0)
+              description: "Type of the warehouse when this statement executed"
               quote: true
 
             - name: CLUSTER_NUMBER
               data_type: VARCHAR(0, 0)
+              description: "The cluster (in a multi-cluster warehouse) that this statement executed on"
               quote: true
 
             - name: QUERY_TAG
               data_type: VARCHAR(0, 0)
+              description: "Query tag set for this statement through the QUERY_TAG session parameter"
               quote: true
 
             - name: EXECUTION_STATUS
               data_type: VARCHAR(0, 0)
+              description: "Execution status for the query. Valid values: success, fail, incident"
               quote: true
 
             - name: ERROR_CODE
               data_type: VARCHAR(0, 0)
+              description: "Error code, if the query returned an error"
               quote: true
 
             - name: ERROR_MESSAGE
               data_type: VARCHAR(0, 0)
+              description: "Error message, if the query returned an error"
               quote: true
 
             - name: START_TIME
               data_type: TIMESTAMP
+              description: "Statement start time (in the UTC time zone)"
               quote: true
 
             - name: END_TIME
               data_type: TIMESTAMP
+              description: "Statement end time (in the UTC time zone)"
               quote: true
 
             - name: TOTAL_ELAPSED_TIME
               data_type: TIMESTAMP
+              description: "Elapsed time (in milliseconds)"
               quote: true
             
             - name: BYTES_SCANNED
               data_type: VARCHAR(0, 0)
+              description: "Number of bytes scanned by this statement"
               quote: true
             
             - name: ROWS_PRODUCED
               data_type: VARCHAR(0, 0)
+              description: "Number of rows produced by this statement"
               quote: true
             
             - name: COMPILATION_TIME
               data_type: TIMESTAMP
+              description: "Compilation time (in milliseconds)"
               quote: true
             
             - name: EXECUTION_TIME
               data_type: TIMESTAMP
+              description: "Execution time (in milliseconds)"
               quote: true
 
             - name: QUEUED_PROVISIONING_TIME
               data_type: TIMESTAMP
+              description: "Time (in milliseconds) spent in the warehouse queue, waiting for the warehouse compute resources to provision, due to warehouse creation, resume, or resize"
               quote: true
+
             - name: QUEUED_REPAIR_TIME
               data_type: TIMESTAMP
+              description: "Time (in milliseconds) spent in the warehouse queue, waiting for compute resources in the warehouse to be repaired"
               quote: true
 
             - name: QUEUED_OVERLOAD_TIME
               data_type: TIMESTAMP
+              description: "Time (in milliseconds) spent in the warehouse queue, due to the warehouse being overloaded by the current query workload"
               quote: true
             
             - name: TRANSACTION_BLOCKED_TIME
               data_type: TIMESTAMP
+              description: "Time (in milliseconds) spent blocked by a concurrent DML"
               quote: true
 
             - name: OUTBOUND_DATA_TRANSFER_CLOUD
               data_type: VARCHAR(0, 0)
+              description: "Target cloud provider for statements that unload data to another region and/or cloud"
               quote: true
 
             - name: OUTBOUND_DATA_TRANSFER_REGION
               data_type: VARCHAR(0, 0)
+              description: "Target region for statements that unload data to another region and/or cloud"
               quote: true
 
             - name: OUTBOUND_DATA_TRANSFER_BYTES
               data_type: NUMBER(38, 10)
+              description: "Number of bytes transferred in statements that unload data to another region and/or cloud"
               quote: true
 
             - name: INBOUND_DATA_TRANSFER_CLOUD
               data_type: VARCHAR(0, 0)
+              description: "Source cloud provider for statements that load data from another region and/or cloud"
               quote: true
             
             - name: INBOUND_DATA_TRANSFER_REGION
               data_type: VARCHAR(0, 0)
+              description: "Source region for statements that load data from another region and/or cloud"
               quote: true
             
             - name: INBOUND_DATA_TRANSFER_BYTES
               data_type: NUMBER(38, 10)
+              description: "Number of bytes transferred in statements that load data from another region and/or cloud"
               quote: true
 
             - name: CREDITS_USED_CLOUD_SERVICES
               data_type: DECIMAL(38, 10)
+              description: "Number of credits used for cloud services"
               quote: true
 
             - name: EXTERNAL_FUNCTION_TOTAL_RECEIVED_BYTES
               data_type: NUMBER(38, 10)
+              description: "The total number of rows that this query received from all calls to all remote services"
               quote: true
 
             - name: IS_CLIENT_GENERATED_STATEMENT
               data_type: VARCHAR(0, 0)
+              description: "Indicates whether the query was client-generated"
               quote: true
