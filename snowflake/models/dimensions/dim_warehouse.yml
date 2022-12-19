@@ -13,7 +13,7 @@ models:
 
           - name: WAREHOUSE_NAME
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Name of the warehouse"
             quote: False
             tests:
               - not_null

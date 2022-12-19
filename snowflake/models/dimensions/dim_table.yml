@@ -5,7 +5,7 @@ models:
     columns: 
           - name: TABLE_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Internal, Snowflake-generated identifier for the table"
             quote: False
             tests:
               - not_null
@@ -13,49 +13,49 @@ models:
 
           - name: TABLE_CATALOG
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Database that the table belongs to"
             quote: False
             tests:
               - not_null
 
           - name: TABLE_SCHEMA
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Schema that the table belongs to"
             quote: False
             tests:
               - not_null
 
           - name: TABLE_NAME
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Name of the table"
             quote: False
             tests:
               - not_null
 
           - name: TABLE_OWNER
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Name of the role that owns the table"
             quote: False
             tests:
               - not_null
 
           - name: TABLE_TYPE
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Whether the table is a base table or view"
             quote: False
             tests:
               - not_null
 
           - name: ROW_COUNT
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Number of rows in the table"
             quote: False
             tests:
               - not_null
 
           - name: CREATED
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Date and time when the table was created"
             quote: False
             tests:
               - not_null

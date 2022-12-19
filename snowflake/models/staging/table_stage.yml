@@ -5,92 +5,115 @@ sources:
     schema: "{{var('sf_src_schema_name')}}"
     tables: 
       - name: "{{var('sf_tbl_table')}}"
+        description: "This Account Usage view displays a row for each table and view in the account."
         columns: 
             - name: TABLE_CATALOG
               data_type: VARCHAR(0, 0)
+              description: "Database that the table belongs to"
               quote: true
             
             - name: TABLE_SCHEMA
               data_type: VARCHAR(0, 0)
+              description: "Schema that the table belongs to"
               quote: true
             
             - name: TABLE_NAME
               data_type: VARCHAR(0, 0)
+              description: "Name of the table"
               quote: true
 
             - name: TABLE_OWNER
               data_type: VARCHAR(0, 0)
+              description: "Name of the role that owns the table"
               quote: true
 
             - name: TABLE_TYPE
               data_type: VARCHAR(0, 0)
+              description: "Whether the table is a base table or view"
               quote: true
 
             - name: IS_TRANSIENT
               data_type: VARCHAR(0, 0)
+              description: "Whether the table is transient"
               quote: true
 
             - name: CLUSTERING_KEY
               data_type: VARCHAR(0, 0)
+              description: "Column(s) and/or expression(s) that comprise the clustering key for the table"
               quote: true
 
             - name: ROW_COUNT
               data_type: VARCHAR(0, 0)
+              description: "Number of rows in the table"
               quote: true
 
             - name: BYTES
               data_type: VARCHAR(0, 0)
+              description: "Number of bytes accessed by a scan of the table"
               quote: true
 
             - name: RETENTION_TIME
               data_type: VARCHAR(0, 0)
+              description: "Number of days that historical data is retained for Time Travel"
               quote: true
 
             - name: SELF_REFERENCING_COLUMN_NAME
               data_type: VARCHAR(0, 0)
+              description: "Not applicable for Snowflake"
               quote: true
 
             - name: REFERENCE_GENERATION
               data_type: VARCHAR(0, 0)
+              description: "Not applicable for Snowflake"
               quote: true
 
             - name: USER_DEFINED_TYPE_CATALOG
               data_type: VARCHAR(0, 0)
+              description: "Not applicable for Snowflake"
               quote: true
 
             - name: USER_DEFINED_TYPE_SCHEMA
               data_type: VARCHAR(0, 0)
+              description: "Not applicable for Snowflake"
               quote: true
               
             - name: USER_DEFINED_TYPE_NAME
               data_type: VARCHAR(0, 0)
+              description: "Not applicable for Snowflake"
               quote: true
 
             - name: IS_INSERTABLE_INTO
               data_type: VARCHAR(0, 0)
+              description: "Not applicable for Snowflake"
               quote: true
 
             - name: IS_TYPED
               data_type: VARCHAR(0, 0)
+              description: "Not applicable for Snowflake"
               quote: true
 
             - name: COMMIT_ACTION
               data_type: VARCHAR(0, 0)
+              description: "Not applicable for Snowflake"
               quote: true
 
             - name: CREATED
               data_type: TIMESTAMP
+              description: "Date and time when the table was created"
               quote: true
 
             - name: LAST_ALTERED
               data_type: TIMESTAMP
+              description: "Date and time when the table was last altered by a DDL or DML operation"
               quote: true
             
             - name: AUTO_CLUSTERING_ON
               data_type: VARCHAR(0, 0)
+              description: "Not applicable for Snowflake"
               quote: true
             
             - name: COMMENT
               data_type: VARCHAR(0, 0)
+              description: "Comment for the table"
               quote: true
             

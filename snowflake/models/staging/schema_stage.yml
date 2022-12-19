@@ -5,55 +5,69 @@ sources:
     schema: "{{var('sf_src_schema_name')}}"
     tables: 
       - name: "{{var('sf_tbl_schema')}}"
+        description: "This Account Usage view displays a row for each schema in the account except the ACCOUNT_USAGE, READER_ACCOUNT_USAGE, and INFORMATION_SCHEMA schemas."
         columns: 
             - name: CATALOG_NAME
               data_type: VARCHAR(0, 0)
+              description: "Database that the schema belongs to"
               quote: true
 
             - name: SCHEMA_NAME
               data_type: VARCHAR(0, 0)
+              description: "Name of the schema"
               quote: true
 
             - name: SCHEMA_OWNER
               data_type: VARCHAR(0, 0)
+              description: "Name of the role that owns the schema"
               quote: true
 
             - name: IS_TRANSIENT
               data_type: VARCHAR(0, 0)
+              description: "Whether the schema is transient"
               quote: true
 
             - name: IS_MANAGED_ACCESS
               data_type: VARCHAR(0, 0)
+              description: "Whether the schema is a managed access schema"
               quote: true
 
             - name: RETENTION_TIME
               data_type: TIMESTAMP
+              description: "Number of days that historical data is retained for Time Travel"
               quote: true
 
             - name: DEFAULT_CHARACTER_SET_CATALOG
               data_type: VARCHAR(0, 0)
+              description: "Not applicable for Snowflake"
               quote: true
 
             - name: DEFAULT_CHARACTER_SET_SCHEMA
               data_type: VARCHAR(0, 0)
+              description: "Not applicable for Snowflake"
               quote: true
 
             - name: DEFAULT_CHARACTER_SET_NAME
               data_type: VARCHAR(0, 0)
+              description: "Not applicable for Snowflake"
               quote: true
 
             - name: SQL_PATH
               data_type: VARCHAR(0, 0)
+              description: "Not applicable for Snowflake"
               quote: true
 
             - name: CREATED
               data_type: TIMESTAMP
+              description: "Date and time when the schema was created"
               quote: true
 
             - name: LAST_ALTERED
               data_type: TIMESTAMP
+              description: "Date and time when the schema was last altered"
               quote: true
 
             - name: COMMENT
               data_type: VARCHAR(0, 0)
+              description: "Comment for the schema"
               quote: true

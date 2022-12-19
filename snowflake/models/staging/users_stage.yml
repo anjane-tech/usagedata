@@ -5,40 +5,50 @@ sources:
     schema: "{{var('sf_src_schema_name')}}"
     tables: 
       - name: "{{var('sf_tbl_users')}}"
+        description: "This Account Usage view displays a row for each stage defined in the account"
         columns: 
             - name: NAME
               data_type: VARCHAR(0, 0)
+              description: "A unique identifier for the user"
               quote: true
 
             - name: CREATED_ON
               data_type: TIMESTAMP
+              description: "Date and time (in the UTC time zone) when the user’s account was created"
               quote: true
 
             - name: DELETED_ON
               data_type: TIMESTAMP
+              description: "Date and time (in the UTC time zone) when the user’s account was deleted"
               quote: true
 
             - name: LOGIN_NAME
               data_type: VARCHAR(0, 0)
+              description: "Name that the user enters to log into the system"
               quote: true
 
             - name: EMAIL
               data_type: VARCHAR(0, 0)
+              description: "Email address for the user"
               quote: true
 
             - name: HAS_PASSWORD
               data_type: VARCHAR(0, 0)
+              description: "Specifies whether a password was created for the user"
               quote: true
 
             - name: DEFAULT_ROLE
               data_type: VARCHAR(0, 0)
+              description: "The role that is active by default for the user’s session upon login"
               quote: true
 
             - name: EXPIRES_AT
               data_type: TIMESTAMP
+              description: "The date and time when the user’s status is set to EXPIRED and the user can no longer log in. This is useful for defining temporary users (e.g. users who should only have access to Snowflake for a limited time period)"
               quote: true
 
             - name: DISPLAY_NAME
               data_type: VARCHAR(0, 0)
+              description: "Name displayed for the user in the Snowflake web interface"
               quote: true
 

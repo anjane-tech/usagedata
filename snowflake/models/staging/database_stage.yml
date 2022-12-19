@@ -5,31 +5,39 @@ sources:
     schema: "{{var('sf_src_schema_name')}}"
     tables: 
       - name: "{{var('sf_tbl_database')}}"
+        description: "This Account Usage view displays a row for each database defined in your account."
         columns: 
             - name: DATABASE_NAME
               data_type: VARCHAR(0, 0)
+              description: "Name of the database"
               quote: true
             
             - name: DATABASE_OWNER
               data_type: VARCHAR(0, 0)
+              description: "Name of the role that owns the database"
               quote: true
             
             - name: IS_TRANSIENT
               data_type: VARCHAR(0, 0)
+              description: "Whether the database is transient"
               quote: true
 
             - name: COMMENT
               data_type: VARCHAR(0, 0)
+              description: "Comment for the database"
               quote: true
 
             - name: CREATED
               data_type: TIMESTAMP
+              description: "Date and time when the database was created"
               quote: true
 
             - name: LAST_ALTERED
               data_type: TIMESTAMP
+              description: "Date and time when the database was last altered"
               quote: true
 
             - name: RETENTION_TIME
               data_type: TIMESTAMP
+              description: "Number of days that historical data is retained for Time Travel"
               quote: true

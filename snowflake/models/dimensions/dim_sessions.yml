@@ -13,7 +13,7 @@ models:
 
           - name: SESSION_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "The unique identifier for the current session"
             quote: False
             tests:
               - not_null
@@ -21,28 +21,28 @@ models:
 
           - name: USER_NAME
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "The user name of the user"
             quote: False
             tests:
               - not_null
 
           - name: CREATED_ON
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Date and time (in the UTC time zone) when the session was created"
             quote: False
             tests:
               - not_null
 
           - name: AUTHENTICATION_METHOD
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "The authentication method used to access Snowflake"
             quote: False
             tests:
               - not_null
 
           - name: LOGIN_EVENT_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "The unique identifier for the login event"
             quote: False
             tests:
               - not_null
@@ -50,14 +50,14 @@ models:
 
           - name: CLIENT_APPLICATION_VERSION
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "The version number (e.g. 3.8.7) of the Snowflake-provided client application used to create the remote session to Snowflake"
             quote: False
             tests:
               - not_null
 
           - name: CLIENT_APPLICATION_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "The identifier for the Snowflake-provided client application used to create the remote session to Snowflake (e.g. JDBC 3.8.7)"
             quote: False
             tests:
               - not_null
@@ -65,21 +65,21 @@ models:
 
           - name: CLIENT_ENVIRONMENT
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "The environment variables (e.g. operating system, OCSP mode) of the client used to create a remote session to Snowflake"
             quote: False
             tests:
               - not_null
 
           - name: CLIENT_BUILD_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "The build number (e.g. 41897) of the third-party client application used to create a remote session to Snowflake, if available. For example, a third-party Java application that uses the JDBC driver to connect to Snowflake"
             quote: False
             tests:
               - not_null
 
           - name: CLIENT_VERSION
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "The version number (e.g. 47154) of the third-party client application that uses a Snowflake-provided client to create a remote session to Snowflake, if available"
             quote: False
             tests:
               - not_null

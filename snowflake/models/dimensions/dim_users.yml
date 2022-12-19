@@ -13,63 +13,63 @@ models:
             
           - name: NAME
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "A unique identifier for the user"
             quote: False
             tests:
               - not_null
 
           - name: CREATED_ON
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Date and time (in the UTC time zone) when the user’s account was created"
             quote: False
             tests:
               - not_null
 
           - name: DELETED_ON
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Date and time (in the UTC time zone) when the user’s account was deleted"
             quote: False
             tests:
               - not_null
 
           - name: LOGIN_NAME
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Name that the user enters to log into the system"
             quote: False
             tests:
               - not_null
 
           - name: EMAIL
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Email address for the user"
             quote: False
             tests:
               - not_null
 
           - name: HAS_PASSWORD
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Specifies whether a password was created for the user"
             quote: False
             tests:
               - not_null
 
           - name: DEFAULT_ROLE
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "The role that is active by default for the user’s session upon login"
             quote: False
             tests:
               - not_null
 
           - name: EXPIRES_AT
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "The date and time when the user’s status is set to EXPIRED and the user can no longer log in. This is useful for defining temporary users (e.g. users who should only have access to Snowflake for a limited time period)"
             quote: False
             tests:
               - not_null
 
           - name: DISPLAY_NAME
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Name displayed for the user in the Snowflake web interface"
             quote: False
             tests:
               - not_null

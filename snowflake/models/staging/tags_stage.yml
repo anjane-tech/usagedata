@@ -5,53 +5,66 @@ sources:
     schema: "{{var('sf_src_schema_name')}}"
     tables: 
       - name: "{{var('sf_tbl_tags')}}"
+        description: "This Account Usage view lists the tags in an account."
         columns: 
             - name: TAG_ID
               data_type: VARCHAR(0, 0)
+              description: "The local identifier of a tag"
               quote: true
 
             - name: TAG_NAME
               data_type: VARCHAR(0, 0)
+              description: "The name of a tag"
               quote: true
 
             - name: TAG_SCHEMA_ID
-              data_type: VARCHAR(0, 0)  
+              data_type: VARCHAR(0, 0)
+              description: "The local identifier of the tag schema"
               quote: true
 
             - name: TAG_SCHEMA
               data_type: TIMESTAMP(0, 0)
+              description: "The name of schema in which the tag exists"
               quote: true
 
             - name: TAG_DATABASE_ID
               data_type: VARCHAR(0, 0)
+              description: "The local identifier of the database in which the tag exists"
               quote: true
 
             - name: TAG_DATABASE
               data_type: VARCHAR(0, 0)
+              description: "The name of the database in which the tag exists"
               quote: true
 
             - name: TAG_OWNER
               data_type: VARCHAR(0, 0)
+              description: "The name of the role that owns the tag"
               quote: true
 
             - name: TAG_COMMENT
               data_type: VARCHAR(0, 0)
+              description: "Comments for the tag, if any"
               quote: true
 
             - name: CREATED
               data_type: TIMESTAMP
+              description: "Date and time when the tag was created"
               quote: true
 
             - name: LAST_ALTERED
               data_type: TIMESTAMP
+              description: "Date and time when the tag was last updated"
               quote: true
 
             - name: DELETED
               data_type: VARCHAR(0, 0)
+              description: "Date and time when the tag was dropped, or the date and time when its parents were dropped"
               quote: true
 
             - name: ALLOWED_VALUES
               data_type: VARCHAR(0, 0)
+              description: "Specifies the possible string values that can be assigned to the tag when the tag is set on an object or NULL if the tag does not have any specified allowed values. For details, see Specifying Tag Values"
               quote: true
               
 
