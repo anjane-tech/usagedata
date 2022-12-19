@@ -2,7 +2,7 @@
   config(
       materialized='incremental',
       unique_key = '"SCHEMA_ID"',
-      merge_update_columns = ['var("col_update_dts")','DATABASE_NAME','SCHEMA_NAME','IS_MANAGED_ACCESS','SCHEMA_OWNER','IS_TRANSIENT','SQL_PATH','CREATED','LAST_ALTERED'],
+      merge_update_columns = [var("col_update_dts"),'CATALOG_NAME','SCHEMA_NAME','IS_MANAGED_ACCESS','SCHEMA_OWNER','IS_TRANSIENT','SQL_PATH','CREATED','LAST_ALTERED'],
       tags = ["dimensions"]
   )  
 }}
@@ -10,6 +10,7 @@
 with schemas as (
     SELECT * 
     FROM {{ref('schema_stage_vw')}}
+    WHERE DELETED IS NULL
 ),
 
 query_history as (

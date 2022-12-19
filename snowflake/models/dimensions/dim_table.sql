@@ -2,7 +2,7 @@
   config(
     materialized='incremental',
     unique_key = '"TABLE_ID"',
-    merge_update_columns = ['var("col_update_dts")','TABLE_CATALOG','TABLE_NAME','TABLE_OWNER','ROW_COUNT'],
+    merge_update_columns = [var("col_update_dts"),'TABLE_CATALOG','TABLE_NAME','TABLE_OWNER','ROW_COUNT'],
     tags = ["dimensions"]
   )
 }}
@@ -10,6 +10,7 @@
 with stage_table as (
     SELECT * 
     FROM {{ref('table_stage_vw')}}
+    WHERE DELETED IS NULL
 ),
 
 dimension as(

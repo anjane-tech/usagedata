@@ -2,7 +2,7 @@
   config(
     materialized='incremental',
     unique_key = '"ERROR_ID"',
-    merge_update_columns = ['var("col_update_dts")','ERROR_CODE','ERROR_MESSAGE','ERROR_TYPE'],
+    merge_update_columns = [var("col_update_dts"),'ERROR_CODE','DESCRIPTION','ERROR_TYPE'],
     tags = ["dimensions"]
   )
 }}
@@ -10,6 +10,11 @@
 with errors as (
     SELECT *
     FROM {{ref('errors_stage_vw')}}
+    UNION ALL
+    SELECT '-' AS "ERROR_TYPE",
+           0 AS "ERROR_CODE",
+           'Not Available' AS "DESCRIPTION"
+
 ),
 
 query_history as (
@@ -27,7 +32,7 @@ dimensions as (
                 WHEN qh."ERROR_MESSAGE" IS NOT NULL THEN QH."ERROR_MESSAGE"
                 ELSE 'N/A' END AS "DESCRIPTION"
     FROM query_history qh
-    FULL OUTER JOIN errors e on E."ERROR_CODE" = QH."ERROR_CODE"
+    FULL OUTER JOIN errors e on E."ERROR_CODE" = COALESCE(QH."ERROR_CODE",0)
 )
 
 SELECT      

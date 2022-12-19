@@ -2,7 +2,7 @@
   config(
     materialized='incremental',
     unique_key = '"TAGS_ID"',
-    merge_update_columns = ['var("col_update_dts")','QUERY_TAG','TAG_SCHEMA','TAG_COMMENT','TAG_OWNER','CREATED','LAST_ALTERED'],
+    merge_update_columns = [var("col_update_dts"),'TAG_NAME','TAG_SCHEMA','TAG_COMMENT','TAG_OWNER','CREATED','LAST_ALTERED'],
     tags = ["dimensions"]
   )
 }}

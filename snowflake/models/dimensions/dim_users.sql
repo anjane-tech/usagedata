@@ -2,7 +2,7 @@
   config(
     materialized='incremental',
     unique_key = '"COMBINED_USERS_ID"',
-    merge_update_columns = ['var("col_update_dts")','USER_NAME','LOGIN_NAME','EMAIL','HAS_PASSWORD','EXPIRES_AT','DISPLAY_NAME'],
+    merge_update_columns = [var("col_update_dts"),'NAME','LOGIN_NAME','EMAIL','HAS_PASSWORD','EXPIRES_AT','DISPLAY_NAME'],
     tags = ["dimensions"]
   )
 }}

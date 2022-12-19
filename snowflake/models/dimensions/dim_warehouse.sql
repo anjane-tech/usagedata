@@ -2,7 +2,7 @@
   config(
     materialized='incremental',
     unique_key = '"COMBINED_WAREHOUSE_ID"',
-    merge_update_columns = ['var("col_update_dts")','AUTO_SUSPEND','STATE','SIZE','MIN_CLUSTER_COUNT','UUID','WAREHOUSE_SIZE'],
+    merge_update_columns = [var("col_update_dts"),'AUTO_SUSPEND','STATE','WAREHOUSE_SIZE','MIN_CLUSTER_COUNT','UUID'],
     tags = ["dimensions"]
   )
 }}

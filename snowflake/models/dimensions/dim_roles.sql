@@ -2,7 +2,7 @@
   config(
     materialized='incremental',
     unique_key = '"ROLES_ID"',
-    merge_update_columns = ['var("col_update_dts")','CREATED_ON','NAME','ROLE_NAME'],
+    merge_update_columns = [var("col_update_dts"),'CREATED_ON','NAME'],
     tags = ["dimensions"]
   )
 }}

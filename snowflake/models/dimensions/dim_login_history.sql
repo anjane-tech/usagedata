@@ -2,7 +2,7 @@
   config(
     materialized='incremental',
     unique_key = '"LOGIN_HISTORY_ID"',
-    merge_update_columns = ['var("col_update_dts")','LOGIN_EVENT_ID','EVENT_TYPE','CLIENT_IP','USER_NAME','REPORTED_CLIENT_TYPE','IS_SUCCESS','ERROR_CODE','RELATED_EVENT_ID','CONNECTION'],
+    merge_update_columns = [var("col_update_dts"),'EVENT_ID','EVENT_TYPE','CLIENT_IP','USER_NAME','REPORTED_CLIENT_TYPE','IS_SUCCESS','ERROR_CODE','RELATED_EVENT_ID','CONNECTION'],
     tags = ["dimensions"]
   )
 }}
