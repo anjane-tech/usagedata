@@ -19,8 +19,8 @@ query_history as (
 
 dimension as(
     SELECT DISTINCT
-           CASE WHEN s."SESSION_ID" IS NOT NULL THEN S."SESSION_ID"
-                WHEN qh."SESSION_ID" IS NOT NULL THEN QH."SESSION_ID"
+           CASE WHEN NULLIF(TRIM(s."SESSION_ID"),'') IS NOT NULL THEN S."SESSION_ID"
+                WHEN NULLIF(TRIM(qh."SESSION_ID"),'') IS NOT NULL THEN QH."SESSION_ID"
                 ELSE 'N/A' END AS "SESSION_ID",
            CASE WHEN s."USER_NAME" IS NOT NULL THEN S."USER_NAME"
                 WHEN qh."USER_NAME" IS NOT NULL THEN QH."USER_NAME"

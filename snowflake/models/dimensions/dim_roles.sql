@@ -10,6 +10,7 @@
 with roles as (
     SELECT * 
     FROM {{ref('roles_stage_vw')}}
+    QUALIFY ROW_NUMBER() OVER (PARTITION BY NAME ORDER BY CREATED_ON DESC) = 1
 ),
 
 query_history as (
@@ -21,8 +22,8 @@ dimension as (
     SELECT DISTINCT
            COALESCE (r."CREATED_ON", to_timestamp_ntz('1901-01-01')) AS "CREATED_ON",
            COALESCE (r."DELETED_ON", to_timestamp_ntz('1901-01-01')) AS "DELETED_ON",
-           CASE WHEN r."NAME" IS NOT NULL THEN R."NAME"
-                WHEN qh."ROLE_NAME" IS NOT NULL THEN QH."ROLE_NAME"
+           CASE WHEN NULLIF(TRIM(r."NAME"),'') IS NOT NULL THEN R."NAME"
+                WHEN NULLIF(TRIM(qh."ROLE_NAME"),'') IS NOT NULL THEN QH."ROLE_NAME"
                 ELSE 'N/A' END AS "NAME",
            COALESCE (r."COMMENT", 'N/A') AS "COMMENT"
     FROM query_history qh
