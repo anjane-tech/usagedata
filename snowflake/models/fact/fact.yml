@@ -132,8 +132,3 @@ models:
             quote: False
             tests:
               - not_null
-
-          
-
-          
-
