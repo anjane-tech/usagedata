@@ -5,7 +5,7 @@ models:
     columns: 
           - name: LOGIN_HISTORY_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Generated surrogate_key using event_id from login_history table"
             quote: False
             tests:
               - not_null
@@ -27,7 +27,7 @@ models:
 
           - name: LOGIN_EVENT_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "The unique identifier for the login event"
             quote: False
             tests:
               - not_null
@@ -120,14 +120,14 @@ models:
 
           - name: CREATEDTS
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Table created date timestamp"
             quote: False
             tests:
               - not_null
 
           - name: UPDATEDDTS
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Table updated date timestamp"
             quote: False
             tests:
               - not_null

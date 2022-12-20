@@ -20,35 +20,35 @@ models:
 
           - name: MIN_CLUSTER_COUNT
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Minimum number of clusters, equal to or less than the maximum (up to 10)"
             quote: False
             tests:
               - not_null
 
           - name: MAX_CLUSTER_COUNT
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Maximum number of clusters, greater than 1 (up to 10)" 
             quote: False
             tests:
               - not_null
 
           - name: AUTO_SUSPEND
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Warehouse was in ideal state for some duration it will autosuspend"
             quote: False
             tests:
               - not_null
 
           - name: AUTO_RESUME
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Warehouse will get active when start querying"
             quote: False
             tests:
               - not_null
 
           - name: UUID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Universal Unique Identifier"
             quote: False
             tests:
               - not_null
@@ -84,14 +84,14 @@ models:
 
           - name: CREATEDTS
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Table created date timestamp"
             quote: False
             tests:
               - not_null
 
           - name: UPDATEDDTS
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Table updated date timestamp"
             quote: False
             tests:
               - not_null

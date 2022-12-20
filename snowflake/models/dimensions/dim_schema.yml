@@ -5,7 +5,7 @@ models:
     columns: 
           - name: SCHEMA_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Generated surrogate_key using CATALOG_NAME and SCHEMA_NAME from schema table"
             quote: False
             tests:
               - not_null
@@ -97,14 +97,14 @@ models:
 
           - name: CREATEDTS
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Table created date timestamp"
             quote: False
             tests:
               - not_null
 
           - name: UPDATEDDTS
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Table updated date timestamp"
             quote: False
             tests:
               - not_null

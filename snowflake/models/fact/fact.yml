@@ -5,7 +5,7 @@ models:
     columns: 
           - name: ACCESS_HISTORY_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Generated surrogate_key using query_id from query_history table"
             quote: False
             tests:
               - not_null
@@ -13,7 +13,7 @@ models:
           
           - name: DATABASE_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Internal/system-generated identifier for the database"
             quote: False
             tests:
               - not_null
@@ -21,7 +21,7 @@ models:
 
           - name: ERROR_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Generated surrogate_key using error_code from query_history table"
             quote: False
             tests:
               - not_null
@@ -29,7 +29,7 @@ models:
 
           - name: LOGIN_HISTORY_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Generated surrogate_key using event_id from login_history table"
             quote: False
             tests:
               - not_null
@@ -37,7 +37,7 @@ models:
           
           - name: ROLES_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Generated surrogate_key using name from roles table"
             quote: False
             tests:
               - not_null
@@ -45,7 +45,7 @@ models:
 
           - name: SCHEMA_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Generated surrogate_key using CATALOG_NAME and SCHEMA_NAME from schema table"
             quote: False
             tests:
               - not_null
@@ -53,7 +53,7 @@ models:
 
           - name: COMBINED_SESSION_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Generated surrogate_key using session_id from sessions table"
             quote: False
             tests:
               - not_null
@@ -61,7 +61,7 @@ models:
 
           - name: TABLE_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Internal, Snowflake-generated identifier for the table"
             quote: False
             tests:
               - not_null
@@ -69,7 +69,7 @@ models:
 
           - name: TAGS_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "The local identifier of a tag"
             quote: False
             tests:
               - not_null
@@ -77,7 +77,7 @@ models:
 
           - name: COMBINED_USERS_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Generated surrogate_key using name from user table"
             quote: False
             tests:
               - not_null
@@ -85,7 +85,7 @@ models:
 
           - name: COMBINED_WAREHOUSE_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Generated surrogate_key using warehouse_name from wareshouse table"
             quote: False
             tests:
               - not_null
@@ -93,7 +93,7 @@ models:
 
           - name: QUERY_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Internal/system-generated identifier for the SQL statement"
             quote: False
             tests:
               - not_null
@@ -101,34 +101,34 @@ models:
 
           - name: BYTES_SCANNED
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Number of bytes scanned by this statement"
             quote: False
 
           - name: OUTBOUND_DATA_TRANSFER_BYTES
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Number of bytes transferred in statements that unload data to another region and/or cloud"
             quote: False
 
           - name: INBOUND_DATA_TRANSFER_BYTES
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Number of bytes transferred in statements that load data from another region and/or cloud"
             quote: False
 
           - name: EXTERNAL_FUNCTION_TOTAL_SENT_BYTES
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "The total number of bytes that this query sent in all calls to all remote services"
             quote: False
 
           - name: CREATEDTS
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Table created date timestamp"
             quote: False
             tests:
               - not_null
 
           - name: UPDATEDDTS
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Table updated date timestamp"
             quote: False
             tests:
               - not_null

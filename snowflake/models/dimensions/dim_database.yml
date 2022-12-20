@@ -55,14 +55,14 @@ models:
 
           - name: CREATEDTS
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Table created date timestamp"
             quote: False
             tests:
               - not_null
 
           - name: UPDATEDDTS
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Table updated date timestamp"
             quote: False
             tests:
               - not_null

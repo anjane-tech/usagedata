@@ -5,7 +5,7 @@ models:
     columns: 
           - name: ERROR_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Generated surrogate_key using error_code from query_history table"
             quote: False
             tests:
               - not_null
@@ -13,14 +13,14 @@ models:
 
           - name: ERROR_TYPE
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Error type of the query"
             quote: False
             tests:
               - not_null
 
           - name: ERROR_CODE
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Error code of the query"
             quote: False
             tests:
               - not_null
@@ -28,28 +28,28 @@ models:
 
           - name: DESCRIPTION
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Description of the error"
             quote: False
             tests:
               - not_null
 
           - name: ERROR_MESSAGE
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Error message of the query"
             quote: False
             tests:
               - not_null
 
           - name: CREATEDTS
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Table created date timestamp"
             quote: False
             tests:
               - not_null
 
           - name: UPDATEDDTS
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Table updated date timestamp"
             quote: False
             tests:
               - not_null

@@ -5,7 +5,7 @@ models:
     columns: 
           - name: COMBINED_SESSION_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Generated surrogate_key using session_id from sessions table"
             quote: False
             tests:
               - not_null
@@ -86,14 +86,14 @@ models:
             
           - name: CREATEDTS
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Table created date timestamp"
             quote: False
             tests:
               - not_null
 
           - name: UPDATEDDTS
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Table updated date timestamp"
             quote: False
             tests:
               - not_null
