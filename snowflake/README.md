@@ -48,8 +48,10 @@ Once all the setup is done please follow the steps given below.
 
 ### Staging:
 
-In this project the data's are seeded into the database and staging files are created using dbt source and for each
-staging model yaml files are defined with column names and data_type. All the staging files in this project are created as views so that if the main table is refreshed the views will automatically gets refreshed.
+In this project the error's data is the only file which is seeded into the database. Staging and Yaml files are created for all models. Yaml files in staging folder contains column names, data_type and description. Except for "quyery_history" and "access_history" all the other staging models in this project are created as views so that if the main table is refreshed the views will automatically gets refreshed. All the credentials names are defined as variables in yaml files. Except for errors all the tables mentioned in this models are located in "snowflake" database, "Account_Usage" schema, before the user proceeding further the admin user must grant permission for the user to access the schema by executing the following command given below.
+
+    grant all privileges on function <database_name>.<schema_name> to role <role_name>;
+
 
 ### Dimensions:
 
@@ -59,3 +61,6 @@ the columns a surrogate key column is created using (dbt_utils).
 ### Fact:
 
 The fact model is created as an incrementa model and it is created using the key columns in all the dimensions models and by aggregating some of the metrics columns available in dimensions models.
+
+
+image.png
