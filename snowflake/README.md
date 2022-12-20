@@ -62,4 +62,4 @@ the columns a surrogate key column is created using (dbt_utils).
 
 The fact model is created as an incrementa model and it is created using the key columns in all the dimensions models and by aggregating some of the metrics columns available in dimensions models.
 
-![optional_text](https://www.google.com/search?q=snowflake+cloud+icon&tbm=isch&ved=2ahUKEwimyIeS1Yf8AhVmkNgFHUD6DOEQ2-cCegQIABAA&oq=snowflake+cl&gs_lcp=CgNpbWcQARgFMgsIABCABBCxAxCDATILCAAQgAQQsQMQgwEyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDoKCAAQsQMQgwEQQzoECAAQQzoHCAAQsQMQQ1CfAViMF2CXKGgAcAB4AIABWYgBqgKSAQE0mAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=F2OhY-bgEOag4t4PwPSziA4&bih=714&biw=1536&rlz=1C1CHBF_enIN1000IN1000#imgrc=kN2T2PGLhHV3-M)
+![](images\image.png)
