@@ -25,7 +25,7 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 vars:
-  col_create_dts: "CREATEDTS"
+  col_create_dts: 'CREATEDTS'
   col_update_dts: 'UPDATEDDTS'
   sf_tbl_access_history: 'access_history'
   sf_tbl_database: 'databases'

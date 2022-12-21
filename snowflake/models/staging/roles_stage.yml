@@ -17,6 +17,11 @@ sources:
               description: "Comment for the role"
               quote: true
 
+            - name: OWNER
+              data_type: VARCHAR(0, 0)
+              description: "Specifies the role with the OWNERSHIP privilege on the object"
+              quote: true
+
             - name: CREATED_ON
               data_type: TIMESTAMP
               description: "Date and time (in the UTC time zone) when the role was created"

@@ -5,7 +5,7 @@ models:
     columns: 
           - name: COMBINED_SESSION_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Generated surrogate_key using session_id from sessions table"
             quote: False
             tests:
               - not_null
@@ -44,24 +44,16 @@ models:
             data_type: VARCHAR(0, 0)
             description: "The unique identifier for the login event"
             quote: False
-            tests:
-              - not_null
-              - unique
 
           - name: CLIENT_APPLICATION_VERSION
             data_type: VARCHAR(0, 0)
             description: "The version number (e.g. 3.8.7) of the Snowflake-provided client application used to create the remote session to Snowflake"
             quote: False
-            tests:
-              - not_null
 
           - name: CLIENT_APPLICATION_ID
             data_type: VARCHAR(0, 0)
             description: "The identifier for the Snowflake-provided client application used to create the remote session to Snowflake (e.g. JDBC 3.8.7)"
             quote: False
-            tests:
-              - not_null
-              - unique
 
           - name: CLIENT_ENVIRONMENT
             data_type: VARCHAR(0, 0)
@@ -74,26 +66,22 @@ models:
             data_type: VARCHAR(0, 0)
             description: "The build number (e.g. 41897) of the third-party client application used to create a remote session to Snowflake, if available. For example, a third-party Java application that uses the JDBC driver to connect to Snowflake"
             quote: False
-            tests:
-              - not_null
 
           - name: CLIENT_VERSION
             data_type: VARCHAR(0, 0)
             description: "The version number (e.g. 47154) of the third-party client application that uses a Snowflake-provided client to create a remote session to Snowflake, if available"
             quote: False
-            tests:
-              - not_null
             
-          - name: CREATEDTS
+          - name: "{{var('col_create_dts')}}"
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Record created date timestamp"
             quote: False
             tests:
               - not_null
 
-          - name: UPDATEDDTS
+          - name: "{{var('col_update_dts')}}"
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Record updated date timestamp"
             quote: False
             tests:
               - not_null

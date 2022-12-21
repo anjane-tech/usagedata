@@ -5,7 +5,7 @@ models:
     columns: 
           - name: COMBINED_USERS_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Generated surrogate_key using name from user table"
             quote: False
             tests:
               - not_null
@@ -50,8 +50,6 @@ models:
             data_type: VARCHAR(0, 0)
             description: "Specifies whether a password was created for the user"
             quote: False
-            tests:
-              - not_null
 
           - name: DEFAULT_ROLE
             data_type: VARCHAR(0, 0)
@@ -74,16 +72,16 @@ models:
             tests:
               - not_null
               
-          - name: CREATEDTS
+          - name: "{{var('col_create_dts')}}"
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Record created date timestamp"
             quote: False
             tests:
               - not_null
 
-          - name: UPDATEDDTS
+          - name: "{{var('col_update_dts')}}"
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Record updated date timestamp"
             quote: False
             tests:
               - not_null
