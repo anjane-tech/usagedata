@@ -20,8 +20,8 @@ query_history as (
 
 dimension as (
     SELECT DISTINCT
-           CASE WHEN ah."QUERY_ID" IS NOT NULL THEN AH."QUERY_ID"
-                WHEN qh."QUERY_ID" IS NOT NULL THEN QH."QUERY_ID"
+           CASE WHEN NULLIF(TRIM(ah."QUERY_ID"),'') IS NOT NULL THEN AH."QUERY_ID"
+                WHEN NULLIF(TRIM(qh."QUERY_ID"),'') IS NOT NULL THEN QH."QUERY_ID"
                 ELSE 'N/A' END AS "QUERY_ID",
            COALESCE (ah."QUERY_START_TIME", '1901-01-01') AS "QUERY_START_TIME",
            CASE WHEN ah."USER_NAME" IS NOT NULL THEN AH."USER_NAME"

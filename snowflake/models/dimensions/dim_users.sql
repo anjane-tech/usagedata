@@ -10,6 +10,7 @@
 with users as (
     SELECT * 
     FROM {{ref('users_stage_vw')}}
+    QUALIFY ROW_NUMBER() OVER (PARTITION BY "NAME" ORDER BY CREATED_ON DESC) = 1
 ),
 
 query_history as (
@@ -19,8 +20,8 @@ query_history as (
 
 dimension as (
     SELECT DISTINCT
-           CASE WHEN u."NAME" IS NOT NULL THEN U."NAME"
-                WHEN qh."USER_NAME" IS NOT NULL THEN QH."USER_NAME"
+           CASE WHEN NULLIF(TRIM(u."NAME"),'') IS NOT NULL THEN U."NAME"
+                WHEN NULLIF(TRIM(qh."USER_NAME"),'') IS NOT NULL THEN QH."USER_NAME"
                 ELSE 'N/A' END AS "NAME",
            COALESCE (u."CREATED_ON", to_timestamp_ntz('1901-01-01')) AS "CREATED_ON",
            COALESCE (u."DELETED_ON", to_timestamp_ntz('1901-01-01')) AS "DELETED_ON",

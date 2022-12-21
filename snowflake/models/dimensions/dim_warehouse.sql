@@ -10,6 +10,7 @@
 with warehouse as (
     SELECT * 
     FROM {{ref('warehouse_stage_vw')}}
+    QUALIFY ROW_NUMBER() OVER (PARTITION BY "WAREHOUSE_NAME" ORDER BY UPDATED_ON DESC) = 1
 ),
 
 query_history as (
@@ -19,8 +20,8 @@ query_history as (
 
 dimension as(
     SELECT DISTINCT
-           CASE WHEN w."WAREHOUSE_NAME" IS NOT NULL THEN W."WAREHOUSE_NAME"
-                WHEN qh."WAREHOUSE_NAME" IS NOT NULL THEN QH."WAREHOUSE_NAME"
+           CASE WHEN NULLIF(TRIM(w."WAREHOUSE_NAME"),'') IS NOT NULL THEN W."WAREHOUSE_NAME"
+                WHEN NULLIF(TRIM(qh."WAREHOUSE_NAME"),'') IS NOT NULL THEN QH."WAREHOUSE_NAME"
                 ELSE 'N/A' END AS "WAREHOUSE_NAME",
            COALESCE(w."MIN_CLUSTER_COUNT", 0) AS "MIN_CLUSTER_COUNT",
            COALESCE(w."MAX_CLUSTER_COUNT", 0) AS "MAX_CLUSTER_COUNT",
