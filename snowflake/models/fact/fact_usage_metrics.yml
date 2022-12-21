@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: fact
+  - name: fact_usage_metrics
     columns: 
           - name: ACCESS_HISTORY_ID
             data_type: VARCHAR(0, 0)

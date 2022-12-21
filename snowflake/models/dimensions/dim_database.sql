@@ -2,14 +2,15 @@
   config(
     materialized='incremental',
     unique_key = '"DATABASE_ID"',
-    merge_update_columns = ['var("col_update_dts")','DATABASE_NAME','DATABASE_OWNER','IS_TRANSIENT','COMMENT','LAST_ALTERED'],
+    merge_update_columns = [var("col_update_dts"),'DATABASE_NAME','DATABASE_OWNER','IS_TRANSIENT','COMMENT','LAST_ALTERED'],
     tags = ["dimensions"]
   )
 }}
 
 with db as (
     SELECT * 
-    FROM {{ref('database_stage')}}
+    FROM {{ref('database_stage_vw')}}
+    QUALIFY ROW_NUMBER() OVER (PARTITION BY DATABASE_NAME ORDER BY LAST_ALTERED DESC) = 1
 ),
 
 query_history as (
@@ -19,8 +20,8 @@ query_history as (
 
 dimension as (
     SELECT DISTINCT
-           CASE WHEN d."DATABASE_NAME" IS NOT NULL THEN D."DATABASE_NAME"
-                WHEN qh."DATABASE_NAME" IS NOT NULL THEN QH."DATABASE_NAME"
+           CASE WHEN NULLIF(TRIM(d."DATABASE_NAME"), '') IS NOT NULL THEN TRIM(D."DATABASE_NAME")
+                WHEN NULLIF(TRIM(qh."DATABASE_NAME"), '') IS NOT NULL THEN TRIM(QH."DATABASE_NAME")
                 ELSE 'N/A' END AS "DATABASE_NAME",
            COALESCE (d."DATABASE_OWNER", 'N/A') AS "DATABASE_OWNER",
            COALESCE (d."IS_TRANSIENT", 'N/A') AS "IS_TRANSIENT",

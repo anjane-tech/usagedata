@@ -2,14 +2,15 @@
   config(
     materialized='incremental',
     unique_key = '"TAGS_ID"',
-    merge_update_columns = ['var("col_update_dts")','QUERY_TAG','TAG_SCHEMA','TAG_COMMENT','TAG_OWNER','CREATED','LAST_ALTERED'],
+    merge_update_columns = [var("col_update_dts"),'TAG_NAME','TAG_SCHEMA','TAG_COMMENT','TAG_OWNER','CREATED','LAST_ALTERED'],
     tags = ["dimensions"]
   )
 }}
 
 with tags as (
     SELECT * 
-    FROM {{ref('tags_stage')}}
+    FROM {{ref('tags_stage_vw')}}
+    QUALIFY ROW_NUMBER() OVER (PARTITION BY "TAG_NAME","TAG_DATABASE","TAG_SCHEMA" ORDER BY LAST_ALTERED DESC) = 1
 ),
 
 query_history as (
@@ -19,14 +20,14 @@ query_history as (
 
 dimension as(
     SELECT DISTINCT
-           CASE WHEN t."TAG_NAME" IS NOT NULL THEN T."TAG_NAME"
-                WHEN qh."QUERY_TAG" IS NOT NULL THEN QH."QUERY_TAG"
+           CASE WHEN NULLIF(TRIM(t."TAG_NAME"),'') IS NOT NULL THEN T."TAG_NAME"
+                WHEN NULLIF(TRIM(qh."QUERY_TAG"),'') IS NOT NULL THEN QH."QUERY_TAG"
                 ELSE 'N/A' END AS "TAG_NAME",
-           CASE WHEN t."TAG_SCHEMA" IS NOT NULL THEN T."TAG_SCHEMA"
-                WHEN qh."SCHEMA_NAME" IS NOT NULL THEN QH."SCHEMA_NAME"
+           CASE WHEN NULLIF(TRIM(t."TAG_SCHEMA"),'') IS NOT NULL THEN T."TAG_SCHEMA" ---
+                WHEN NULLIF(TRIM(qh."SCHEMA_NAME"),'') IS NOT NULL THEN QH."SCHEMA_NAME"
                 ELSE 'N/A' END AS "TAG_SCHEMA", 
-           CASE WHEN t."TAG_DATABASE" IS NOT NULL THEN T."TAG_DATABASE"
-                WHEN qh."DATABASE_NAME" IS NOT NULL THEN QH."DATABASE_NAME"
+           CASE WHEN NULLIF(TRIM(t."TAG_DATABASE"),'') IS NOT NULL THEN T."TAG_DATABASE"
+                WHEN NULLIF(TRIM(qh."DATABASE_NAME"),'') IS NOT NULL THEN QH."DATABASE_NAME"
                 ELSE 'N/A' END AS "TAG_DATABASE",
            COALESCE (t."TAG_OWNER", 'N/A') AS "TAG_OWNER",
            COALESCE (t."TAG_COMMENT", 'N/A') AS "TAG_COMMENT",

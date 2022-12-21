@@ -2,14 +2,15 @@
   config(
       materialized='incremental',
       unique_key = '"SCHEMA_ID"',
-      merge_update_columns = ['var("col_update_dts")','DATABASE_NAME','SCHEMA_NAME','IS_MANAGED_ACCESS','SCHEMA_OWNER','IS_TRANSIENT','SQL_PATH','CREATED','LAST_ALTERED'],
+      merge_update_columns = [var("col_update_dts"),'CATALOG_NAME','SCHEMA_NAME','IS_MANAGED_ACCESS','SCHEMA_OWNER','IS_TRANSIENT','SQL_PATH','CREATED','LAST_ALTERED'],
       tags = ["dimensions"]
   )  
 }}
 
 with schemas as (
     SELECT * 
-    FROM {{ref('schema_stage')}}
+    FROM {{ref('schema_stage_vw')}}
+    QUALIFY ROW_NUMBER() OVER (PARTITION BY "CATALOG_NAME","SCHEMA_NAME" ORDER BY LAST_ALTERED DESC) = 1
 ),
 
 query_history as (
@@ -19,11 +20,11 @@ query_history as (
 
 dimensions as(
     SELECT DISTINCT           
-           CASE WHEN s."CATALOG_NAME" IS NOT NULL THEN S."CATALOG_NAME"
-                WHEN qh."DATABASE_NAME" IS NOT NULL THEN QH."DATABASE_NAME"
+           CASE WHEN NULLIF(TRIM(s."CATALOG_NAME"),'') IS NOT NULL THEN S."CATALOG_NAME"
+                WHEN NULLIF(TRIM(qh."DATABASE_NAME"),'') IS NOT NULL THEN QH."DATABASE_NAME"
                 ELSE 'N/A' END AS "CATALOG_NAME",    
-           CASE WHEN s."SCHEMA_NAME" IS NOT NULL THEN S."SCHEMA_NAME"
-                WHEN qh."SCHEMA_NAME" IS NOT NULL THEN QH."SCHEMA_NAME"
+           CASE WHEN NULLIF(TRIM(s."SCHEMA_NAME"),'') IS NOT NULL THEN S."SCHEMA_NAME"
+                WHEN NULLIF(TRIM(qh."SCHEMA_NAME"),'') IS NOT NULL THEN QH."SCHEMA_NAME"
                 ELSE 'N/A' END AS "SCHEMA_NAME",
            COALESCE (s."SCHEMA_OWNER", 'N/A') AS "SCHEMA_OWNER",
            COALESCE (s."IS_TRANSIENT", 'N/A') AS "IS_TRANSIENT",
