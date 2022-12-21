@@ -74,14 +74,14 @@ models:
             tests:
               - not_null
 
-          - name: CREATEDTS
+          - name: "{{var('col_create_dts')}}"
             data_type: TIMESTAMP
             description: "Record created date timestamp"
             quote: False
             tests:
               - not_null
 
-          - name: UPDATEDDTS
+          - name: "{{var('col_update_dts')}}"
             data_type: TIMESTAMP
             description: "Record updated date timestamp"
             quote: False

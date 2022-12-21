@@ -72,14 +72,14 @@ models:
             description: "The version number (e.g. 47154) of the third-party client application that uses a Snowflake-provided client to create a remote session to Snowflake, if available"
             quote: False
             
-          - name: CREATEDTS
+          - name: "{{var('col_create_dts')}}"
             data_type: TIMESTAMP
             description: "Record created date timestamp"
             quote: False
             tests:
               - not_null
 
-          - name: UPDATEDDTS
+          - name: "{{var('col_update_dts')}}"
             data_type: TIMESTAMP
             description: "Record updated date timestamp"
             quote: False
