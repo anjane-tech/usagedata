@@ -39,16 +39,23 @@ models:
             tests:
               - not_null
 
+          - name: OWNER
+            data_type: VARCHAR(0, 0)
+            description: "Specifies the role with the OWNERSHIP privilege on the object"
+            quote: False
+            tests:
+              - not_null    
+
           - name: CREATEDTS
             data_type: TIMESTAMP
-            description: "Table created date timestamp"
+            description: "Record created date timestamp"
             quote: False
             tests:
               - not_null
 
           - name: UPDATEDDTS
             data_type: TIMESTAMP
-            description: "Table updated date timestamp"
+            description: "Record updated date timestamp"
             quote: False
             tests:
               - not_null

@@ -56,42 +56,42 @@ models:
 
           - name: OWNER
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Warehouse owner name"
             quote: False
             tests:
               - not_null
 
           - name: STATE
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Warehouse state"
             quote: False
             tests:
               - not_null
 
           - name: WAREHOUSE_SIZE
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Size of the warehouse"
             quote: False
             tests:
               - not_null
 
           - name: WAREHOUSE_TYPE
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Type of the warehouse"
             quote: False
             tests:
               - not_null
 
           - name: CREATEDTS
             data_type: TIMESTAMP
-            description: "Table created date timestamp"
+            description: "Record created date timestamp"
             quote: False
             tests:
               - not_null
 
           - name: UPDATEDDTS
             data_type: TIMESTAMP
-            description: "Table updated date timestamp"
+            description: "Record updated date timestamp"
             quote: False
             tests:
               - not_null

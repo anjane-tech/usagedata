@@ -27,7 +27,8 @@ dimension as (
            COALESCE (d."IS_TRANSIENT", 'N/A') AS "IS_TRANSIENT",
            COALESCE (d."COMMENT", 'N/A') AS "COMMENT",
            COALESCE (d."CREATED", to_timestamp_ntz('1901-01-01')) AS "CREATED",
-           COALESCE (d."LAST_ALTERED", to_timestamp_ntz('1901-01-01')) AS "LAST_ALTERED"
+           COALESCE (d."LAST_ALTERED", to_timestamp_ntz('1901-01-01')) AS "LAST_ALTERED",
+           COALESCE (d."DELETED", to_timestamp_ntz('1901-01-01')) AS "DELETED"
     FROM query_history qh
     FULL OUTER JOIN db d ON D."DATABASE_NAME" = QH."DATABASE_NAME"
 )

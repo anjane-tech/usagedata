@@ -87,23 +87,44 @@ models:
             tests:
               - not_null
 
-          - name: BYTES_SCANNED
+          - name: QUERY_START_DT
             data_type: VARCHAR(0, 0)
+            description: "Query start date"
+            quote: False
+            tests:
+              - not_null    
+          
+          - name: QUERY_END_DT
+            data_type: VARCHAR(0, 0)
+            description: "Query end date"
+            quote: False
+            tests:
+              - not_null
+
+          - name: QUERY_TIME_IN_SECS
+            data_type: VARCHAR(0, 0)
+            description: "Query running duration time in seconds"
+            quote: False
+            tests:
+              - not_null    
+
+          - name: BYTES_SCANNED
+            data_type: DECIMAL(38, 0)
             description: "Number of bytes scanned by this statement"
             quote: False
 
           - name: OUTBOUND_DATA_TRANSFER_BYTES
-            data_type: VARCHAR(0, 0)
+            data_type: DECIMAL(38, 0)
             description: "Number of bytes transferred in statements that unload data to another region and/or cloud"
             quote: False
 
           - name: INBOUND_DATA_TRANSFER_BYTES
-            data_type: VARCHAR(0, 0)
+            data_type: DECIMAL(38, 0)
             description: "Number of bytes transferred in statements that load data from another region and/or cloud"
             quote: False
 
           - name: EXTERNAL_FUNCTION_TOTAL_SENT_BYTES
-            data_type: VARCHAR(0, 0)
+            data_type: DECIMAL(38, 0)
             description: "The total number of bytes that this query sent in all calls to all remote services"
             quote: False
 
