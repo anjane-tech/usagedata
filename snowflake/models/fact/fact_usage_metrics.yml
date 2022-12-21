@@ -9,7 +9,6 @@ models:
             quote: False
             tests:
               - not_null
-              - unique
           
           - name: DATABASE_ID
             data_type: VARCHAR(0, 0)
@@ -17,7 +16,6 @@ models:
             quote: False
             tests:
               - not_null
-              - unique
 
           - name: ERROR_ID
             data_type: VARCHAR(0, 0)
@@ -25,7 +23,6 @@ models:
             quote: False
             tests:
               - not_null
-              - unique
 
           - name: LOGIN_HISTORY_ID
             data_type: VARCHAR(0, 0)
@@ -33,7 +30,6 @@ models:
             quote: False
             tests:
               - not_null
-              - unique
           
           - name: ROLES_ID
             data_type: VARCHAR(0, 0)
@@ -41,7 +37,6 @@ models:
             quote: False
             tests:
               - not_null
-              - unique
 
           - name: SCHEMA_ID
             data_type: VARCHAR(0, 0)
@@ -49,7 +44,6 @@ models:
             quote: False
             tests:
               - not_null
-              - unique
 
           - name: COMBINED_SESSION_ID
             data_type: VARCHAR(0, 0)
@@ -57,7 +51,6 @@ models:
             quote: False
             tests:
               - not_null
-              - unique
 
           - name: TABLE_ID
             data_type: VARCHAR(0, 0)
@@ -65,7 +58,6 @@ models:
             quote: False
             tests:
               - not_null
-              - unique
 
           - name: TAGS_ID
             data_type: VARCHAR(0, 0)
@@ -73,7 +65,6 @@ models:
             quote: False
             tests:
               - not_null
-              - unique
 
           - name: COMBINED_USERS_ID
             data_type: VARCHAR(0, 0)
@@ -81,7 +72,6 @@ models:
             quote: False
             tests:
               - not_null
-              - unique
 
           - name: COMBINED_WAREHOUSE_ID
             data_type: VARCHAR(0, 0)
@@ -89,7 +79,6 @@ models:
             quote: False
             tests:
               - not_null
-              - unique
 
           - name: QUERY_ID
             data_type: VARCHAR(0, 0)
@@ -97,7 +86,6 @@ models:
             quote: False
             tests:
               - not_null
-              - unique
 
           - name: BYTES_SCANNED
             data_type: VARCHAR(0, 0)
