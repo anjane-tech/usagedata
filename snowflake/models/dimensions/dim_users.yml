@@ -50,8 +50,6 @@ models:
             data_type: VARCHAR(0, 0)
             description: "Specifies whether a password was created for the user"
             quote: False
-            tests:
-              - not_null
 
           - name: DEFAULT_ROLE
             data_type: VARCHAR(0, 0)

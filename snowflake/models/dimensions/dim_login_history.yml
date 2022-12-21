@@ -25,14 +25,6 @@ models:
               - not_null
               - unique
 
-          - name: LOGIN_EVENT_ID
-            data_type: VARCHAR(0, 0)
-            description: "The unique identifier for the login event"
-            quote: False
-            tests:
-              - not_null
-              - unique
-
           - name: EVENT_TYPE
             data_type: VARCHAR(0, 0)
             description: "Event type, such as LOGIN for authentication events"
@@ -107,9 +99,6 @@ models:
             data_type: VARCHAR(0, 0)
             description: "Reserved for future use"
             quote: False
-            tests:
-              - not_null
-              - unique
 
           - name: CONNECTION
             data_type: VARCHAR(0, 0)

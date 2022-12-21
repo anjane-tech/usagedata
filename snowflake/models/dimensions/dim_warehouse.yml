@@ -36,22 +36,17 @@ models:
             data_type: VARCHAR(0, 0)
             description: "Warehouse was in ideal state for some duration it will autosuspend"
             quote: False
-            tests:
-              - not_null
 
           - name: AUTO_RESUME
             data_type: VARCHAR(0, 0)
             description: "Warehouse will get active when start querying"
             quote: False
-            tests:
-              - not_null
 
           - name: UUID
             data_type: VARCHAR(0, 0)
             description: "Universal Unique Identifier"
             quote: False
             tests:
-              - not_null
               - unique
 
           - name: OWNER
@@ -65,22 +60,16 @@ models:
             data_type: VARCHAR(0, 0)
             description: "Warehouse state"
             quote: False
-            tests:
-              - not_null
 
           - name: WAREHOUSE_SIZE
             data_type: VARCHAR(0, 0)
             description: "Size of the warehouse"
             quote: False
-            tests:
-              - not_null
 
           - name: WAREHOUSE_TYPE
             data_type: VARCHAR(0, 0)
             description: "Type of the warehouse"
             quote: False
-            tests:
-              - not_null
 
           - name: CREATEDTS
             data_type: TIMESTAMP

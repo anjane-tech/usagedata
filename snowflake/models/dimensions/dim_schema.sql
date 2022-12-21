@@ -36,7 +36,7 @@ dimensions as(
            COALESCE (s."CREATED", to_timestamp_ntz('1901-01-01')) AS "CREATED",
            COALESCE (s."LAST_ALTERED", to_timestamp_ntz('1901-01-01')) AS "LAST_ALTERED",
            COALESCE (s."COMMENT", 'N/A') AS "COMMENT",
-           COALESCE (s."DELETED", 'N/A') AS "DELETED"
+           COALESCE (s."DELETED", to_timestamp_ntz('1901-01-01')) AS "DELETED"
     FROM query_history qh
     FULL OUTER JOIN schemas s on S."SCHEMA_NAME" = QH."SCHEMA_NAME"
 )
