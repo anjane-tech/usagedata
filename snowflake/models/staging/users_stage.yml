@@ -32,6 +32,7 @@ sources:
               description: "Email address for the user"
               quote: true
 
+
             - name: HAS_PASSWORD
               data_type: VARCHAR(0, 0)
               description: "Specifies whether a password was created for the user"

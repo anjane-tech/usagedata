@@ -5,7 +5,7 @@ models:
     columns: 
           - name: ROLES_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Generated surrogate_key using name from roles table"
             quote: False
             tests:
               - not_null
@@ -39,16 +39,23 @@ models:
             tests:
               - not_null
 
-          - name: CREATEDTS
+          - name: OWNER
+            data_type: VARCHAR(0, 0)
+            description: "Specifies the role with the OWNERSHIP privilege on the object"
+            quote: False
+            tests:
+              - not_null    
+
+          - name: "{{var('col_create_dts')}}"
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Record created date timestamp"
             quote: False
             tests:
               - not_null
 
-          - name: UPDATEDDTS
+          - name: "{{var('col_update_dts')}}"
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Record updated date timestamp"
             quote: False
             tests:
               - not_null

@@ -71,3 +71,8 @@ sources:
               data_type: VARCHAR(0, 0)
               description: "Comment for the schema"
               quote: true
+
+            - name: DELETED
+              data_type: VARCHAR(0, 0)
+              description: "Date and time when the schema was dropped"
+              quote: true  

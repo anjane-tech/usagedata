@@ -5,7 +5,7 @@ models:
     columns: 
           - name: SCHEMA_ID
             data_type: VARCHAR(0, 0)
-            description: "N/A - Not_Applicable"
+            description: "Generated surrogate_key using CATALOG_NAME and SCHEMA_NAME from schema table"
             quote: False
             tests:
               - not_null
@@ -95,16 +95,23 @@ models:
             tests:
               - not_null
 
-          - name: CREATEDTS
-            data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+          - name: DELETED
+            data_type: VARCHAR(0, 0)
+            description: "Date and time when the schema was dropped"
             quote: False
             tests:
               - not_null
 
-          - name: UPDATEDDTS
+          - name: "{{var('col_create_dts')}}"
             data_type: TIMESTAMP
-            description: "N/A - Not_Applicable"
+            description: "Record created date timestamp"
+            quote: False
+            tests:
+              - not_null
+
+          - name: "{{var('col_update_dts')}}"
+            data_type: TIMESTAMP
+            description: "Record updated date timestamp"
             quote: False
             tests:
               - not_null
