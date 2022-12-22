@@ -1,10 +1,10 @@
 # Snowflake - Usage Data Analytics:
 ![optional_text](./artifacts/snowflake_logo.png)
 
-This snowflake usage analytics project is about creating insights about the account usage informations of snowflake.
-In this project we have mainly focused on snowflake and we have created incremental models of dimensions and fact for the account related tables available in snowflake database. 
+This snowflake usage analytics dbt project provides insights on the database / table level usage informations from snowflake.
+This dbt project loads data from Snowflake Accounts Usage schema to create a Star Schema Dimensional model for Usage Analytics. The dbt models are created as incremental load into Staging & Views (dierctly of Snowflake Accounts Usage) and incremental loads into the datamart tables (dimensions and fact). 
 
-Use this tool to get insights into how, when and where your data is being used to make decisions that are more informed.
+Use this package to get insights into how, when and where your data is being used to make decisions that are more informed.
 
 ![optional_text](./artifacts/flow_diagram.png)
 
@@ -18,20 +18,43 @@ The main requirements for this project is
     - virtual environment
 
 Once all the setup is done please follow the steps given below.
-    - Create a python virtual environment and activate the env.
-        python -m venv <environment_name>
-    
-    - Once the evironment is created install dbt.
-        pip install dbt-core
-        pip install dbt-snowflake
-    
-    - After dbt gets installed, make the connections established to the corresponding database using profiles.yml   file. To establish the connection and configure profiles.yml file use the followinf command.
-        source ~/.dbt/profiles.yml
 
-    - Once the connections are done run (dbt debug) command to ensure the connection is good.
+Create a python virtual environment and activate the env.
+
+```
+python -m venv <environment_name>
+```
     
-    - After completing the above steps redirect to the corresponding dbt folder and run the following command
-        (dbt deps) since the package.yml is already given in the folder, dbt will install the corresponding dependencies.
+Once the evironment is created, install dbt.
+
+```
+pip install dbt-core
+pip install dbt-snowflake
+```
+    
+After dbt gets installed, make the connections established to the corresponding database using profiles.yml file. To establish the connection and configure profiles.yml file use the following command.
+
+```
+source ~/.dbt/profiles.yml
+```
+
+To test the connections are done, run the following command:
+
+```
+dbt debug 
+```
+    
+Run the following command to install the dbt dependancies:
+
+```bash
+dbt deps
+```
+
+Grant dbt's role access to the `snowflake` database:
+
+```sql
+grant imported privileges on database snowflake to role <<your_dbt_role_name>>;
+```
 
 # List Of Tables Available In This Project:
 
@@ -53,22 +76,28 @@ Once all the setup is done please follow the steps given below.
 
 ![optional_text](./artifacts/datamart_workflow.png)
 
+### Seeding:
+This dbt project contains the seeding data for Error Codes and Description.
+
+```bash
+dbt seed --full-refresh
+```
+
 ### Staging:
 
-In this project the error's data is the only file which is seeded into the database. Yaml files are created for all models available in staging folder and those yaml files contains column names, data_type and description. Except for "query_history" and "access_history" all the other staging models in this project are created as views so that if the main table is refreshed the views will automatically gets refreshed. All the credentials names are defined as variables in yaml files. Except for errors all the tables mentioned in this models are located in "snowflake" database, "Account_Usage" schema, before the user proceeding further the admin user must grant permission for the user to access the schema by executing the following command given below.
-
-    grant all privileges on function <database_name>.<schema_name> to role <role_name>;
+ Yaml files are created for all models available in staging folder and those yaml files contains column names, data type and description. Except for "query history" and "access history" all the other staging models in this project are created as views so that the data is refreshed automatically. All the source table names are defined as variables in dbt_project yaml file.
 
 
-### Dimensions:
+### Dimensions & Fact:
 
-The dimensions in this project is created referring the staging models. Most of the dimensions are created with Query_history as fact table. All the dimensions in this project are created as an incremental model. Yaml files are created for all dimensions models and all models are configured with (dbt test) and description of all columns and 
-models. Name of the timestamp is given as variables.Along with all the columns a surrogate key column is created using (dbt_utils).
+The dimensions are created/load using the incremental strategy. Yaml files are provided for all the models containing column description and tests.
 
-### Fact:
+### Star Schema ER model of the Data Mart:
+![Datamart Star Schema](./artifacts/datamart_er_diagram.png)
 
-The fact model is created as an incrementa model and it is created using the key columns in all the dimensions models and by aggregating some of the metrics columns available in dimensions models. As we did for all other models we have added yaml file for fact.
+### dbt project Lineage Graph:
+![Datamart dbt Lineage Graph](./artifacts/snowflage-usagedata-lineage.png)
 
+### About:
 
-The below image contains the star schema of dimenions and fact.
-![optional_text](./artifacts/datamart_er_diagram.png)
+##### The Snowflake Usage Data dbt project is developed by the dbt lovers from [Anjane Technologies](https://anjane.tech) & [Spark Data Analytis](https://www.sparkdataanalytics.com). 
