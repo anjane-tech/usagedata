@@ -1,5 +1,5 @@
 # Snowflake - Usage Data Analytics:
-                            ![optional_text](./artifacts/snowflake_logo.png)
+![optional_text](./artifacts/snowflake_logo.png)
 
 This snowflake usage analytics project is about creating insights about the account usage informations of snowflake.
 In this project we have mainly focused on snowflake and we have created incremental models of dimensions and fact for the account related tables available in snowflake database. 
