@@ -62,4 +62,6 @@ the columns a surrogate key column is created using (dbt_utils).
 
 The fact model is created as an incrementa model and it is created using the key columns in all the dimensions models and by aggregating some of the metrics columns available in dimensions models.
 
+
+The below image contains the star schema of dimenions and fact.
 ![optional_text](./artifacts/datamart_er_diagram.png)
