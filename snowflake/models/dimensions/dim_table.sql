@@ -3,7 +3,8 @@
     materialized='incremental',
     unique_key = '"TABLE_ID"',
     merge_update_columns = [var("col_update_dts"),'TABLE_CATALOG','TABLE_NAME','TABLE_OWNER','ROW_COUNT'],
-    tags = ["dimensions"]
+    tags = ["dimensions"],
+    schema = var("usage_data_datamart_schema_name")
   )
 }}
 

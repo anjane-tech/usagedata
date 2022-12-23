@@ -3,7 +3,8 @@
     materialized='incremental',
     unique_key = '"COMBINED_WAREHOUSE_ID"',
     merge_update_columns = [var("col_update_dts"),'AUTO_SUSPEND','STATE','WAREHOUSE_SIZE','MIN_CLUSTER_COUNT','UUID'],
-    tags = ["dimensions"]
+    tags = ["dimensions"],
+    schema = var("usage_data_datamart_schema_name")
   )
 }}
 

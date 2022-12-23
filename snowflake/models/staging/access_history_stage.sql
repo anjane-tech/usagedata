@@ -1,5 +1,6 @@
 {{config(materialized='table',
-        tags = ["staging"])}}
+        tags = ["staging"],
+        schema = var("usage_data_staging_schema_name"))}}
 
 select ah.QUERY_ID,
        ah.QUERY_START_TIME,

@@ -2,7 +2,8 @@
   config(
     materialized='incremental',
     merge_update_columns = ['var("col_update_dts")','ACCESS_HISTORY_ID','DATABASE_ID','ERROR_ID','LOGIN_HISTORY_ID','ROLES_ID','SCHEMA_ID','COMBINED_SESSION_ID','TABLE_ID','TAGS_ID','COMBINED_USERS_ID','COMBINED_WAREHOUSE_ID','QUERY_ID'],
-    tags = ["fact"]
+    tags = ["fact"],
+    schema = var("usage_data_datamart_schema_name")
   )
 }}
 

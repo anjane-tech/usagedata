@@ -3,7 +3,8 @@
     materialized='incremental',
     unique_key = '"ROLES_ID"',
     merge_update_columns = [var("col_update_dts"),'CREATED_ON','NAME'],
-    tags = ["dimensions"]
+    tags = ["dimensions"],
+    schema = var("usage_data_datamart_schema_name")
   )
 }}
 

@@ -3,7 +3,8 @@
     materialized='incremental',
     unique_key = '"COMBINED_USERS_ID"',
     merge_update_columns = [var("col_update_dts"),'NAME','LOGIN_NAME','EMAIL','HAS_PASSWORD','EXPIRES_AT','DISPLAY_NAME'],
-    tags = ["dimensions"]
+    tags = ["dimensions"],
+    schema = var("usage_data_datamart_schema_name")
   )
 }}
 

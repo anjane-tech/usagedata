@@ -1,0 +1,23 @@
+version: 2
+sources:
+  - name: "{{var('source')}}"
+    database: "{{var('source')}}"
+    schema: "{{var('sf_src_schema_name')}}"
+    tables: 
+      - name: "{{var('sf_tbl_errors')}}"
+        description: "This Account Usage view displays a row for each database defined in your account."
+        columns: 
+            - name: ERROR_TYPE
+              data_type: VARCHAR(0, 0)
+              description: "Error type of the query"
+              quote: true
+            
+            - name: ERROR_CODE
+              data_type: VARCHAR(0, 0)
+              description: "Error code of error type "
+              quote: true
+            
+            - name: DESCRIPTION
+              data_type: VARCHAR(0, 0)
+              description: "Description of the error code and error type"
+              quote: true
