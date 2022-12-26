@@ -3,7 +3,8 @@
     materialized='incremental',
     unique_key = '"ACCESS_HISTORY_ID"',
     merge_update_columns = [var("col_update_dts"),'BASE_OBJECTS_ACCESSED','USER_NAME','DIRECT_OBJECTS_ACCESSED','OBJECTS_MODIFIED'],
-    tags = ["dimensions"]
+    tags = ["dimensions"],
+    schema = var("usage_data_datamart_schema_name")
   )
 }}
 

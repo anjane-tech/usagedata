@@ -1,5 +1,6 @@
 {{config(materialized='view',
-        tags = ["staging"])}}
+        tags = ["staging"],
+        schema = var("usage_data_staging_schema_name"))}}
         
  select * 
  from {{ref("errors_seed")}}

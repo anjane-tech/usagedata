@@ -3,7 +3,8 @@
     materialized='incremental',
     unique_key = '"LOGIN_HISTORY_ID"',
     merge_update_columns = [var("col_update_dts"),'EVENT_ID','EVENT_TYPE','CLIENT_IP','USER_NAME','REPORTED_CLIENT_TYPE','IS_SUCCESS','ERROR_CODE','RELATED_EVENT_ID','CONNECTION'],
-    tags = ["dimensions"]
+    tags = ["dimensions"],
+    schema = var("usage_data_datamart_schema_name")
   )
 }}
 
