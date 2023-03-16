@@ -1,0 +1,63 @@
+version: 2
+sources:
+  - name: "{{var('source')}}"
+    database: "{{var('source')}}"
+    schema: "{{var('sf_src_schema_name_ou')}}"
+    tables: 
+      - name: "{{var('sf_tbl_metering_daily_history')}}"
+        description: 
+        columns: 
+            - name: SERVICE_TYPE
+              data_type: VARCHAR(0, 0)
+              description:
+              quote: true
+
+            - name: ORGANIZATION_NAME
+              data_type: VARCHAR(0, 0)
+              description:
+              quote: true
+
+            - name: ACCOUNT_NAME
+              data_type: VARCHAR(0, 0)
+              description:
+              quote: true
+
+            - name: ACCOUNT_LOCATOR
+              data_type: VARCHAR(0, 0)
+              description:
+              quote: true
+
+            - name: USAGE_DATE
+              data_type: VARCHAR(0, 0)
+              description:
+              quote: true
+
+            - name: CREDITS_USED_COMPUTE
+              data_type: VARCHAR(0, 0)
+              description:
+              quote: true
+
+            - name: CREDITS_USED_CLOUD_SERVICES
+              data_type: VARCHAR(0, 0)
+              description:
+              quote: true
+
+            - name: CREDITS_USED
+              data_type: VARCHAR(0, 0)
+              description:
+              quote: true
+
+            - name: CREDITS_ADJUSTMENT_CLOUD_SERVICES
+              data_type: VARCHAR(0, 0)
+              description:
+              quote: true
+
+            - name: CREDITS_BILLED
+              data_type: VARCHAR(0, 0)
+              description:
+              quote: true
+
+            - name: REGION
+              data_type: VARCHAR(0, 0)
+              description:
+              quote: true

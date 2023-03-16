@@ -1,0 +1,54 @@
+version: 2
+sources:
+  - name: "{{var('source')}}"
+    database: "{{var('source')}}"
+    schema: "{{var('sf_src_schema_name_ou')}}"
+    tables: 
+      - name: "{{var('sf_tbl_replication_usage_history')}}"
+        description: 
+        columns: 
+            - name: ORGANIZATION_NAME
+              data_type: VARCHAR(0, 0)
+              description:
+              quote: true
+
+            - name: ACCOUNT_NAME
+              data_type: VARCHAR(0, 0)
+              description:
+              quote: true
+
+            - name: ACCOUNT_LOCATOR
+              data_type: VARCHAR(0, 0)
+              description:
+              quote: true
+
+            - name: REGION
+              data_type: VARCHAR(0, 0)
+              description:
+              quote: true
+
+            - name: USAGE_DATE
+              data_type: VARCHAR(0, 0)
+              description:
+              quote: true
+
+            - name: DATABASE_ID
+              data_type: VARCHAR(0, 0)
+              description:
+              quote: true
+
+            - name: DATABASE_NAME
+              data_type: VARCHAR(0, 0)
+              description:
+              quote: true
+
+            - name: CREDITS_USED
+              data_type: VARCHAR(0, 0)
+              description:
+              quote: true
+
+            - name: BYTES_TRANSFERED
+              data_type: VARCHAR(0, 0)
+              description:
+              quote: true
+

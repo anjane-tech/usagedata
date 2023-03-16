@@ -1,0 +1,82 @@
+version: 2
+
+models:
+  - name: dim_metering_history
+    columns: 
+          - name: SERVICE_TYPE
+            data_type: VARCHAR(0, 0)
+            description: 
+            quote: true
+            tests:
+              - not_null
+
+          - name: START_TIME
+            data_type: VARCHAR(0, 0)
+            description: 
+            quote: true
+            tests:
+              - not_null
+          
+          - name: END_TIME
+            data_type: VARCHAR(0, 0)
+            description: 
+            quote: true
+            tests:
+              - not_null
+
+          - name: ENTITY_ID
+            data_type: VARCHAR(0, 0)
+            description: 
+            quote: true
+            tests:
+              - unique
+              - not_null
+
+          - name: NAME
+            data_type: VARCHAR(0, 0)
+            description: 
+            quote: true
+            tests:
+              - not_null
+
+          - name: CREDITS_USED_COMPUTE
+            data_type: VARCHAR(0, 0)
+            description: 
+            quote: true
+            tests:
+              - not_null
+          
+          - name: CREDITS_USED_CLOUD_SERVICES
+            data_type: VARCHAR(0, 0)
+            description: 
+            quote: true
+            tests:
+              - not_null
+          
+          - name: CREDITS_USED
+            data_type: VARCHAR(0, 0)
+            description: 
+            quote: true
+            tests:
+              - not_null
+
+          - name: BYTES
+            data_type: VARCHAR(0, 0)
+            description: 
+            quote: true
+            tests:
+              - not_null
+
+          - name: ROWS
+            data_type: VARCHAR(0, 0)
+            description: 
+            quote: true
+            tests:
+              - not_null
+
+          - name: FILES
+            data_type: VARCHAR(0, 0)
+            description: 
+            quote: true
+            tests:
+              - not_null
