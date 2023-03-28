@@ -1,51 +1,62 @@
 version: 2
 sources:
   - name: "{{var('source')}}"
-    schema: "USAGEDATA_{{var('usage_data_staging_schema_name')}}"
+    schema: "{{var('usage_data_staging_schema_name')}}"
     tables: 
       - name: "{{var('sf_tbl_warehouse')}}"
         columns: 
             - name: WAREHOUSE_NAME
               data_type: VARCHAR(0, 0)
+              description: The name of the warehouse in your account
               quote: true
 
             - name: SIZE
               data_type: VARCHAR(0, 0)
+              description: Size of the warehouse (X-Small, Small, Medium, Large, X-Large, etc.)
               quote: true
 
             - name: TYPE
               data_type: VARCHAR(0, 0)
+              description: Warehouse type; STANDARD and SNOWPARK-OPTIMIZED are the only currently supported types.
               quote: true
 
             - name: OWNER
               data_type: VARCHAR(0, 0)
+              description: Role that owns the warehouse.
               quote: true
 
             - name: MIN_CLUSTER_COUNT
               data_type: VARCHAR(0, 0)
+              description: Minimum number of clusters for the (multi-cluster) warehouse (always 1 for single-cluster warehouses).
               quote: true
 
             - name: MAX_CLUSTER_COUNT
               data_type: VARCHAR(0, 0)
+              description: Maximum number of clusters for the (multi-cluster) warehouse (always 1 for single-cluster warehouses).
               quote: true
 
             - name: CREATED_ON
               data_type: TIMESTAMP
+              description: Date and time when the warehouse was created.  
               quote: true
 
             - name: UPDATED_ON
               data_type: TIMESTAMP
+              description: 	Date and time when the warehouse was last updated, which includes changing any of the properties of the warehouse or changing the state (STARTED, SUSPENDED, RESIZING) of the warehouse.
               quote: true
 
             - name: AUTO_SUSPEND
               data_type: VARCHAR(0, 0)
+              description: Period of inactivity, in seconds, after which a running warehouse will automatically suspend and stop using credits; a null value indicates the warehouse never automatically suspends
               quote: true
 
             - name: AUTO_RESUME
               data_type: VARCHAR(0, 0)
+              description: Whether the warehouse, if suspended, automatically resumes when a query is submitted to the warehouse.
               quote: true
 
             - name: UUID
               data_type: VARCHAR(0, 0)
+              description: UUID_STRING returns a 128-bit value, formatted as a string. For random-number generation, the 64-bit Mersenne twister known as MT19937-64 is used.
               quote: true
               

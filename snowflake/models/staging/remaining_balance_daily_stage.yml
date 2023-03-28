@@ -1,0 +1,43 @@
+version: 2
+sources:
+  - name: "{{var('source')}}"
+    database: "{{var('source')}}"
+    schema: "{{var('sf_src_schema_name_ou')}}"
+    tables: 
+      - name: "{{var('sf_tbl_remaining_balance_daily')}}"
+        description: This is used to return the daily remaining balance and on demand consumption daily for an organization
+        columns:  
+            - name: ORGANIZATION_NAME
+              data_type: VARCHAR(0, 0)
+              description: Name of the organization
+              quote: true
+
+            - name: DATE
+              data_type: TIMESTAMP
+              description: The date of the FREE_USAGE_BALANCE or CAPACITY_BALANCE in the UTC time zone
+              quote: true
+
+            - name: CURRENCY
+              data_type: NUMBER(38, 10)
+              description: The currency of the FREE_USAGE_BALANCE or CAPACITY_BALANCE or ON_DEMAND_CONSUMPTION_BALANCE
+              quote: true
+
+            - name: FREE_USAGE_BALANCE
+              data_type: NUMBER(38, 10)
+              description: The amount of free usage in currency that is available for use as of the date. This is the end of day balance
+              quote: true
+
+            - name: CAPACITY_BALANCE
+              data_type: NUMBER(38, 10)
+              description: The amount of capacity in currency that is available for use as of the date. This is the end of day balance
+              quote: true
+
+            - name: ON_DEMAND_CONSUMPTION_BALANCE
+              data_type: NUMBER(38, 10)
+              description: The amount of consumption at on demand prices that will be invoiced given that all the free usage and capacity balances have been exhausted
+              quote: true
+
+            - name: ROLLOVER_BALANCE
+              data_type: NUMBER(38, 10)
+              description: The amount of rollover balance in currency that is available for use at the end of the date. At the end of a contract term, it is calculated as sum(AMOUNT) from the CONTRACT_ITEMS view - sum(USAGE_IN_CURRENCY) from the USAGE_IN_CURRENCY_DAILY view
+              quote: true

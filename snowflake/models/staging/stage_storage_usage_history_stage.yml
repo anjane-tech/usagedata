@@ -1,0 +1,38 @@
+version: 2
+sources:
+  - name: "{{var('source')}}"
+    database: "{{var('source')}}"
+    schema: "{{var('sf_src_schema_name_ou')}}"
+    tables: 
+      - name: "{{var('sf_tbl_stage_storage_usage_history')}}"
+        description: This is used to query the average daily data storage usage, in bytes, for all the Snowflake stages in your organization within a specified date range.
+        columns: 
+            - name: ORGANIZATION_NAME
+              data_type: VARCHAR(0, 0)
+              description: Name of the organization where the usage took place
+              quote: true
+
+            - name: ACCOUNT_NAME
+              data_type: VARCHAR(0, 0)
+              description: Name of the account where the usage took place
+              quote: true
+
+            - name: ACCOUNT_LOCATOR
+              data_type: VARCHAR(0, 0)
+              description: Name of the account locator
+              quote: true
+
+            - name: REGION
+              data_type: VARCHAR(0, 0)
+              description: Name of the region where the account is located
+              quote: true
+
+            - name: USAGE_DATE
+              data_type: VARCHAR(0, 0)
+              description: Date of this storage usage record
+              quote: true
+
+            - name: AVERAGE_STAGE_BYTES
+              data_type: VARCHAR(0, 0)
+              description: Number of bytes of stage storage used
+              quote: true

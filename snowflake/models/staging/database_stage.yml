@@ -7,6 +7,11 @@ sources:
       - name: "{{var('sf_tbl_database')}}"
         description: "This Account Usage view displays a row for each database defined in your account."
         columns: 
+            - name: DATABASE_ID
+              data_type: VARCHAR(0, 0)
+              description: "Name of the database"
+              quote: true
+
             - name: DATABASE_NAME
               data_type: VARCHAR(0, 0)
               description: "Name of the database"

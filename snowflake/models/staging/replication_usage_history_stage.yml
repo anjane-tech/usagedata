@@ -1,0 +1,54 @@
+version: 2
+sources:
+  - name: "{{var('source')}}"
+    database: "{{var('source')}}"
+    schema: "{{var('sf_src_schema_name_ou')}}"
+    tables: 
+      - name: "{{var('sf_tbl_replication_usage_history')}}"
+        description: This is used to query the replication history for databases in your organization within a specified date range. The information returned by the function includes the database name, credits consumed, and bytes transferred for replication.
+        columns: 
+            - name: ORGANIZATION_NAME
+              data_type: VARCHAR(0, 0)
+              description: Name of the organization where the usage took place
+              quote: true
+
+            - name: ACCOUNT_NAME
+              data_type: VARCHAR(0, 0)
+              description: Name of the account where the usage took place
+              quote: true
+
+            - name: ACCOUNT_LOCATOR
+              data_type: VARCHAR(0, 0)
+              description: Name of the account locator
+              quote: true
+
+            - name: REGION
+              data_type: VARCHAR(0, 0)
+              description: Name of the region where the account is located
+              quote: true
+
+            - name: USAGE_DATE
+              data_type: VARCHAR(0, 0)
+              description: Date (in the UTC time zone) of this storage usage record
+              quote: true
+
+            - name: DATABASE_ID
+              data_type: VARCHAR(0, 0)
+              description: Internal/system-generated identifier for the database
+              quote: true
+
+            - name: DATABASE_NAME
+              data_type: VARCHAR(0, 0)
+              description: Name of the database
+              quote: true
+
+            - name: CREDITS_USED
+              data_type: VARCHAR(0, 0)
+              description: Total number of credits used for database replication during the USAGE_DATE
+              quote: true
+
+            - name: BYTES_TRANSFERED
+              data_type: VARCHAR(0, 0)
+              description: Number of bytes transferred for database replication during the USAGE_DATE
+              quote: true
+

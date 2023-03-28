@@ -9,6 +9,13 @@
 
   WITH query_history AS (
     SELECT * FROM {{ref("query_history_stage")}}
+  ),
+
+   total_table_count as (
+    select distinct "QUERY_ID",
+    count (distinct "table_name") as "TABLE_COUNT" 
+    from {{ref("access_history_vw")}}
+    group by 1
   )
 
 SELECT 
@@ -26,14 +33,19 @@ SELECT
         QH."QUERY_ID",
         to_char(QH."START_TIME", 'YYYYMMDD') as "QUERY_START_DT",
         to_char(QH."END_TIME", 'YYYYMMDD') as "QUERY_END_DT",
-        SUM(timestampdiff(milliseconds, QH."START_TIME", QH."END_TIME")/1000) AS "QUERY_TIME_IN_SECS",
-        SUM(QH."BYTES_SCANNED"::DECIMAL(38, 0)) AS "BYTES_SCANNED",
-        SUM(QH."OUTBOUND_DATA_TRANSFER_BYTES"::DECIMAL(38, 0)) AS "OUTBOUND_DATA_TRANSFER_BYTES",
-        SUM(QH."INBOUND_DATA_TRANSFER_BYTES"::DECIMAL(38, 0)) AS "INBOUND_DATA_TRANSFER_BYTES",
-        SUM(QH."EXTERNAL_FUNCTION_TOTAL_SENT_BYTES"::DECIMAL(38, 0)) AS "EXTERNAL_FUNCTION_TOTAL_SENT_BYTES",
+        SUM(timestampdiff(milliseconds, QH."START_TIME", QH."END_TIME")/1000)/TC."TABLE_COUNT" AS "QUERY_TIME_IN_SECS",
+        SUM(QH."BYTES_SCANNED"::DECIMAL(38, 0))/TC."TABLE_COUNT" AS "BYTES_SCANNED",
+        SUM(QH."OUTBOUND_DATA_TRANSFER_BYTES"::DECIMAL(38, 0))/TC."TABLE_COUNT" AS "OUTBOUND_DATA_TRANSFER_BYTES",
+        SUM(QH."INBOUND_DATA_TRANSFER_BYTES"::DECIMAL(38, 0))/TC."TABLE_COUNT" AS "INBOUND_DATA_TRANSFER_BYTES",
+        SUM(QH."EXTERNAL_FUNCTION_TOTAL_SENT_BYTES"::DECIMAL(38, 0))/TC."TABLE_COUNT" AS "EXTERNAL_FUNCTION_TOTAL_SENT_BYTES",
+        SUM(CPQ."COMPUTE_COST"::DECIMAL(38, 5))/TC."TABLE_COUNT" AS "COMPUTE_COST",
+        SUM(CPQ."CLOUD_SERVICES_COST"::DECIMAL(38, 5))/TC."TABLE_COUNT" AS "CLOUD_SERVICES_COST",
+        SUM(CPQ."QUERY_COST"::DECIMAL(38, 5))/TC."TABLE_COUNT" AS "QUERY_COST",
+        CPQ.CURRENCY,
         current_timestamp as "{{var('col_create_dts')}}",
         current_timestamp as "{{var('col_update_dts')}}"
     FROM query_history QH 
+    INNER JOIN total_table_count TC ON TC."QUERY_ID" = QH."QUERY_ID"
     INNER JOIN {{ref("dim_access_history")}} AH ON AH."QUERY_ID" = COALESCE(NULLIF(TRIM(QH."QUERY_ID"),''), 'N/A')
     INNER JOIN {{ref("dim_database")}} D ON D."DATABASE_NAME" = COALESCE(NULLIF(TRIM(QH."DATABASE_NAME"),''), 'N/A')
     INNER JOIN {{ref("dim_error")}} E ON E."ERROR_CODE" = COALESCE(QH."ERROR_CODE", 0)
@@ -51,6 +63,7 @@ SELECT
     INNER JOIN {{ref("dim_table")}} T ON T."TABLE_CATALOG" = COALESCE(NULLIF(TRIM(A."database_name"),''), 'N/A') AND
                                          T."TABLE_SCHEMA" = COALESCE(NULLIF(TRIM(A."schema_name"),''), 'N/A') AND
                                          T."TABLE_NAME" = COALESCE(NULLIF(TRIM(A."table_name"),''), 'N/A')
+    INNER JOIN {{ref("cost_per_query")}} CPQ ON CPQ."QUERY_ID" = QH."QUERY_ID"
 GROUP BY 
         AH."ACCESS_HISTORY_ID",
         D."DATABASE_ID",
@@ -64,5 +77,7 @@ GROUP BY
         U."COMBINED_USERS_ID",
         W."COMBINED_WAREHOUSE_ID",
         QH."QUERY_ID",
+        CPQ."CURRENCY",
+        TC."TABLE_COUNT",
         to_char(QH."START_TIME", 'YYYYMMDD'),
         to_char(QH."END_TIME", 'YYYYMMDD')
