@@ -12,7 +12,7 @@ sources:
 
             - name: SIZE
               data_type: VARCHAR(0, 0)
-              description: Whether the warehouse is active/running (STARTED), inactive (SUSPENDED), or resizing (RESIZING).
+              description: Size of the warehouse (X-Small, Small, Medium, Large, X-Large, etc.)
               quote: true
 
             - name: TYPE
