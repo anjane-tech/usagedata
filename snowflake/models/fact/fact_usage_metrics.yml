@@ -128,6 +128,26 @@ models:
             description: "The total number of bytes that this query sent in all calls to all remote services"
             quote: False
 
+          - name: COMPUTE_COST
+            data_type: DECIMAL(38, 5)
+            description: "Compute cost per query ID"
+            quote: False
+
+          - name: CLOUD_SERVICES_COST
+            data_type: DECIMAL(38, 5)
+            description: "This cloud services is charged only if the daily consumption of cloud services exceeds 10% of the daily usage of virtual warehouses"
+            quote: False
+
+          - name: QUERY_COST
+            data_type: DECIMAL(38, 5)
+            description: "Cost per query ID"
+            quote: False
+
+          - name: TABLE_COUNT
+            data_type: VARCHAR(0, 0)
+            description: Table count per query Id""
+            quote: False
+
           - name: CREATEDTS
             data_type: TIMESTAMP
             description: "Table created date timestamp"

@@ -1,0 +1,59 @@
+version: 2
+sources:
+  - name: "{{var('source')}}"
+    database: "{{var('source')}}"
+    schema: "{{var('sf_src_schema_name_ou')}}"
+    tables: 
+      - name: "{{var('sf_tbl_rate_sheet_daily')}}"
+        description: This returns the effective rates used for calculating usage in the organization currency based on credits used for all Snowflake accounts in your organization.
+        columns:  
+            - name: DATE
+              data_type: TIMESTAMP
+              description: Date (in the UTC time zone) for the effective price
+              quote: true
+            
+            - name: ORGANIZATION_NAME
+              data_type: VARCHAR(0, 0)
+              description: Name of the organization
+              quote: true
+
+            - name: ACCOUNT_NAME
+              data_type: VARCHAR(0, 0)
+              description: Name of the account
+              quote: true
+
+            - name: ACOUNT_LOCATOR
+              data_type: VARCHAR(0, 0)
+              description: Locator for the account
+              quote: true
+
+            - name: REGION
+              data_type: VARCHAR(0, 0)
+              description: Name of the region where the account is located
+              quote: true
+
+            - name: SERVICE_LEVEL
+              data_type: VARCHAR(0, 0)
+              description: Service level of the Snowflake account (Standard, Enterprise, Business Critical, etc.)
+              quote: true
+
+            - name: USAGE_TYPE
+              data_type: VARCHAR(0, 0)
+              description: The type of usage, which can be one of Compute, Storage, Materialized Views, etc
+              quote: true
+
+            - name: CURRENCY
+              data_type: VARCHAR(0, 0)
+              description: The currency of the EFFECTIVE_RATE
+              quote: true
+
+            - name: EFFECTIVE_RATE
+              data_type: NUMBER(38, 2)
+              description: The rate after applying any applicable discounts per the contract for the organization
+              quote: true
+
+            - name: SERVICE_TYPE
+              data_type: VARCHAR(0, 0)
+              description: The type of service, which can be one of compute or storage
+              quote: true
+            
