@@ -96,8 +96,14 @@ The dimensions are created/load using the incremental strategy. Yaml files are p
 ![Datamart Star Schema](./artifacts/datamart_er_diagram.png)
 
 ### dbt project Lineage Graph:
-![Datamart dbt Lineage Graph](./artifacts/snowflage-usagedata-lineage.png)
+![Datamart dbt Lineage Graph](./artifacts/snowflake-usagedata-lineage.png)
+
+## Credits
+
+Previously, the Snowflake Usage Data analytics was intended to capture and analyze only the table level usage data.
+Due to frequent client request, we have now added the Query Level Cost information to the Fact table.
+We have used the logic (and code) created by the team at [SELECT](https://github.com/get-select/dbt-snowflake-monitoring) to derive the query level cost information.
 
 ### About:
 
-##### The Snowflake Usage Data dbt project is developed by the dbt lovers from [Anjane Technologies](https://anjane.tech) & [Spark Data Analytis](https://www.sparkdataanalytics.com). 
+##### The Snowflake Usage Data dbt project is developed by the dbt lovers from [Anjane Technologies](https://anjane.tech) & [Spark Data Analytics](https://www.sparkdataanalytics.com). 
