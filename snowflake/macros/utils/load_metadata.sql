@@ -9,7 +9,7 @@
         GROUP BY 1) S, {{ref('usagedata_metadata')}} T
        WHERE S.Source = T.Source and S."{{var('col_update_dts')}}" > T."{{var('col_update_dts')}}";
     {% endset %}
-    {% if execute and flags.WHICH in ('run', 'build') and flags.FULL_REFRESH == False%}
+    {% if execute and flags.WHICH in ('run', 'build') and is_incremental() %}
        {% do run_query(sql) %}
        {% do log("Load Metadata updated for Query History", info=True) %}
     {% endif %}
