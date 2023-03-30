@@ -14,15 +14,19 @@
 
     total_table_count as (
     select distinct "QUERY_ID",
-    count (distinct "table_name") as "TABLE_COUNT",
-    COALESCE(NULLIF(TRIM("database_name"),''), 'N/A') "AH_database_name",
-    COALESCE(NULLIF(TRIM("schema_name"),''), 'N/A') "AH_schema_name",
-    COALESCE(NULLIF(TRIM("table_name"),''), 'N/A') "AH_table_name"
+    count (distinct "table_name") as "TABLE_COUNT" 
     from {{ref("access_history_vw")}}
-    group by 1,3,4,5
-  )
+    group by 1
+  ),
+  Access_history as (
+         select *,
+         COALESCE(NULLIF(TRIM("database_name"),''), 'N/A') "AH_database_name",
+         COALESCE(NULLIF(TRIM("schema_name"),''), 'N/A') "AH_schema_name",
+         COALESCE(NULLIF(TRIM("table_name"),''), 'N/A') "AH_table_name"
+         from {{ref("access_history_vw")}})
+
 SELECT 
-        TC."QUERY_ID" as "ACCESS_HISTORY_ID",
+        AH."QUERY_ID" as "ACCESS_HISTORY_ID",
 
         LH."LOGIN_HISTORY_ID",
         SE."COMBINED_SESSION_ID",
@@ -55,13 +59,13 @@ SELECT
     FROM query_history QH 
 
       INNER JOIN total_table_count TC ON TC."QUERY_ID" = QH."QUERY_ID"
-      --INNER JOIN access_history AH ON AH."QUERY_ID" = COALESCE(NULLIF(TRIM(QH."QUERY_ID"),''), 'N/A')
+      INNER JOIN Access_history AH ON AH."QUERY_ID" = COALESCE(NULLIF(TRIM(QH."QUERY_ID"),''), 'N/A')
       INNER JOIN {{ref("dim_sessions")}} SE ON SE."SESSION_ID" = COALESCE(QH."SESSION_ID", 0)
       INNER JOIN {{ref("dim_login_history")}} LH ON LH."EVENT_ID" = SE."LOGIN_EVENT_ID"
       INNER JOIN {{ref("cost_per_query")}} CPQ ON CPQ."QUERY_ID" = QH."QUERY_ID"
 
 GROUP BY
-        TC."QUERY_ID",
+        AH."QUERY_ID",
         QH."QUERY_ID",
         QH."DATABASE_NAME",
         QH."ERROR_CODE",
