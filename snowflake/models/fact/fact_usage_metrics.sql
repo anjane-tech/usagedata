@@ -19,7 +19,7 @@
     group by 1
   ),
   Access_history as (
-         select *,
+         select "QUERY_ID",
          COALESCE(NULLIF(TRIM("database_name"),''), 'N/A') "AH_database_name",
          COALESCE(NULLIF(TRIM("schema_name"),''), 'N/A') "AH_schema_name",
          COALESCE(NULLIF(TRIM("table_name"),''), 'N/A') "AH_table_name"
