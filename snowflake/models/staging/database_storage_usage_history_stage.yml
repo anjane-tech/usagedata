@@ -1,0 +1,50 @@
+version: 2
+sources:
+  - name: "{{var('source')}}"
+    database: "{{var('source')}}"
+    schema: "{{var('sf_src_schema_name')}}"
+    tables: 
+      - name: "{{var('sf_tbl_database_storage_usage_history')}}"
+        description: "N/A"
+        columns: 
+            - name: USAGE_DATE
+              data_type: TIMESTAMP
+              description: "N/A"
+              quote: true
+
+            - name: DATABASE_ID
+              data_type: VARCHAR(0, 0)
+              description: "N/A"
+              quote: true
+
+            - name: DATABASE_NAME
+              data_type: VARCHAR(0, 0)
+              description: "N/A"
+              quote: true
+
+            - name: DELETED
+              data_type: VARCHAR(0, 0)
+              description: "N/A"
+              quote: true
+
+            - name: AVERAGE_DATABASE_BYTES
+              data_type: FLOAT
+              description: "N/A"
+              quote: true
+
+            - name: AVERAGE_FAILSAFE_BYTES
+              data_type: FLOAT
+              description: "N/A"
+              quote: true
+
+            - name: EVENT_TIMESTAMP
+              data_type: TIMESTAMP
+              description: "N/A"
+              quote: true
+
+            - name: EVENT_TIMESTAMP
+              data_type: TIMESTAMP
+              description: "N/A"
+              quote: true
+
+    
