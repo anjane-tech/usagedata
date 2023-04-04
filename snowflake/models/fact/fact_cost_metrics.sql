@@ -17,8 +17,8 @@ SELECT
         {{dbt_utils.generate_surrogate_key(["daily_spend.WAREHOUSE_NAME"])}} "WAREHOUSE_ID",
         {{dbt_utils.generate_surrogate_key(["daily_spend.DATABASE_NAME"])}} "DATABASE_ID",
         daily_spend."currency",
-        sum(daily_spend."SPEND") as "spend",
-        sum(daily_spend."SPEND_NET_CLOUD_SERVICES") as "spend_net_cloud_services",
+        sum(daily_spend."SPEND"::DECIMAL(38, 5)) as "spend",
+        sum(daily_spend."SPEND_NET_CLOUD_SERVICES"::DECIMAL(38, 5)) as "spend_net_cloud_services",
         current_timestamp as "{{var('col_create_dts')}}",
         current_timestamp as "{{var('col_update_dts')}}"
  from  {{ref('daily_spend')}} daily_spend
