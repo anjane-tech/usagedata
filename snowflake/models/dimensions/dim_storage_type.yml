@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: dim_storage_type
+    columns: 
+          - name: Storage_type
+            data_type: VARCHAR(0, 0)
+            description: "N/A"
+            quote: False
+            tests:
+              - not_null
+
+          - name: Storage_type_id
+            data_type: VARCHAR(0, 0)
+            description: "N/A"
+            quote: False
+            tests:
+              - not_null
+              - unique
