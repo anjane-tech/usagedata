@@ -13,10 +13,7 @@
 }}
 with
  
-dimensions AS(select 
-                 DISTINCT SERVICE
-              from {{ref('daily_spend')}})
-
+dimensions AS(SELECT DISTINCT SERVICE from {{ref('daily_spend')}})
 
 SELECT 
      {{ dbt_utils.generate_surrogate_key(

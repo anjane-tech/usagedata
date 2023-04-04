@@ -9,9 +9,7 @@
 }}
 
 with dimension as(
-  select distinct 
-    "STORAGE_TYPE" 
-  from {{ref('daily_spend')}}
+  select distinct "STORAGE_TYPE" from {{ref('daily_spend')}}
 )
 
 SELECT
