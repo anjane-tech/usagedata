@@ -61,6 +61,7 @@ storage_spend_daily as (
         storage_terabytes_daily.storage_type,
         null as warehouse_name,
         storage_terabytes_daily.database_name,
+        daily_rates."CURRENCY" as "currency",
         coalesce(sum(div0(storage_terabytes_daily.storage_terabytes, dates.days_in_month) * daily_rates.effective_rate), 0) as spend,
         spend as spend_net_cloud_services
     from dates
@@ -69,7 +70,7 @@ storage_spend_daily as (
         on storage_terabytes_daily.date = daily_rates.date
             and daily_rates.service_type = 'STORAGE'
             and daily_rates.usage_type = 'storage'
-    group by 1, 2, 3, 4, 5
+    group by 1, 2, 3, 4, 5, 6
 ),
 
 compute_spend_daily as (
@@ -79,6 +80,7 @@ compute_spend_daily as (
         null as storage_type,
         stg_metering_history."NAME" as warehouse_name,
         null as database_name,
+        daily_rates."CURRENCY" as "currency",
         coalesce(sum(stg_metering_history.credits_used_compute * daily_rates.effective_rate), 0) as spend,
         spend as spend_net_cloud_services
     from dates
@@ -89,7 +91,7 @@ compute_spend_daily as (
             and daily_rates.service_type = 'COMPUTE'
             and daily_rates.usage_type = 'compute'
     where stg_metering_history.service_type = 'WAREHOUSE_METERING' and stg_metering_history."NAME" != 'CLOUD_SERVICES_ONLY'
-    group by 1, 2, 3, 4
+    group by 1, 2, 3, 4, 5, 6
 ),
 
 serverless_task_spend_daily as (
@@ -99,6 +101,7 @@ serverless_task_spend_daily as (
         null as storage_type,
         null as warehouse_name,
         stg_serverless_task_history."DATABASE_NAME",
+        daily_rates."CURRENCY" as "currency",
         coalesce(sum(stg_serverless_task_history.credits_used * daily_rates.effective_rate), 0) as spend,
         spend as spend_net_cloud_services
     from dates
@@ -108,7 +111,7 @@ serverless_task_spend_daily as (
         on dates.date = daily_rates.date
             and daily_rates.service_type = 'COMPUTE'
             and daily_rates.usage_type = 'serverless tasks'
-    group by 1, 2, 3, 4, 5
+    group by 1, 2, 3, 4, 5, 6
 ),
 
 adj_for_incl_cloud_services_daily as (
@@ -118,6 +121,7 @@ adj_for_incl_cloud_services_daily as (
         null as storage_type,
         null as warehouse_name,
         null as database_name,
+        daily_rates."CURRENCY" as "currency",
         coalesce(sum(stg_metering_daily_history."CREDITS_ADJUSTMENT_CLOUD_SERVICES" * daily_rates.effective_rate), 0) as spend,
         0 as spend_net_cloud_services
     from dates
@@ -127,7 +131,7 @@ adj_for_incl_cloud_services_daily as (
         on dates.date = daily_rates.date
             and daily_rates.service_type = 'COMPUTE'
             and daily_rates.usage_type = 'cloud services'
-    group by 1, 2, 3, 4
+    group by 1, 2, 3, 4, 5, 6
 ),
 
 _cloud_services_spend_daily as (
@@ -137,6 +141,7 @@ _cloud_services_spend_daily as (
         null as storage_type,
         case when stg_metering_history.NAME = 'CLOUD_SERVICES_ONLY' then 'Cloud Services Only' else stg_metering_history.NAME end as warehouse_name,
         null as database_name,
+        daily_rates.CURRENCY,
         coalesce(sum(stg_metering_history.credits_used_cloud_services), 0) as credits_used_cloud_services,
         any_value(daily_rates.effective_rate) as effective_rate
     from dates
@@ -147,7 +152,7 @@ _cloud_services_spend_daily as (
         on dates.date = daily_rates.date
             and daily_rates.service_type = 'COMPUTE'
             and daily_rates.usage_type = 'cloud services'
-    group by 1, 2, 3, 4
+    group by 1, 2, 3, 4, 5, 6
 ),
 
 credits_billed_daily as (
@@ -168,6 +173,7 @@ cloud_services_spend_daily as (
         _cloud_services_spend_daily.storage_type,
         _cloud_services_spend_daily.warehouse_name,
         _cloud_services_spend_daily.database_name,
+        _cloud_services_spend_daily.CURRENCY,
         _cloud_services_spend_daily.credits_used_cloud_services * _cloud_services_spend_daily.effective_rate as spend,
 
         (div0(_cloud_services_spend_daily.credits_used_cloud_services, credits_billed_daily.daily_credits_used_cloud_services) * credits_billed_daily.daily_billable_cloud_services) * _cloud_services_spend_daily.effective_rate as spend_net_cloud_services
@@ -184,6 +190,7 @@ automatic_clustering_spend_daily as (
         null as storage_type,
         null as warehouse_name,
         null as database_name,
+        daily_rates."CURRENCY" as "currency",
         coalesce(sum(stg_metering_history."CREDITS_USED" * daily_rates.effective_rate), 0) as spend,
         spend as spend_net_cloud_services
     from dates
@@ -194,7 +201,7 @@ automatic_clustering_spend_daily as (
         on dates.date = daily_rates.date
             and daily_rates.service_type = 'COMPUTE'
             and daily_rates.usage_type = 'automatic clustering'
-    group by 1, 2, 3, 4
+    group by 1, 2, 3, 4, 5, 6
 ),
 
 materialized_view_spend_daily as (
@@ -204,6 +211,7 @@ materialized_view_spend_daily as (
         null as storage_type,
         null as warehouse_name,
         null as database_name,
+        daily_rates."CURRENCY" as "currency",
         coalesce(sum(stg_metering_history."CREDITS_USED" * daily_rates.effective_rate), 0) as spend,
         spend as spend_net_cloud_services
     from dates
@@ -214,7 +222,7 @@ materialized_view_spend_daily as (
         on dates.date = daily_rates.date
             and daily_rates.service_type = 'COMPUTE'
             and daily_rates.usage_type = 'materialized view' {# TODO: need someone to confirm whether its materialized 'view' or 'views' #}
-    group by 1, 2, 3, 4
+    group by 1, 2, 3, 4, 5, 6
 ),
 
 snowpipe_spend_daily as (
@@ -224,6 +232,7 @@ snowpipe_spend_daily as (
         null as storage_type,
         null as warehouse_name,
         null as database_name,
+        daily_rates."CURRENCY" as "currency",
         coalesce(sum(stg_metering_history."CREDITS_USED" * daily_rates.effective_rate), 0) as spend,
         spend as spend_net_cloud_services
     from dates
@@ -234,7 +243,7 @@ snowpipe_spend_daily as (
         on dates.date = daily_rates.date
             and daily_rates.service_type = 'COMPUTE'
             and daily_rates.usage_type = 'snowpipe'
-    group by 1, 2, 3, 4
+    group by 1, 2, 3, 4, 6
 ),
 
 query_acceleration_spend_daily as (
@@ -244,6 +253,7 @@ query_acceleration_spend_daily as (
         null as storage_type,
         null as warehouse_name,
         null as database_name,
+        daily_rates."CURRENCY" as "currency",
         coalesce(sum(stg_metering_history."CREDITS_USED" * daily_rates.effective_rate), 0) as spend,
         spend as spend_net_cloud_services
     from dates
@@ -254,7 +264,7 @@ query_acceleration_spend_daily as (
         on dates.date = daily_rates.date
             and daily_rates.service_type = 'COMPUTE'
             and daily_rates.usage_type = 'query acceleration'
-    group by 1, 2, 3, 4
+    group by 1, 2, 3, 4, 5, 6
 ),
 
 replication_spend_daily as (
@@ -264,6 +274,7 @@ replication_spend_daily as (
         null as storage_type,
         null as warehouse_name,
         null as database_name,
+        daily_rates."CURRENCY" as "currency",
         coalesce(sum(stg_metering_history."CREDITS_USED" * daily_rates.effective_rate), 0) as spend,
         spend as spend_net_cloud_services
     from dates
@@ -274,7 +285,7 @@ replication_spend_daily as (
         on dates.date = daily_rates.date
             and daily_rates.service_type = 'COMPUTE'
             and daily_rates.usage_type = 'replication'
-    group by 1, 2, 3, 4
+    group by 1, 2, 3, 4, 5, 6
 ),
 
 search_optimization_spend_daily as (
@@ -284,6 +295,7 @@ search_optimization_spend_daily as (
         null as storage_type,
         null as warehouse_name,
         null as database_name,
+        daily_rates."CURRENCY" as "currency",
         coalesce(sum(stg_metering_history."CREDITS_USED" * daily_rates.effective_rate), 0) as spend,
         spend as spend_net_cloud_services
     from dates
@@ -294,7 +306,7 @@ search_optimization_spend_daily as (
         on dates.date = daily_rates.date
             and daily_rates.service_type = 'COMPUTE'
             and daily_rates.usage_type = 'search optimization`'
-    group by 1, 2, 3, 4
+    group by 1, 2, 3, 4, 5, 6
 )
 
 select * from storage_spend_daily
