@@ -5,14 +5,14 @@ models:
     columns: 
           - name: Storage_type
             data_type: VARCHAR(0, 0)
-            description: "N/A"
+            description: "Subcategories where service = 'Storage'"
             quote: False
             tests:
               - not_null
 
           - name: Storage_type_id
             data_type: VARCHAR(0, 0)
-            description: "N/A"
+            description: "Generated surrogate_key using storage_type from storage_type table"
             quote: False
             tests:
               - not_null

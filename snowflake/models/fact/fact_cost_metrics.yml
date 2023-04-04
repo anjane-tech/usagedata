@@ -1,0 +1,74 @@
+version: 2
+
+models:
+  - name: fact_cost_metrics
+    columns: 
+          - name: DATE
+            data_type: VARCHAR(0, 0)
+            description: "Date (in the UTC time zone) for the effective price."
+            quote: False
+            tests:
+              - not_null
+          
+          - name: SERVICE_ID
+            data_type: VARCHAR(0, 0)
+            description: "Generated surrogate_key using service from dailyspend sql"
+            quote: False
+            tests:
+              - not_null
+          
+          - name: STORAGE_TYPE_ID
+            data_type: VARCHAR(0, 0)
+            description: "Generated surrogate_key using storage_type from storage_type table"
+            quote: False
+            tests:
+              - not_null
+          
+          - name: WAREHOUSE_ID
+            data_type: VARCHAR(0, 0)
+            description: "Generated surrogate_key using warehouse_name from daily_spend table"
+            quote: False
+            tests:
+              - not_null
+          
+          - name: DATABASE_ID
+            data_type: VARCHAR(0, 0)
+            description: "Generated surrogate_key using database_name from daily_spend table"
+            quote: False
+            tests:
+              - not_null
+          
+          - name: CURRENCY
+            data_type: VARCHAR(0, 0)
+            description: "Currency of the usage."
+            quote: False
+            tests:
+              - not_null
+          
+          - name: SPEND
+            data_type: VARCHAR(0, 0)
+            description: "Spend in the account's currency."
+            quote: False
+            tests:
+              - not_null
+          
+          - name: SPEND_NET_CLOUD_SERVICES
+            data_type: VARCHAR(0, 0)
+            description: "SPEND_NET_CLOUD_SERVICES in the account's currency"
+            quote: False
+            tests:
+              - not_null
+
+          - name: CREATEDTS
+            data_type: TIMESTAMP
+            description: "Table created date timestamp"
+            quote: False
+            tests:
+              - not_null
+
+          - name: UPDATEDDTS
+            data_type: TIMESTAMP
+            description: "Table updated date timestamp"
+            quote: False
+            tests:
+              - not_null

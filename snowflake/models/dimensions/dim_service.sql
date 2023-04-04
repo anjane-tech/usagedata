@@ -13,10 +13,9 @@
 }}
 with
  
-dimensions AS
-              (select DISTINCT SERVICE
-              
-                             from {{ref('daily_spend')}})
+dimensions AS(select 
+                 DISTINCT SERVICE
+              from {{ref('daily_spend')}})
 
 
 SELECT 
