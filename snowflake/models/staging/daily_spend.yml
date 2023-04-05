@@ -16,3 +16,7 @@ models:
       description: Subcategories where service = "Serverless Tasks" or service = "Storage" and storage_type = "Table and Time Travel" or "Failsafe".
     - name: spend
       description: Spend in the account's currency.
+    - name: spend_net_cloud_services
+      description: Spend in the account's currency.  
+    - name: currency
+      description: Currency code of the region.

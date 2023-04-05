@@ -92,8 +92,17 @@ dbt seed --full-refresh
 
 The dimensions are created/load using the incremental strategy. Yaml files are provided for all the models containing column description and tests.
 
+### Fact_Usage_Metrics:
+
+This fact model contains Id & metrics columns of query_history table whereas the Id columns are derived within the fact model using dbt_utils.surrogate_key feature and some Id columns are created by joining some dimension models. In this fact some cost columns like "query_cost", "cloud_compute_cost" and "compute_cost" are calculated per query_id and currency code by region is also added.
+
+### Fact_cost_metrics:
+
+This fact model contains Id & metrics column of daily_spend table whereas the daily_spend is created by joining daily_rates table and multiple tables from account_usage and organization_usage schemas. In this fact the "storage", "compute", "cloud_services" and multiple services cost are calculated and currency code by region is also added.
+
 ### Star Schema ER model of the Data Mart:
 ![Datamart Star Schema](./artifacts/datamart_er_diagram.png)
+![Datamart Star Schema](./artifacts/er_fact_2.png)
 
 ### dbt project Lineage Graph:
 ![Datamart dbt Lineage Graph](./artifacts/snowflake-usagedata-lineage.png)

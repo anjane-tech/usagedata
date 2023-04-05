@@ -20,3 +20,6 @@ models:
         
       - name: is_latest_rate
         description: Indicator for whether the effective_rate is the most recent.
+        
+      - name: currency
+        description: Currency code of the region.
