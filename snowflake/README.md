@@ -101,8 +101,11 @@ This fact model contains Id & metrics columns of query_history table whereas the
 This fact model contains Id & metrics column of daily_spend table whereas the daily_spend is created by joining daily_rates table and multiple tables from account_usage and organization_usage schemas. In this fact the "storage", "compute", "cloud_services" and multiple services cost are calculated and currency code by region is also added.
 
 ### Star Schema ER model of the Data Mart:
+### Fact_Usage_Metrics:
 ![Datamart Star Schema](./artifacts/datamart_er_diagram.png)
-![Datamart Star Schema](./artifacts/er_fact_2.png)
+
+### Fact_cost_metrics
+![Datamart Star Schema](./artifacts/datamart_er_diagram_2.png)
 
 ### dbt project Lineage Graph:
 ![Datamart dbt Lineage Graph](./artifacts/snowflake-usagedata-lineage.png)
