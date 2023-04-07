@@ -1,8 +1,15 @@
--- depends_on: {{ ref('warehouse_metering_history_stage_vw') }}
-{{config(materialized='table',
-        tags = ["staging"],
-        schema = var("usage_data_staging_schema_name"))}}
 
+
+-- depends_on: {{ ref('warehouse_metering_history_stage_vw') }}
+ -- depends_on: {{ ref('usagedata_metadata') }}
+
+
+
+{{config(materialized='incremental',
+        tags = ["staging"],
+        schema = var("usage_data_staging_schema_name"),
+        pre_hook = insert_usagedata_metadata("staging", 'date', this))}}
+   
 with date_spine as (
     {% if execute %}
 {% set stg_warehouse_metering_history_relation = load_relation(ref('warehouse_metering_history_stage_vw')) %}
@@ -70,6 +77,10 @@ storage_spend_daily as (
         on storage_terabytes_daily.date = daily_rates.date
             and daily_rates.service_type = 'STORAGE'
             and daily_rates.usage_type = 'storage'
+  WHERE
+    {% if is_incremental() %}
+  storage_terabytes_daily.date > (SELECT max("{{var('col_update_dts')}}") FROM {{ref('usagedata_metadata')}} WHERE Source = 'staging' )
+{% endif %}
     group by 1, 2, 3, 4, 5, 6
 ),
 
@@ -91,6 +102,10 @@ compute_spend_daily as (
             and daily_rates.service_type = 'COMPUTE'
             and daily_rates.usage_type = 'compute'
     where stg_metering_history.service_type = 'WAREHOUSE_METERING' and stg_metering_history."NAME" != 'CLOUD_SERVICES_ONLY'
+    and 
+    {% if is_incremental() %}
+convert_timezone('UTC', stg_metering_history.start_time)::date > (SELECT max("{{var('col_update_dts')}}") FROM {{ref('usagedata_metadata')}} WHERE Source = 'staging' )
+{% endif %}
     group by 1, 2, 3, 4, 5, 6
 ),
 
@@ -111,6 +126,11 @@ serverless_task_spend_daily as (
         on dates.date = daily_rates.date
             and daily_rates.service_type = 'COMPUTE'
             and daily_rates.usage_type = 'serverless tasks'
+ WHERE
+ {% if is_incremental() %}
+  stg_serverless_task_history.start_time > (SELECT max("{{var('col_update_dts')}}") FROM {{ref('usagedata_metadata')}} WHERE Source = 'staging' )
+{% endif %}
+
     group by 1, 2, 3, 4, 5, 6
 ),
 
@@ -131,6 +151,10 @@ adj_for_incl_cloud_services_daily as (
         on dates.date = daily_rates.date
             and daily_rates.service_type = 'COMPUTE'
             and daily_rates.usage_type = 'cloud services'
+where
+ {% if is_incremental() %}
+ stg_metering_daily_history."USAGE_DATE" > (SELECT max("{{var('col_update_dts')}}") FROM {{ref('usagedata_metadata')}} WHERE Source = 'staging' )
+{% endif %}
     group by 1, 2, 3, 4, 5, 6
 ),
 
@@ -152,8 +176,12 @@ _cloud_services_spend_daily as (
         on dates.date = daily_rates.date
             and daily_rates.service_type = 'COMPUTE'
             and daily_rates.usage_type = 'cloud services'
+where
+ {% if is_incremental() %}
+ convert_timezone('UTC', stg_metering_history.start_time)::date> (SELECT max("{{var('col_update_dts')}}") FROM {{ref('usagedata_metadata')}} WHERE Source = 'staging' )
+{% endif %}
     group by 1, 2, 3, 4, 5, 6
-),
+), 
 
 credits_billed_daily as (
     select
@@ -162,7 +190,12 @@ credits_billed_daily as (
         sum(credits_used_cloud_services + credits_adjustment_cloud_services) as daily_billable_cloud_services
     from {{ ref('metering_daily_history_stage_vw') }}
     where
-        service_type = 'WAREHOUSE_METERING'
+        service_type = 'WAREHOUSE_METERING' 
+        and
+ {% if is_incremental() %}
+         "USAGE_DATE" > (SELECT max("{{var('col_update_dts')}}") FROM {{ref('usagedata_metadata')}} WHERE Source = 'staging' )
+{% endif %}
+
     group by 1
 ),
 
@@ -180,7 +213,10 @@ cloud_services_spend_daily as (
     from _cloud_services_spend_daily
     inner join credits_billed_daily on
          _cloud_services_spend_daily.date = credits_billed_daily.date
-
+WHERE
+ {% if is_incremental() %}
+                _cloud_services_spend_daily.date > (SELECT max("{{var('col_update_dts')}}") FROM {{ref('usagedata_metadata')}} WHERE Source = 'staging' )
+{% endif %}
 ),
 
 automatic_clustering_spend_daily as (
@@ -201,6 +237,12 @@ automatic_clustering_spend_daily as (
         on dates.date = daily_rates.date
             and daily_rates.service_type = 'COMPUTE'
             and daily_rates.usage_type = 'automatic clustering'
+
+WHERE
+ {% if is_incremental() %}
+    convert_timezone('UTC', stg_metering_history.start_time)::date > (SELECT max("{{var('col_update_dts')}}") FROM {{ref('usagedata_metadata')}} WHERE Source = 'staging' )
+{% endif %}
+
     group by 1, 2, 3, 4, 5, 6
 ),
 
@@ -222,6 +264,11 @@ materialized_view_spend_daily as (
         on dates.date = daily_rates.date
             and daily_rates.service_type = 'COMPUTE'
             and daily_rates.usage_type = 'materialized view' {# TODO: need someone to confirm whether its materialized 'view' or 'views' #}
+   WHERE
+ {% if is_incremental() %}
+    convert_timezone('UTC', stg_metering_history.start_time)::date > (SELECT max("{{var('col_update_dts')}}") FROM {{ref('usagedata_metadata')}} WHERE Source = 'staging' )
+{% endif %}
+   
     group by 1, 2, 3, 4, 5, 6
 ),
 
@@ -243,6 +290,12 @@ snowpipe_spend_daily as (
         on dates.date = daily_rates.date
             and daily_rates.service_type = 'COMPUTE'
             and daily_rates.usage_type = 'snowpipe'
+
+WHERE
+ {% if is_incremental() %}
+    convert_timezone('UTC', stg_metering_history.start_time)::date > (SELECT max("{{var('col_update_dts')}}") FROM {{ref('usagedata_metadata')}} WHERE Source = 'staging' )
+{% endif %}
+
     group by 1, 2, 3, 4, 6
 ),
 
@@ -264,6 +317,12 @@ query_acceleration_spend_daily as (
         on dates.date = daily_rates.date
             and daily_rates.service_type = 'COMPUTE'
             and daily_rates.usage_type = 'query acceleration'
+
+WHERE
+ {% if is_incremental() %}
+    convert_timezone('UTC', stg_metering_history.start_time)::date > (SELECT max("{{var('col_update_dts')}}") FROM {{ref('usagedata_metadata')}} WHERE Source = 'staging' )
+{% endif %}
+
     group by 1, 2, 3, 4, 5, 6
 ),
 
@@ -285,6 +344,11 @@ replication_spend_daily as (
         on dates.date = daily_rates.date
             and daily_rates.service_type = 'COMPUTE'
             and daily_rates.usage_type = 'replication'
+WHERE
+ {% if is_incremental() %}
+    convert_timezone('UTC', stg_metering_history.start_time)::date > (SELECT max("{{var('col_update_dts')}}") FROM {{ref('usagedata_metadata')}} WHERE Source = 'staging' )
+{% endif %}
+
     group by 1, 2, 3, 4, 5, 6
 ),
 
@@ -306,6 +370,11 @@ search_optimization_spend_daily as (
         on dates.date = daily_rates.date
             and daily_rates.service_type = 'COMPUTE'
             and daily_rates.usage_type = 'search optimization`'
+
+WHERE
+ {% if is_incremental() %}
+    convert_timezone('UTC', stg_metering_history.start_time)::date > (SELECT max("{{var('col_update_dts')}}") FROM {{ref('usagedata_metadata')}} WHERE Source = 'staging' )
+{% endif %}
     group by 1, 2, 3, 4, 5, 6
 )
 
