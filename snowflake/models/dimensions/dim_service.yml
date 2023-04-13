@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: dim_service
+    columns: 
+          - name: SERVICE_ID
+            data_type: VARCHAR(0, 0)
+            description: "Generated surrogate_key using service from dailyspend sql"
+            quote: False
+            tests:
+              - not_null
+              - unique
+
+          - name: service
+            data_type: VARCHAR(0, 0)
+            description: "Name of the service"
+            quote: False
+            tests:
+              - not_null

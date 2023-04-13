@@ -1,0 +1,54 @@
+version: 2
+sources:
+  - name: "{{var('source')}}"
+    database: "{{var('source')}}"
+    schema: "{{var('sf_src_schema_name')}}"
+    tables: 
+      - name: "{{var('sf_tbl_serverless_task_history')}}"
+        description: "N/A"
+        columns: 
+            - name: START_TIME
+              data_type: TIMESTAMP
+              description: "N/A"
+              quote: true
+            
+            - name: END_TIME
+              data_type: TIMESTAMP
+              description: "N/A"
+              quote: true
+
+            - name: CREDITS_USED
+              data_type: VARCHAR(0, 0)
+              description: "N/A"
+              quote: true
+
+            - name: TASK_ID
+              data_type: VARCHAR(0, 0)
+              description: "N/A"
+              quote: true
+
+            - name: TASK_NAME
+              data_type: VARCHAR(0, 0)
+              description: "N/A"
+              quote: true
+
+            - name: SCHEMA_ID
+              data_type: VARCHAR(0, 0)
+              description: "N/A"
+              quote: true
+
+            - name: SCHEMA_NAME
+              data_type: VARCHAR(0, 0)
+              description: "N/A"
+              quote: true
+
+            - name: DATABASE_ID
+              data_type: VARCHAR(0, 0)
+              description: "N/A"
+              quote: true
+
+            - name: DATABASE_NAME
+              data_type: VARCHAR(0, 0)
+              description: "N/A"
+              quote: true
+

@@ -27,21 +27,17 @@
 
 SELECT 
         AH."QUERY_ID" as "ACCESS_HISTORY_ID",
-
         LH."LOGIN_HISTORY_ID",
         SE."COMBINED_SESSION_ID",
-
-         {{dbt_utils.generate_surrogate_key(["QH.QUERY_ID"])}} "QUERY_ID",
-         {{dbt_utils.generate_surrogate_key(["QH.DATABASE_NAME"])}} "DATABASE_ID",
-         {{dbt_utils.generate_surrogate_key(["QH.ERROR_CODE"])}} "ERROR_ID",
-         {{dbt_utils.generate_surrogate_key(["QH.ROLE_NAME"])}} "ROLES_ID",
-         {{dbt_utils.generate_surrogate_key(["QH.DATABASE_NAME","SCHEMA_NAME"])}} "SCHEMA_ID",
-         {{dbt_utils.generate_surrogate_key(["QH.QUERY_TAG","DATABASE_NAME","SCHEMA_NAME"])}} "TAGS_ID",
-         {{dbt_utils.generate_surrogate_key(["QH.USER_NAME"])}} "COMBINED_USERS_ID",
-         {{dbt_utils.generate_surrogate_key(["QH.WAREHOUSE_NAME"])}} "COMBINED_WAREHOUSE_ID", 
-         {{dbt_utils.generate_surrogate_key(['"AH_database_name"','"AH_table_name"','"AH_schema_name"'])}} "TABLE_ID",     
-
-
+        {{dbt_utils.generate_surrogate_key(["QH.QUERY_ID"])}} "QUERY_ID",
+        {{dbt_utils.generate_surrogate_key(["QH.DATABASE_NAME"])}} "DATABASE_ID",
+        {{dbt_utils.generate_surrogate_key(["QH.ERROR_CODE"])}} "ERROR_ID",
+        {{dbt_utils.generate_surrogate_key(["QH.ROLE_NAME"])}} "ROLES_ID",
+        {{dbt_utils.generate_surrogate_key(["QH.DATABASE_NAME","SCHEMA_NAME"])}} "SCHEMA_ID",
+        {{dbt_utils.generate_surrogate_key(["QH.QUERY_TAG","DATABASE_NAME","SCHEMA_NAME"])}} "TAGS_ID",
+        {{dbt_utils.generate_surrogate_key(["QH.USER_NAME"])}} "COMBINED_USERS_ID",
+        {{dbt_utils.generate_surrogate_key(["QH.WAREHOUSE_NAME"])}} "COMBINED_WAREHOUSE_ID", 
+        {{dbt_utils.generate_surrogate_key(['"AH_database_name"','"AH_table_name"','"AH_schema_name"'])}} "TABLE_ID",     
         to_char(QH."START_TIME", 'YYYYMMDD') as "QUERY_START_DT",
         to_char(QH."END_TIME", 'YYYYMMDD') as "QUERY_END_DT",
         SUM(timestampdiff(milliseconds, QH."START_TIME", QH."END_TIME")/1000)/TC."TABLE_COUNT" AS "QUERY_TIME_IN_SECS",
@@ -64,25 +60,25 @@ SELECT
       INNER JOIN {{ref("dim_login_history")}} LH ON LH."EVENT_ID" = SE."LOGIN_EVENT_ID"
       INNER JOIN {{ref("cost_per_query")}} CPQ ON CPQ."QUERY_ID" = QH."QUERY_ID"
 
-GROUP BY
-        AH."QUERY_ID",
-        QH."QUERY_ID",
-        QH."DATABASE_NAME",
-        QH."ERROR_CODE",
-        QH."ROLE_NAME",
-        QH."SCHEMA_NAME",
-        QH."QUERY_TAG",
-        QH."USER_NAME",
-        QH."WAREHOUSE_NAME",
-        "AH_database_name",
-        "AH_table_name",
-        "AH_schema_name",
-        LH."LOGIN_HISTORY_ID",
-        SE."COMBINED_SESSION_ID",        
-        CPQ."CURRENCY",
-        TC."TABLE_COUNT",
-        to_char(QH."START_TIME", 'YYYYMMDD'),
-        to_char(QH."END_TIME", 'YYYYMMDD')
+    GROUP BY
+      AH."QUERY_ID",
+      QH."QUERY_ID",
+      QH."DATABASE_NAME",
+      QH."ERROR_CODE",
+      QH."ROLE_NAME",
+      QH."SCHEMA_NAME",
+      QH."QUERY_TAG",
+      QH."USER_NAME",
+      QH."WAREHOUSE_NAME",
+      "AH_database_name",
+      "AH_table_name",
+      "AH_schema_name",
+      LH."LOGIN_HISTORY_ID",
+      SE."COMBINED_SESSION_ID",        
+      CPQ."CURRENCY",
+      TC."TABLE_COUNT",
+      to_char(QH."START_TIME", 'YYYYMMDD'),
+      to_char(QH."END_TIME", 'YYYYMMDD')
 
 
  
