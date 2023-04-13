@@ -6,7 +6,7 @@
 {{config(materialized='incremental',
         tags = ["staging"],
         schema = var("usage_data_staging_schema_name"),
-        merge_update_columns = ['date','SPEND','SPEND_NET_CLOUD_SERVICES'],
+        merge_update_columns = ['date','SPEND','SPEND_NET_CLOUD_SERVICES','CURRENCY'],
         pre_hook = insert_usagedata_metadata("cost", 'date', this))}}
    
 with date_spine as (

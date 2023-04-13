@@ -2,7 +2,7 @@
 {{
   config(
     materialized='incremental',
-    merge_update_columns = ['var("col_update_dts")','SPEND','SPEND_NET_CLOUD_SERVICES'],
+    merge_update_columns = ['var("col_update_dts")','SPEND','SPEND_NET_CLOUD_SERVICES','CURRENCY'],
     tags = ["fact"],
     schema = var("usage_data_datamart_schema_name")
   )
