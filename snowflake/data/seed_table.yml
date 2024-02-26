@@ -1,0 +1,29 @@
+version: 2
+seeds: 
+    - name: table
+      config:
+        +schema: seed
+        alias: table_csv
+        column_types:
+              TABLE_CATALOG: VARCHAR          
+              TABLE_SCHEMA: VARCHAR            
+              TABLE_NAME: VARCHAR
+              TABLE_OWNER: VARCHAR
+              TABLE_TYPE: VARCHAR
+              IS_TRANSIENT: VARCHAR
+              CLUSTERING_KEY: VARCHAR
+              ROW_COUNT: VARCHAR
+              BYTES: VARCHAR
+              RETENTION_TIME: VARCHAR
+              SELF_REFERENCING_COLUMN_NAME: VARCHAR
+              REFERENCE_GENERATION: VARCHAR
+              USER_DEFINED_TYPE_CATALOG: VARCHAR
+              USER_DEFINED_TYPE_SCHEMA: VARCHAR              
+              USER_DEFINED_TYPE_NAME: VARCHAR
+              IS_INSERTABLE_INTO: VARCHAR
+              IS_TYPED: VARCHAR
+              COMMIT_ACTION: VARCHAR
+              CREATED: VARCHAR
+              LAST_ALTERED: VARCHAR            
+              AUTO_CLUSTERING_ON: VARCHAR            
+              COMMENT: VARCHAR       

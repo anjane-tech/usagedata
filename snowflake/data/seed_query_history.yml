@@ -1,0 +1,43 @@
+version: 2
+seeds: 
+    - name: query_history
+      config:
+        +schema: seed
+        alias: query_history_csv
+        column_types:
+                QUERY_ID: VARCHAR
+                QUERY_TEXT: VARCHAR
+                DATABASE_NAME: VARCHAR
+                SCHEMA_NAME: VARCHAR
+                QUERY_TYPE: VARCHAR
+                SESSION_ID: VARCHAR
+                USER_NAME: VARCHAR
+                ROLE_NAME: VARCHAR
+                WAREHOUSE_NAME: VARCHAR
+                WAREHOUSE_SIZE: VARCHAR
+                WAREHOUSE_TYPE: VARCHAR
+                CLUSTER_NUMBER: VARCHAR
+                QUERY_TAG: VARCHAR
+                EXECUTION_STATUS: VARCHAR
+                ERROR_CODE: VARCHAR
+                ERROR_MESSAGE: VARCHAR
+                START_TIME: VARCHAR
+                END_TIME: VARCHAR
+                TOTAL_ELAPSED_TIME: VARCHAR              
+                BYTES_SCANNED: VARCHAR              
+                ROWS_PRODUCED: VARCHAR              
+                COMPILATION_TIME: VARCHAR              
+                EXECUTION_TIME: VARCHAR
+                QUEUED_PROVISIONING_TIME: VARCHAR
+                QUEUED_REPAIR_TIME: VARCHAR
+                QUEUED_OVERLOAD_TIME: VARCHAR              
+                TRANSACTION_BLOCKED_TIME: VARCHAR
+                OUTBOUND_DATA_TRANSFER_CLOUD: VARCHAR
+                OUTBOUND_DATA_TRANSFER_REGION: VARCHAR
+                OUTBOUND_DATA_TRANSFER_BYTES: DECIMAL(38, 10)
+                INBOUND_DATA_TRANSFER_CLOUD: VARCHAR              
+                INBOUND_DATA_TRANSFER_REGION: VARCHAR              
+                INBOUND_DATA_TRANSFER_BYTES: DECIMAL(38, 10)
+                CREDITS_USED_CLOUD_SERVICES: VARCHAR
+                EXTERNAL_FUNCTION_TOTAL_RECEIVED_BYTES: DECIMAL(38, 10)
+                IS_CLIENT_GENERATED_STATEMENT: VARCHAR

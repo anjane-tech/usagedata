@@ -1,0 +1,20 @@
+version: 2
+seeds: 
+    - name: tags
+      config:
+        +schema: seed
+        alias: tags_csv
+        column_types:
+              TAG_ID: VARCHAR
+              TAG_NAME: VARCHAR
+              TAG_SCHEMA_ID: VARCHAR  
+              TAG_SCHEMA: VARCHAR
+              TAG_DATABASE_ID: VARCHAR
+              TAG_DATABASE: VARCHAR
+              TAG_OWNER: VARCHAR
+              TAG_COMMENT: VARCHAR
+              CREATED: VARCHAR
+              LAST_ALTERED: VARCHAR
+              DELETED: VARCHAR
+              ALLOWED_VALUES: VARCHAR
+                

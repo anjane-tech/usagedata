@@ -1,0 +1,21 @@
+version: 2
+seeds: 
+    - name: schema
+      config:
+        +schema: seed
+        alias: schema_csv
+        column_types:
+              CATALOG_NAME: VARCHAR
+              SCHEMA_NAME: VARCHAR
+              SCHEMA_OWNER: VARCHAR
+              IS_TRANSIENT: VARCHAR
+              IS_MANAGED_ACCESS: VARCHAR
+              RETENTION_TIME: VARCHAR
+              DEFAULT_CHARACTER_SET_CATALOG: VARCHAR
+              DEFAULT_CHARACTER_SET_SCHEMA: VARCHAR
+              DEFAULT_CHARACTER_SET_NAME: VARCHAR
+              SQL_PATH: VARCHAR
+              CREATED: VARCHAR
+              LAST_ALTERED: VARCHAR
+              COMMENT: VARCHAR
+              

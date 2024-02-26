@@ -3,4 +3,4 @@
         schema = var("usage_data_staging_schema_name"))}}
         
  select * 
- from {{ref("errors_seed")}}
+ from {{ref("errors")}}

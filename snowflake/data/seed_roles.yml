@@ -1,0 +1,11 @@
+version: 2
+seeds: 
+    - name: roles
+      config:
+        +schema: seed
+        alias: roles_csv
+        column_types:
+              NAME: VARCHAR
+              COMMENT: VARCHAR
+              CREATED_ON: VARCHAR
+              DELETED_ON: VARCHAR
