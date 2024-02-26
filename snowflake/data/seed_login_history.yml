@@ -1,0 +1,21 @@
+version: 2
+seeds: 
+    - name: login_history
+      config:
+        +schema: seed
+        alias: login_history_csv
+        column_types:
+                EVENT_TIMESTAMP: VARCHAR
+                EVENT_ID: VARCHAR
+                EVENT_TYPE: VARCHAR
+                USER_NAME: VARCHAR
+                CLIENT_IP: VARCHAR
+                REPORTED_CLIENT_TYPE: VARCHAR
+                REPORTED_CLIENT_VERSION: VARCHAR
+                FIRST_AUTHENTICATION_FACTOR	: VARCHAR
+                SECOND_AUTHENTICATION_FACTOR: VARCHAR
+                IS_SUCCESS: VARCHAR
+                ERROR_CODE: VARCHAR
+                ERROR_MESSAGE: VARCHAR
+                RELATED_EVENT_ID: VARCHAR
+                CONNECTION: VARCHAR

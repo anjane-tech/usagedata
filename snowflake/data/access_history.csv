@@ -1,0 +1,1717 @@
+﻿QUERY_ID,QUERY_START_TIME,USER_NAME,DIRECT_OBJECTS_ACCESSED,BASE_OBJECTS_ACCESSED,OBJECTS_MODIFIED
+019d50ef-0400-d301-0043-888300d6830e,2021-07-02 04:27:57.603 -0700,AXJ1011,"[
+  {
+    ""columns"": [
+      {
+        ""columnId"": 21516,
+        ""columnName"": ""MODEL""
+      },
+      {
+        ""columnId"": 21510,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 21519,
+        ""columnName"": ""WEBURL""
+      },
+      {
+        ""columnId"": 21515,
+        ""columnName"": ""SKU""
+      },
+      {
+        ""columnId"": 21518,
+        ""columnName"": ""DESCRIPTION""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 22530,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.DWPRODUCT_CURRENT""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 21565,
+        ""columnName"": ""HASH_FULL_RECORD""
+      },
+      {
+        ""columnId"": 21561,
+        ""columnName"": ""LOADDTS""
+      },
+      {
+        ""columnId"": 21573,
+        ""columnName"": ""INVENTORY""
+      },
+      {
+        ""columnId"": 57347,
+        ""columnName"": ""METADATAROW_ID""
+      },
+      {
+        ""columnId"": 21570,
+        ""columnName"": ""LOCALDATE""
+      },
+      {
+        ""columnId"": 21569,
+        ""columnName"": ""LOCALTIME_""
+      },
+      {
+        ""columnId"": 21568,
+        ""columnName"": ""DATEBEGIN""
+      },
+      {
+        ""columnId"": 21577,
+        ""columnName"": ""SNAPSHOT_DATE""
+      },
+      {
+        ""columnId"": 21572,
+        ""columnName"": ""CURRENCYID""
+      },
+      {
+        ""columnId"": 21576,
+        ""columnName"": ""AVAILABILITY""
+      },
+      {
+        ""columnId"": 21571,
+        ""columnName"": ""PRICE""
+      },
+      {
+        ""columnId"": 57346,
+        ""columnName"": ""METADATAISUPDATE""
+      },
+      {
+        ""columnId"": 21562,
+        ""columnName"": ""EVENTDTS""
+      },
+      {
+        ""columnId"": 21567,
+        ""columnName"": ""STOREID""
+      },
+      {
+        ""columnId"": 21575,
+        ""columnName"": ""FIRSTONDAY""
+      },
+      {
+        ""columnId"": 57345,
+        ""columnName"": ""METADATAACTION""
+      },
+      {
+        ""columnId"": 21566,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 21574,
+        ""columnName"": ""SALES""
+      },
+      {
+        ""columnId"": 21564,
+        ""columnName"": ""ROW_SQN""
+      },
+      {
+        ""columnId"": 21563,
+        ""columnName"": ""REC_SRC""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 22541,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.DWSKUBYDAYLOCALBYSTORECOMPACT_CURRENT""
+  }
+]","[
+  {
+    ""columns"": [
+      {
+        ""columnId"": 21516,
+        ""columnName"": ""MODEL""
+      },
+      {
+        ""columnId"": 21510,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 21519,
+        ""columnName"": ""WEBURL""
+      },
+      {
+        ""columnId"": 21515,
+        ""columnName"": ""SKU""
+      },
+      {
+        ""columnId"": 21518,
+        ""columnName"": ""DESCRIPTION""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 22530,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.DWPRODUCT_CURRENT""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 21565,
+        ""columnName"": ""HASH_FULL_RECORD""
+      },
+      {
+        ""columnId"": 21561,
+        ""columnName"": ""LOADDTS""
+      },
+      {
+        ""columnId"": 21573,
+        ""columnName"": ""INVENTORY""
+      },
+      {
+        ""columnId"": 57347,
+        ""columnName"": ""METADATAROW_ID""
+      },
+      {
+        ""columnId"": 21570,
+        ""columnName"": ""LOCALDATE""
+      },
+      {
+        ""columnId"": 21569,
+        ""columnName"": ""LOCALTIME_""
+      },
+      {
+        ""columnId"": 21568,
+        ""columnName"": ""DATEBEGIN""
+      },
+      {
+        ""columnId"": 21577,
+        ""columnName"": ""SNAPSHOT_DATE""
+      },
+      {
+        ""columnId"": 21572,
+        ""columnName"": ""CURRENCYID""
+      },
+      {
+        ""columnId"": 21576,
+        ""columnName"": ""AVAILABILITY""
+      },
+      {
+        ""columnId"": 21571,
+        ""columnName"": ""PRICE""
+      },
+      {
+        ""columnId"": 57346,
+        ""columnName"": ""METADATAISUPDATE""
+      },
+      {
+        ""columnId"": 21562,
+        ""columnName"": ""EVENTDTS""
+      },
+      {
+        ""columnId"": 21567,
+        ""columnName"": ""STOREID""
+      },
+      {
+        ""columnId"": 21575,
+        ""columnName"": ""FIRSTONDAY""
+      },
+      {
+        ""columnId"": 57345,
+        ""columnName"": ""METADATAACTION""
+      },
+      {
+        ""columnId"": 21566,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 21574,
+        ""columnName"": ""SALES""
+      },
+      {
+        ""columnId"": 21564,
+        ""columnName"": ""ROW_SQN""
+      },
+      {
+        ""columnId"": 21563,
+        ""columnName"": ""REC_SRC""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 22541,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.DWSKUBYDAYLOCALBYSTORECOMPACT_CURRENT""
+  }
+]",[]
+019d50f1-0400-d05b-0043-888300d6d77a,2021-07-02 04:29:07.853 -0700,AXJ1011,"[
+  {
+    ""columns"": [
+      {
+        ""columnId"": 21516,
+        ""columnName"": ""MODEL""
+      },
+      {
+        ""columnId"": 21510,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 21519,
+        ""columnName"": ""WEBURL""
+      },
+      {
+        ""columnId"": 21515,
+        ""columnName"": ""SKU""
+      },
+      {
+        ""columnId"": 21518,
+        ""columnName"": ""DESCRIPTION""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 22530,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.DWPRODUCT_CURRENT""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 21565,
+        ""columnName"": ""HASH_FULL_RECORD""
+      },
+      {
+        ""columnId"": 21561,
+        ""columnName"": ""LOADDTS""
+      },
+      {
+        ""columnId"": 21573,
+        ""columnName"": ""INVENTORY""
+      },
+      {
+        ""columnId"": 57347,
+        ""columnName"": ""METADATAROW_ID""
+      },
+      {
+        ""columnId"": 21570,
+        ""columnName"": ""LOCALDATE""
+      },
+      {
+        ""columnId"": 21569,
+        ""columnName"": ""LOCALTIME_""
+      },
+      {
+        ""columnId"": 21568,
+        ""columnName"": ""DATEBEGIN""
+      },
+      {
+        ""columnId"": 21577,
+        ""columnName"": ""SNAPSHOT_DATE""
+      },
+      {
+        ""columnId"": 21572,
+        ""columnName"": ""CURRENCYID""
+      },
+      {
+        ""columnId"": 21576,
+        ""columnName"": ""AVAILABILITY""
+      },
+      {
+        ""columnId"": 21571,
+        ""columnName"": ""PRICE""
+      },
+      {
+        ""columnId"": 57346,
+        ""columnName"": ""METADATAISUPDATE""
+      },
+      {
+        ""columnId"": 21562,
+        ""columnName"": ""EVENTDTS""
+      },
+      {
+        ""columnId"": 21567,
+        ""columnName"": ""STOREID""
+      },
+      {
+        ""columnId"": 21575,
+        ""columnName"": ""FIRSTONDAY""
+      },
+      {
+        ""columnId"": 57345,
+        ""columnName"": ""METADATAACTION""
+      },
+      {
+        ""columnId"": 21566,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 21574,
+        ""columnName"": ""SALES""
+      },
+      {
+        ""columnId"": 21564,
+        ""columnName"": ""ROW_SQN""
+      },
+      {
+        ""columnId"": 21563,
+        ""columnName"": ""REC_SRC""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 22541,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.DWSKUBYDAYLOCALBYSTORECOMPACT_CURRENT""
+  }
+]","[
+  {
+    ""columns"": [
+      {
+        ""columnId"": 21516,
+        ""columnName"": ""MODEL""
+      },
+      {
+        ""columnId"": 21510,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 21519,
+        ""columnName"": ""WEBURL""
+      },
+      {
+        ""columnId"": 21515,
+        ""columnName"": ""SKU""
+      },
+      {
+        ""columnId"": 21518,
+        ""columnName"": ""DESCRIPTION""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 22530,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.DWPRODUCT_CURRENT""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 21565,
+        ""columnName"": ""HASH_FULL_RECORD""
+      },
+      {
+        ""columnId"": 21561,
+        ""columnName"": ""LOADDTS""
+      },
+      {
+        ""columnId"": 21573,
+        ""columnName"": ""INVENTORY""
+      },
+      {
+        ""columnId"": 57347,
+        ""columnName"": ""METADATAROW_ID""
+      },
+      {
+        ""columnId"": 21570,
+        ""columnName"": ""LOCALDATE""
+      },
+      {
+        ""columnId"": 21569,
+        ""columnName"": ""LOCALTIME_""
+      },
+      {
+        ""columnId"": 21568,
+        ""columnName"": ""DATEBEGIN""
+      },
+      {
+        ""columnId"": 21577,
+        ""columnName"": ""SNAPSHOT_DATE""
+      },
+      {
+        ""columnId"": 21572,
+        ""columnName"": ""CURRENCYID""
+      },
+      {
+        ""columnId"": 21576,
+        ""columnName"": ""AVAILABILITY""
+      },
+      {
+        ""columnId"": 21571,
+        ""columnName"": ""PRICE""
+      },
+      {
+        ""columnId"": 57346,
+        ""columnName"": ""METADATAISUPDATE""
+      },
+      {
+        ""columnId"": 21562,
+        ""columnName"": ""EVENTDTS""
+      },
+      {
+        ""columnId"": 21567,
+        ""columnName"": ""STOREID""
+      },
+      {
+        ""columnId"": 21575,
+        ""columnName"": ""FIRSTONDAY""
+      },
+      {
+        ""columnId"": 57345,
+        ""columnName"": ""METADATAACTION""
+      },
+      {
+        ""columnId"": 21566,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 21574,
+        ""columnName"": ""SALES""
+      },
+      {
+        ""columnId"": 21564,
+        ""columnName"": ""ROW_SQN""
+      },
+      {
+        ""columnId"": 21563,
+        ""columnName"": ""REC_SRC""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 22541,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.DWSKUBYDAYLOCALBYSTORECOMPACT_CURRENT""
+  }
+]",[]
+019d50f1-0400-d2ed-0043-888300d6ca76,2021-07-02 04:29:18.296 -0700,AXJ1011,"[
+  {
+    ""columns"": [
+      {
+        ""columnId"": 21516,
+        ""columnName"": ""MODEL""
+      },
+      {
+        ""columnId"": 21510,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 21519,
+        ""columnName"": ""WEBURL""
+      },
+      {
+        ""columnId"": 21515,
+        ""columnName"": ""SKU""
+      },
+      {
+        ""columnId"": 21518,
+        ""columnName"": ""DESCRIPTION""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 22530,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.DWPRODUCT_CURRENT""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 21565,
+        ""columnName"": ""HASH_FULL_RECORD""
+      },
+      {
+        ""columnId"": 21561,
+        ""columnName"": ""LOADDTS""
+      },
+      {
+        ""columnId"": 21573,
+        ""columnName"": ""INVENTORY""
+      },
+      {
+        ""columnId"": 57347,
+        ""columnName"": ""METADATAROW_ID""
+      },
+      {
+        ""columnId"": 21570,
+        ""columnName"": ""LOCALDATE""
+      },
+      {
+        ""columnId"": 21569,
+        ""columnName"": ""LOCALTIME_""
+      },
+      {
+        ""columnId"": 21568,
+        ""columnName"": ""DATEBEGIN""
+      },
+      {
+        ""columnId"": 21577,
+        ""columnName"": ""SNAPSHOT_DATE""
+      },
+      {
+        ""columnId"": 21572,
+        ""columnName"": ""CURRENCYID""
+      },
+      {
+        ""columnId"": 21576,
+        ""columnName"": ""AVAILABILITY""
+      },
+      {
+        ""columnId"": 21571,
+        ""columnName"": ""PRICE""
+      },
+      {
+        ""columnId"": 57346,
+        ""columnName"": ""METADATAISUPDATE""
+      },
+      {
+        ""columnId"": 21562,
+        ""columnName"": ""EVENTDTS""
+      },
+      {
+        ""columnId"": 21567,
+        ""columnName"": ""STOREID""
+      },
+      {
+        ""columnId"": 21575,
+        ""columnName"": ""FIRSTONDAY""
+      },
+      {
+        ""columnId"": 57345,
+        ""columnName"": ""METADATAACTION""
+      },
+      {
+        ""columnId"": 21566,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 21574,
+        ""columnName"": ""SALES""
+      },
+      {
+        ""columnId"": 21564,
+        ""columnName"": ""ROW_SQN""
+      },
+      {
+        ""columnId"": 21563,
+        ""columnName"": ""REC_SRC""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 22541,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.DWSKUBYDAYLOCALBYSTORECOMPACT_CURRENT""
+  }
+]","[
+  {
+    ""columns"": [
+      {
+        ""columnId"": 21516,
+        ""columnName"": ""MODEL""
+      },
+      {
+        ""columnId"": 21510,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 21519,
+        ""columnName"": ""WEBURL""
+      },
+      {
+        ""columnId"": 21515,
+        ""columnName"": ""SKU""
+      },
+      {
+        ""columnId"": 21518,
+        ""columnName"": ""DESCRIPTION""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 22530,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.DWPRODUCT_CURRENT""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 21565,
+        ""columnName"": ""HASH_FULL_RECORD""
+      },
+      {
+        ""columnId"": 21561,
+        ""columnName"": ""LOADDTS""
+      },
+      {
+        ""columnId"": 21573,
+        ""columnName"": ""INVENTORY""
+      },
+      {
+        ""columnId"": 57347,
+        ""columnName"": ""METADATAROW_ID""
+      },
+      {
+        ""columnId"": 21570,
+        ""columnName"": ""LOCALDATE""
+      },
+      {
+        ""columnId"": 21569,
+        ""columnName"": ""LOCALTIME_""
+      },
+      {
+        ""columnId"": 21568,
+        ""columnName"": ""DATEBEGIN""
+      },
+      {
+        ""columnId"": 21577,
+        ""columnName"": ""SNAPSHOT_DATE""
+      },
+      {
+        ""columnId"": 21572,
+        ""columnName"": ""CURRENCYID""
+      },
+      {
+        ""columnId"": 21576,
+        ""columnName"": ""AVAILABILITY""
+      },
+      {
+        ""columnId"": 21571,
+        ""columnName"": ""PRICE""
+      },
+      {
+        ""columnId"": 57346,
+        ""columnName"": ""METADATAISUPDATE""
+      },
+      {
+        ""columnId"": 21562,
+        ""columnName"": ""EVENTDTS""
+      },
+      {
+        ""columnId"": 21567,
+        ""columnName"": ""STOREID""
+      },
+      {
+        ""columnId"": 21575,
+        ""columnName"": ""FIRSTONDAY""
+      },
+      {
+        ""columnId"": 57345,
+        ""columnName"": ""METADATAACTION""
+      },
+      {
+        ""columnId"": 21566,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 21574,
+        ""columnName"": ""SALES""
+      },
+      {
+        ""columnId"": 21564,
+        ""columnName"": ""ROW_SQN""
+      },
+      {
+        ""columnId"": 21563,
+        ""columnName"": ""REC_SRC""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 22541,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.DWSKUBYDAYLOCALBYSTORECOMPACT_CURRENT""
+  }
+]",[]
+019d266d-0400-c57c-0043-8883006cc312,2021-06-24 15:05:00.612 -0700,JXV0109A,"[
+  {
+    ""columns"": [
+      {
+        ""columnId"": 166921,
+        ""columnName"": ""DIDNOTFINDHELPFUL""
+      },
+      {
+        ""columnId"": 166920,
+        ""columnName"": ""FOUNDHELPFUL""
+      },
+      {
+        ""columnId"": 166922,
+        ""columnName"": ""VERIFIEDPURCHASE""
+      },
+      {
+        ""columnId"": 166919,
+        ""columnName"": ""REVIEWID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 130050,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.REVIEWREVIEWSDETAILS_CURRENT_TEST""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 165894,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 165895,
+        ""columnName"": ""REVIEWID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 129026,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.REVIEWREVIEWSMAIN_CURRENT_TEST""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 167942,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 167943,
+        ""columnName"": ""CRAWLERID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 132098,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.DWPRODUCT_CURRENT_TEST""
+  }
+]","[
+  {
+    ""columns"": [
+      {
+        ""columnId"": 166921,
+        ""columnName"": ""DIDNOTFINDHELPFUL""
+      },
+      {
+        ""columnId"": 166920,
+        ""columnName"": ""FOUNDHELPFUL""
+      },
+      {
+        ""columnId"": 166922,
+        ""columnName"": ""VERIFIEDPURCHASE""
+      },
+      {
+        ""columnId"": 166919,
+        ""columnName"": ""REVIEWID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 130050,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.REVIEWREVIEWSDETAILS_CURRENT_TEST""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 165894,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 165895,
+        ""columnName"": ""REVIEWID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 129026,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.REVIEWREVIEWSMAIN_CURRENT_TEST""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 167942,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 167943,
+        ""columnName"": ""CRAWLERID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 132098,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.DWPRODUCT_CURRENT_TEST""
+  }
+]",[]
+019d259f-0400-c8dc-0043-888300693b62,2021-06-24 11:39:42.506 -0700,JXV0109A,"[
+  {
+    ""columns"": [
+      {
+        ""columnId"": 166921,
+        ""columnName"": ""DIDNOTFINDHELPFUL""
+      },
+      {
+        ""columnId"": 166920,
+        ""columnName"": ""FOUNDHELPFUL""
+      },
+      {
+        ""columnId"": 166922,
+        ""columnName"": ""VERIFIEDPURCHASE""
+      },
+      {
+        ""columnId"": 166919,
+        ""columnName"": ""REVIEWID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 130050,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.REVIEWREVIEWSDETAILS_CURRENT_TEST""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 165894,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 165895,
+        ""columnName"": ""REVIEWID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 129026,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.REVIEWREVIEWSMAIN_CURRENT_TEST""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 167942,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 167943,
+        ""columnName"": ""CRAWLERID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 132098,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.DWPRODUCT_CURRENT_TEST""
+  }
+]","[
+  {
+    ""columns"": [
+      {
+        ""columnId"": 166921,
+        ""columnName"": ""DIDNOTFINDHELPFUL""
+      },
+      {
+        ""columnId"": 166920,
+        ""columnName"": ""FOUNDHELPFUL""
+      },
+      {
+        ""columnId"": 166922,
+        ""columnName"": ""VERIFIEDPURCHASE""
+      },
+      {
+        ""columnId"": 166919,
+        ""columnName"": ""REVIEWID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 130050,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.REVIEWREVIEWSDETAILS_CURRENT_TEST""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 165894,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 165895,
+        ""columnName"": ""REVIEWID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 129026,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.REVIEWREVIEWSMAIN_CURRENT_TEST""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 167942,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 167943,
+        ""columnName"": ""CRAWLERID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 132098,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.DWPRODUCT_CURRENT_TEST""
+  }
+]",[]
+019d2671-0400-c839-0043-8883006c8cda,2021-06-24 15:09:08.702 -0700,JXV0109A,"[
+  {
+    ""columns"": [
+      {
+        ""columnId"": 166921,
+        ""columnName"": ""DIDNOTFINDHELPFUL""
+      },
+      {
+        ""columnId"": 166920,
+        ""columnName"": ""FOUNDHELPFUL""
+      },
+      {
+        ""columnId"": 166922,
+        ""columnName"": ""VERIFIEDPURCHASE""
+      },
+      {
+        ""columnId"": 166919,
+        ""columnName"": ""REVIEWID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 130050,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.REVIEWREVIEWSDETAILS_CURRENT_TEST""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 165894,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 165895,
+        ""columnName"": ""REVIEWID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 129026,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.REVIEWREVIEWSMAIN_CURRENT_TEST""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 167942,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 167943,
+        ""columnName"": ""CRAWLERID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 132098,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.DWPRODUCT_CURRENT_TEST""
+  }
+]","[
+  {
+    ""columns"": [
+      {
+        ""columnId"": 166921,
+        ""columnName"": ""DIDNOTFINDHELPFUL""
+      },
+      {
+        ""columnId"": 166920,
+        ""columnName"": ""FOUNDHELPFUL""
+      },
+      {
+        ""columnId"": 166922,
+        ""columnName"": ""VERIFIEDPURCHASE""
+      },
+      {
+        ""columnId"": 166919,
+        ""columnName"": ""REVIEWID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 130050,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.REVIEWREVIEWSDETAILS_CURRENT_TEST""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 165894,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 165895,
+        ""columnName"": ""REVIEWID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 129026,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.REVIEWREVIEWSMAIN_CURRENT_TEST""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 167942,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 167943,
+        ""columnName"": ""CRAWLERID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 132098,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.DWPRODUCT_CURRENT_TEST""
+  }
+]",[]
+019d2670-0400-c8dc-0043-8883006c9c02,2021-06-24 15:08:21.138 -0700,JXV0109A,"[
+  {
+    ""columns"": [
+      {
+        ""columnId"": 166921,
+        ""columnName"": ""DIDNOTFINDHELPFUL""
+      },
+      {
+        ""columnId"": 166920,
+        ""columnName"": ""FOUNDHELPFUL""
+      },
+      {
+        ""columnId"": 166922,
+        ""columnName"": ""VERIFIEDPURCHASE""
+      },
+      {
+        ""columnId"": 166919,
+        ""columnName"": ""REVIEWID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 130050,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.REVIEWREVIEWSDETAILS_CURRENT_TEST""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 165894,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 165895,
+        ""columnName"": ""REVIEWID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 129026,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.REVIEWREVIEWSMAIN_CURRENT_TEST""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 167942,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 167943,
+        ""columnName"": ""CRAWLERID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 132098,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.DWPRODUCT_CURRENT_TEST""
+  }
+]","[
+  {
+    ""columns"": [
+      {
+        ""columnId"": 166921,
+        ""columnName"": ""DIDNOTFINDHELPFUL""
+      },
+      {
+        ""columnId"": 166920,
+        ""columnName"": ""FOUNDHELPFUL""
+      },
+      {
+        ""columnId"": 166922,
+        ""columnName"": ""VERIFIEDPURCHASE""
+      },
+      {
+        ""columnId"": 166919,
+        ""columnName"": ""REVIEWID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 130050,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.REVIEWREVIEWSDETAILS_CURRENT_TEST""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 165894,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 165895,
+        ""columnName"": ""REVIEWID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 129026,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.REVIEWREVIEWSMAIN_CURRENT_TEST""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 167942,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 167943,
+        ""columnName"": ""CRAWLERID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 132098,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.DWPRODUCT_CURRENT_TEST""
+  }
+]",[]
+019d2577-0400-c85d-0043-88830068c3ea,2021-06-24 10:59:43.007 -0700,JXV0109A,"[
+  {
+    ""columns"": [
+      {
+        ""columnId"": 166921,
+        ""columnName"": ""DIDNOTFINDHELPFUL""
+      },
+      {
+        ""columnId"": 166920,
+        ""columnName"": ""FOUNDHELPFUL""
+      },
+      {
+        ""columnId"": 166922,
+        ""columnName"": ""VERIFIEDPURCHASE""
+      },
+      {
+        ""columnId"": 166919,
+        ""columnName"": ""REVIEWID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 130050,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.REVIEWREVIEWSDETAILS_CURRENT_TEST""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 165894,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 165895,
+        ""columnName"": ""REVIEWID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 129026,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.REVIEWREVIEWSMAIN_CURRENT_TEST""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 167942,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 167943,
+        ""columnName"": ""CRAWLERID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 132098,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.DWPRODUCT_CURRENT_TEST""
+  }
+]","[
+  {
+    ""columns"": [
+      {
+        ""columnId"": 166921,
+        ""columnName"": ""DIDNOTFINDHELPFUL""
+      },
+      {
+        ""columnId"": 166920,
+        ""columnName"": ""FOUNDHELPFUL""
+      },
+      {
+        ""columnId"": 166922,
+        ""columnName"": ""VERIFIEDPURCHASE""
+      },
+      {
+        ""columnId"": 166919,
+        ""columnName"": ""REVIEWID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 130050,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.REVIEWREVIEWSDETAILS_CURRENT_TEST""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 165894,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 165895,
+        ""columnName"": ""REVIEWID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 129026,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.REVIEWREVIEWSMAIN_CURRENT_TEST""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 167942,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 167943,
+        ""columnName"": ""CRAWLERID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 132098,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.DWPRODUCT_CURRENT_TEST""
+  }
+]",[]
+019fc7ca-0601-4376-0043-888301c4ec22,2021-10-22 08:06:16.589 -0700,DEV_ATTUSER,"[
+  {
+    ""columns"": [
+      {
+        ""columnId"": 912816,
+        ""columnName"": ""col22""
+      },
+      {
+        ""columnId"": 912814,
+        ""columnName"": ""col20""
+      },
+      {
+        ""columnId"": 912818,
+        ""columnName"": ""col24""
+      },
+      {
+        ""columnId"": 912820,
+        ""columnName"": ""col26""
+      },
+      {
+        ""columnId"": 912822,
+        ""columnName"": ""col28""
+      },
+      {
+        ""columnId"": 912802,
+        ""columnName"": ""col8""
+      },
+      {
+        ""columnId"": 912800,
+        ""columnName"": ""col6""
+      },
+      {
+        ""columnId"": 912798,
+        ""columnName"": ""col4""
+      },
+      {
+        ""columnId"": 912796,
+        ""columnName"": ""col2""
+      },
+      {
+        ""columnId"": 912805,
+        ""columnName"": ""col11""
+      },
+      {
+        ""columnId"": 912809,
+        ""columnName"": ""col15""
+      },
+      {
+        ""columnId"": 912807,
+        ""columnName"": ""col13""
+      },
+      {
+        ""columnId"": 912811,
+        ""columnName"": ""col17""
+      },
+      {
+        ""columnId"": 912813,
+        ""columnName"": ""col19""
+      },
+      {
+        ""columnId"": 912835,
+        ""columnName"": ""col41""
+      },
+      {
+        ""columnId"": 912837,
+        ""columnName"": ""col43""
+      },
+      {
+        ""columnId"": 912825,
+        ""columnName"": ""col31""
+      },
+      {
+        ""columnId"": 912827,
+        ""columnName"": ""col33""
+      },
+      {
+        ""columnId"": 912831,
+        ""columnName"": ""col37""
+      },
+      {
+        ""columnId"": 912829,
+        ""columnName"": ""col35""
+      },
+      {
+        ""columnId"": 912833,
+        ""columnName"": ""col39""
+      },
+      {
+        ""columnId"": 912815,
+        ""columnName"": ""col21""
+      },
+      {
+        ""columnId"": 912817,
+        ""columnName"": ""col23""
+      },
+      {
+        ""columnId"": 912821,
+        ""columnName"": ""col27""
+      },
+      {
+        ""columnId"": 912819,
+        ""columnName"": ""col25""
+      },
+      {
+        ""columnId"": 912823,
+        ""columnName"": ""col29""
+      },
+      {
+        ""columnId"": 912803,
+        ""columnName"": ""col9""
+      },
+      {
+        ""columnId"": 912801,
+        ""columnName"": ""col7""
+      },
+      {
+        ""columnId"": 912799,
+        ""columnName"": ""col5""
+      },
+      {
+        ""columnId"": 912797,
+        ""columnName"": ""col3""
+      },
+      {
+        ""columnId"": 912795,
+        ""columnName"": ""col1""
+      },
+      {
+        ""columnId"": 912806,
+        ""columnName"": ""col12""
+      },
+      {
+        ""columnId"": 912804,
+        ""columnName"": ""col10""
+      },
+      {
+        ""columnId"": 912808,
+        ""columnName"": ""col14""
+      },
+      {
+        ""columnId"": 912810,
+        ""columnName"": ""col16""
+      },
+      {
+        ""columnId"": 912812,
+        ""columnName"": ""col18""
+      },
+      {
+        ""columnId"": 912834,
+        ""columnName"": ""col40""
+      },
+      {
+        ""columnId"": 912836,
+        ""columnName"": ""col42""
+      },
+      {
+        ""columnId"": 912824,
+        ""columnName"": ""col30""
+      },
+      {
+        ""columnId"": 912828,
+        ""columnName"": ""col34""
+      },
+      {
+        ""columnId"": 912826,
+        ""columnName"": ""col32""
+      },
+      {
+        ""columnId"": 912830,
+        ""columnName"": ""col36""
+      },
+      {
+        ""columnId"": 912832,
+        ""columnName"": ""col38""
+      },
+      {
+        ""columnId"": 912794,
+        ""columnName"": ""seq""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 527568,
+    ""objectName"": ""DEV_RAW.SAPE02.\""attrep_changes737DFFA241E1A2EE\""""
+  }
+]","[
+  {
+    ""columns"": [
+      {
+        ""columnId"": 912816,
+        ""columnName"": ""col22""
+      },
+      {
+        ""columnId"": 912814,
+        ""columnName"": ""col20""
+      },
+      {
+        ""columnId"": 912818,
+        ""columnName"": ""col24""
+      },
+      {
+        ""columnId"": 912820,
+        ""columnName"": ""col26""
+      },
+      {
+        ""columnId"": 912822,
+        ""columnName"": ""col28""
+      },
+      {
+        ""columnId"": 912802,
+        ""columnName"": ""col8""
+      },
+      {
+        ""columnId"": 912800,
+        ""columnName"": ""col6""
+      },
+      {
+        ""columnId"": 912798,
+        ""columnName"": ""col4""
+      },
+      {
+        ""columnId"": 912796,
+        ""columnName"": ""col2""
+      },
+      {
+        ""columnId"": 912805,
+        ""columnName"": ""col11""
+      },
+      {
+        ""columnId"": 912809,
+        ""columnName"": ""col15""
+      },
+      {
+        ""columnId"": 912807,
+        ""columnName"": ""col13""
+      },
+      {
+        ""columnId"": 912811,
+        ""columnName"": ""col17""
+      },
+      {
+        ""columnId"": 912813,
+        ""columnName"": ""col19""
+      },
+      {
+        ""columnId"": 912835,
+        ""columnName"": ""col41""
+      },
+      {
+        ""columnId"": 912837,
+        ""columnName"": ""col43""
+      },
+      {
+        ""columnId"": 912825,
+        ""columnName"": ""col31""
+      },
+      {
+        ""columnId"": 912827,
+        ""columnName"": ""col33""
+      },
+      {
+        ""columnId"": 912831,
+        ""columnName"": ""col37""
+      },
+      {
+        ""columnId"": 912829,
+        ""columnName"": ""col35""
+      },
+      {
+        ""columnId"": 912833,
+        ""columnName"": ""col39""
+      },
+      {
+        ""columnId"": 912815,
+        ""columnName"": ""col21""
+      },
+      {
+        ""columnId"": 912817,
+        ""columnName"": ""col23""
+      },
+      {
+        ""columnId"": 912821,
+        ""columnName"": ""col27""
+      },
+      {
+        ""columnId"": 912819,
+        ""columnName"": ""col25""
+      },
+      {
+        ""columnId"": 912823,
+        ""columnName"": ""col29""
+      },
+      {
+        ""columnId"": 912803,
+        ""columnName"": ""col9""
+      },
+      {
+        ""columnId"": 912801,
+        ""columnName"": ""col7""
+      },
+      {
+        ""columnId"": 912799,
+        ""columnName"": ""col5""
+      },
+      {
+        ""columnId"": 912797,
+        ""columnName"": ""col3""
+      },
+      {
+        ""columnId"": 912795,
+        ""columnName"": ""col1""
+      },
+      {
+        ""columnId"": 912806,
+        ""columnName"": ""col12""
+      },
+      {
+        ""columnId"": 912804,
+        ""columnName"": ""col10""
+      },
+      {
+        ""columnId"": 912808,
+        ""columnName"": ""col14""
+      },
+      {
+        ""columnId"": 912810,
+        ""columnName"": ""col16""
+      },
+      {
+        ""columnId"": 912812,
+        ""columnName"": ""col18""
+      },
+      {
+        ""columnId"": 912834,
+        ""columnName"": ""col40""
+      },
+      {
+        ""columnId"": 912836,
+        ""columnName"": ""col42""
+      },
+      {
+        ""columnId"": 912824,
+        ""columnName"": ""col30""
+      },
+      {
+        ""columnId"": 912828,
+        ""columnName"": ""col34""
+      },
+      {
+        ""columnId"": 912826,
+        ""columnName"": ""col32""
+      },
+      {
+        ""columnId"": 912830,
+        ""columnName"": ""col36""
+      },
+      {
+        ""columnId"": 912832,
+        ""columnName"": ""col38""
+      },
+      {
+        ""columnId"": 912794,
+        ""columnName"": ""seq""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 527568,
+    ""objectName"": ""DEV_RAW.SAPE02.\""attrep_changes737DFFA241E1A2EE\""""
+  }
+]",[]
+019d2ebe-0400-c9d7-0043-88830092573e,2021-06-26 02:34:47.717 -0700,JXV0109A,"[
+  {
+    ""columns"": [
+      {
+        ""columnId"": 166921,
+        ""columnName"": ""DIDNOTFINDHELPFUL""
+      },
+      {
+        ""columnId"": 166920,
+        ""columnName"": ""FOUNDHELPFUL""
+      },
+      {
+        ""columnId"": 166922,
+        ""columnName"": ""VERIFIEDPURCHASE""
+      },
+      {
+        ""columnId"": 166919,
+        ""columnName"": ""REVIEWID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 130050,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.REVIEWREVIEWSDETAILS_CURRENT_TEST""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 165894,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 165895,
+        ""columnName"": ""REVIEWID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 129026,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.REVIEWREVIEWSMAIN_CURRENT_TEST""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 167942,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 167943,
+        ""columnName"": ""CRAWLERID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 132098,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.DWPRODUCT_CURRENT_TEST""
+  }
+]","[
+  {
+    ""columns"": [
+      {
+        ""columnId"": 166921,
+        ""columnName"": ""DIDNOTFINDHELPFUL""
+      },
+      {
+        ""columnId"": 166920,
+        ""columnName"": ""FOUNDHELPFUL""
+      },
+      {
+        ""columnId"": 166922,
+        ""columnName"": ""VERIFIEDPURCHASE""
+      },
+      {
+        ""columnId"": 166919,
+        ""columnName"": ""REVIEWID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 130050,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.REVIEWREVIEWSDETAILS_CURRENT_TEST""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 165894,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 165895,
+        ""columnName"": ""REVIEWID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 129026,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.REVIEWREVIEWSMAIN_CURRENT_TEST""
+  },
+  {
+    ""columns"": [
+      {
+        ""columnId"": 167942,
+        ""columnName"": ""PRODUCTID""
+      },
+      {
+        ""columnId"": 167943,
+        ""columnName"": ""CRAWLERID""
+      }
+    ],
+    ""objectDomain"": ""Table"",
+    ""objectId"": 132098,
+    ""objectName"": ""SSACOMPETITIVEINTELLIGENCE.SSA.DWPRODUCT_CURRENT_TEST""
+  }
+]",[]

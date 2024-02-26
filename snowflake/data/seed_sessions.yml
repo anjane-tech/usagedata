@@ -1,0 +1,17 @@
+version: 2
+seeds: 
+    - name: sessions
+      config:
+        +schema: seed
+        alias: sessions_csv
+        column_types:
+              SESSION_ID: VARCHAR
+              CREATED_ON: VARCHAR             
+              USER_NAME: VARCHAR            
+              AUTHENTICATION_METHOD: VARCHAR            
+              LOGIN_EVENT_ID: VARCHAR            
+              CLIENT_APPLICATION_VERSION: VARCHAR            
+              CLIENT_APPLICATION_ID: VARCHAR            
+              CLIENT_ENVIRONMENT: VARCHAR            
+              CLIENT_BUILD_ID: VARCHAR            
+              CLIENT_VERSION: VARCHAR

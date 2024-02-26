@@ -1,10 +1,10 @@
 version: 2
 seeds: 
-  - name: errors_seed
-    config:
-      schema: "{{var('usage_data_staging_schema_name')}}"
-      alias: errors
-      column_types:
-              ERROR_TYPE: VARCHAR
-              ERROR_CODE: VARCHAR
-              DESCRIPTION: VARCHAR
+    - name: errors
+      config:
+        +schema: seed
+        alias: errors_csv
+        column_types:
+                ERROR_TYPE: VARCHAR
+                ERROR_CODE: VARCHAR
+                DESCRIPTION: VARCHAR

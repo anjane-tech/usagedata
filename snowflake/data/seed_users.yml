@@ -1,0 +1,31 @@
+version: 2
+seeds: 
+    - name: users
+      config:
+        +schema: seed
+        alias: users_csv
+        column_types:
+                NAME: VARCHAR
+                CREATED_ON: VARCHAR
+                DELETED_ON: VARCHAR
+                LOGIN_NAME: VARCHAR
+                DISPLAY_NAME: VARCHAR
+                FIRST_NAME: VARCHAR
+                LAST_NAME: VARCHAR
+                EMAIL: VARCHAR
+                MUST_CHANGE_PASSWORD: VARCHAR
+                HAS_PASSWORD: VARCHAR
+                COMMENT: VARCHAR
+                DISABLED: VARCHAR
+                SNOWFLAKE_LOCK: VARCHAR
+                DEFAULT_WAREHOUSE: VARCHAR
+                DEFAULT_NAMESPACE: VARCHAR
+                DEFAULT_ROLE: VARCHAR
+                EXT_AUTHN_DUO: VARCHAR
+                EXT_AUTHN_UID: VARCHAR
+                BYPASS_MFA_UNTIL: VARCHAR
+                LAST_SUCCESS_LOGIN: VARCHAR
+                EXPIRES_AT: VARCHAR
+                LOCKED_UNTIL_TIME: VARCHAR
+                HAS_RSA_PUBLIC_KEY: VARCHAR
+                PASSWORD_LAST_SET_TIME: VARCHAR

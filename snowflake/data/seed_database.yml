@@ -1,0 +1,15 @@
+version: 2
+seeds: 
+    - name: database
+      config:
+        +schema: seed
+        alias: database_csv
+        column_types:
+                DATABASE_NAME: VARCHAR
+                DATABASE_OWNER: VARCHAR            
+                IS_TRANSIENT: VARCHAR
+                COMMENT: VARCHAR
+                CREATED: VARCHAR
+                LAST_ALTERED: VARCHAR
+                RETENTION_TIME: VARCHAR
+                

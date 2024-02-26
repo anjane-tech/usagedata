@@ -1,0 +1,13 @@
+version: 2
+seeds: 
+  - name: access_history
+    config:
+      +schema: seed
+      alias: access_history_csv
+      column_types:
+        QUERY_ID: VARCHAR
+        QUERY_START_TIME: VARCHAR
+        USER_NAME: VARCHAR
+        DIRECT_OBJECTS_ACCESSED: VARCHAR
+        BASE_OBJECTS_ACCESSED: VARCHAR
+        OBJECTS_MODIFIED: VARCHAR

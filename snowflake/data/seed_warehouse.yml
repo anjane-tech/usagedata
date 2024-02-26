@@ -1,0 +1,18 @@
+version: 2
+seeds: 
+    - name: warehouse
+      config:
+        +schema: seed
+        alias: warehouse_csv
+        column_types:
+            WAREHOUSE_NAME: VARCHAR
+            TYPE: VARCHAR
+            SIZE: VARCHAR
+            MIN_CLUSTER_COUNT: INTEGER
+            MAX_CLUSTER_COUNT: INTEGER
+            AUTO_SUSPEND: VARCHAR
+            AUTO_RESUME: VARCHAR
+            CREATED_ON: VARCHAR
+            UPDATED_ON: VARCHAR
+            OWNER: VARCHAR
+            UUID: VARCHAR
