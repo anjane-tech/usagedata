@@ -51,7 +51,7 @@ SELECT
         CPQ.CURRENCY,
         current_timestamp as "{{var('col_create_dts')}}",
         current_timestamp as "{{var('col_update_dts')}}",
-        qh.END_TIME as END_TIME
+        qh.END_TIME as END_TIME_ts
     FROM query_history QH 
       INNER JOIN total_table_count TC ON TC."QUERY_ID" = QH."QUERY_ID"
       INNER JOIN Access_history AH ON AH."QUERY_ID" = COALESCE(NULLIF(TRIM(QH."QUERY_ID"),''), 'N/A')
@@ -76,12 +76,13 @@ GROUP BY
         CPQ."CURRENCY",
         TC."TABLE_COUNT",
         to_char(QH."START_TIME", 'YYYYMMDD'),
-        to_char(QH."END_TIME", 'YYYYMMDD')
+        to_char(QH."END_TIME", 'YYYYMMDD'),
+        END_TIME_ts
 )
 
 select 
     QUERY_ID as activity_id,
-    END_TIME AS activity_ts, 
+    END_TIME_ts AS activity_ts, 
 	  'usage_metrics' AS activity,
     COMBINED_USERS_ID as entity,
     ACCESS_HISTORY_ID as feature_1,
