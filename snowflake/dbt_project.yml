@@ -48,6 +48,7 @@ vars:
   sf_src_schema_name_ou: 'organization_usage'
   usage_data_staging_schema_name: 'staging'
   usage_data_datamart_schema_name: 'datamart'
+  usage_data_entityattribute_schema_name: 'entityattribute'
   source: 'snowflake'
 
 seeds:
