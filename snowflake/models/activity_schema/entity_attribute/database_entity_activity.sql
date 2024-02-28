@@ -4,7 +4,7 @@
     unique_key = '"DATABASE_ID"',
     merge_update_columns = [var("col_update_dts"),'DATABASE_NAME','DATABASE_OWNER','IS_TRANSIENT','COMMENT','LAST_ALTERED'],
     tags = ["dimensions"],
-    schema = var("usage_data_datamart_schema_name")
+    schema = var("usage_data_entityattribute_schema_name")
   )
 }}
 

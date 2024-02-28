@@ -4,7 +4,7 @@
     unique_key = '"ERROR_ID"',
     merge_update_columns = [var("col_update_dts"),'ERROR_CODE','DESCRIPTION','ERROR_TYPE'],
     tags = ["dimensions"],
-    schema = var("usage_data_datamart_schema_name")
+    schema = var("usage_data_entityattribute_schema_name")
   )
 }}
 
