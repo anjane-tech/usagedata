@@ -1,12 +1,9 @@
 version: 2
-sources:
-  - name: "{{var('source')}}"
-    database: "{{var('source')}}"
-    schema: "{{var('sf_src_schema_name')}}"
-    tables: 
-      - name: "{{var('sf_tbl_query_history')}}"
-        description: "This Account Usage view can be used to query Snowflake query history by various dimensions (time range, session, user, warehouse, etc.) within the last 365 days (1 year)."
-        columns: 
+
+models:
+  - name: query_history_stage
+    description: "This Account Usage view can be used to query Snowflake query history by various dimensions (time range, session, user, warehouse, etc.) within the last 365 days (1 year)."
+    columns: 
             - name: QUERY_ID
               data_type: VARCHAR(0, 0)
               description: "Internal/system-generated identifier for the SQL statement"
