@@ -3,6 +3,9 @@ version: 2
 models:
   - name: query_history_stage
     meta:
+      joins:
+        - join: access_history_vw
+          sql_on: ${access_hostory_vw.QUERY_ID} = ${query_history_stage.QUERY_ID}
       metrics:
         total_time:
           type: sum  
