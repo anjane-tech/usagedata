@@ -2,6 +2,11 @@ version: 2
 
 models:
   - name: fact_usage_metrics
+    meta:
+      metrics:
+        total_time:
+          type: sum  
+          sql: SUM(timestampdiff(milliseconds, START_TIME, END_TIME) / 1000) / TABLE_COUNT
     columns: 
           - name: ACCESS_HISTORY_ID
             data_type: VARCHAR(0, 0)
@@ -107,7 +112,7 @@ models:
             quote: False
             tests:
               - not_null    
-
+           
           - name: BYTES_SCANNED
             data_type: DECIMAL(38, 0)
             description: "Number of bytes scanned by this statement"
