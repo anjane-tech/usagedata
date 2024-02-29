@@ -4,7 +4,7 @@ sources:
     database: "{{var('source')}}"
     schema: "{{var('sf_src_schema_name')}}"
     tables: 
-      - name: "{{var('sf_tbl_access_history')}}"
+      - name: access_history_vw
         description: "This Account Usage view can be used to query the access history of Snowflake objects (e.g. table, view, column) within the last 365 days (1 year)."
         columns: 
             - name: QUERY_ID
