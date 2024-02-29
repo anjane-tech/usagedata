@@ -6,7 +6,7 @@ models:
       metrics:
         total_time:
           type: sum  
-          sql: SUM(timestampdiff(milliseconds, START_TIME, END_TIME) / 1000) / TABLE_COUNT
+          sql: (timestampdiff(milliseconds, START_TIME, END_TIME) / 1000) / TABLE_COUNT
     columns: 
           - name: ACCESS_HISTORY_ID
             data_type: VARCHAR(0, 0)
