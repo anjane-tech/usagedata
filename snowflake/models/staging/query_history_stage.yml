@@ -2,6 +2,12 @@ version: 2
 
 models:
   - name: query_history_stage
+    meta:
+      metrics:
+        total_time:
+          type: sum  
+          label: querytime_in_secs
+          sql: timestampdiff(milliseconds, START_TIME, END_TIME) / 1000
     description: "This Account Usage view can be used to query Snowflake query history by various dimensions (time range, session, user, warehouse, etc.) within the last 365 days (1 year)."
     columns: 
             - name: QUERY_ID
