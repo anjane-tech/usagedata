@@ -2,7 +2,7 @@
   config(
     materialized='incremental',
     unique_key = '"COMBINED_WAREHOUSE_ID"',
-    merge_update_columns = [var("col_update_dts"),'AUTO_SUSPEND','STATE','WAREHOUSE_SIZE','MIN_CLUSTER_COUNT','UUID'],
+    merge_update_columns = [var("col_update_dts"),'AUTO_SUSPEND','STATE','WAREHOUSE_SIZE','UUID'],
     tags = ["dimensions"],
     schema = var("usage_data_datamart_schema_name")
   )
@@ -24,8 +24,6 @@ dimension as(
            CASE WHEN NULLIF(TRIM(w."WAREHOUSE_NAME"),'') IS NOT NULL THEN W."WAREHOUSE_NAME"
                 WHEN NULLIF(TRIM(qh."WAREHOUSE_NAME"),'') IS NOT NULL THEN QH."WAREHOUSE_NAME"
                 ELSE 'N/A' END AS "WAREHOUSE_NAME",
-           COALESCE(w."MIN_CLUSTER_COUNT", 0) AS "MIN_CLUSTER_COUNT",
-           COALESCE(w."MAX_CLUSTER_COUNT", 0) AS "MAX_CLUSTER_COUNT",
            w."AUTO_SUSPEND" AS "AUTO_SUSPEND",
            w."AUTO_RESUME" AS "AUTO_RESUME",
            w."UUID" AS "UUID",

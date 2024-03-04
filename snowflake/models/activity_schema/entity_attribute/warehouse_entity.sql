@@ -2,7 +2,7 @@
   config(
     materialized='incremental',
     unique_key = '"COMBINED_WAREHOUSE_ID"',
-    merge_update_columns = [var("col_update_dts"),'AUTO_SUSPEND','STATE','WAREHOUSE_SIZE','MIN_CLUSTER_COUNT','UUID'],
+    merge_update_columns = [var("col_update_dts"),'AUTO_SUSPEND','STATE','WAREHOUSE_SIZE','UUID'],
     tags = ["dimensions"],
     schema = var("usage_data_entityattribute_schema_name")
   )
@@ -24,8 +24,6 @@ dimension as(
            CASE WHEN NULLIF(TRIM(w."WAREHOUSE_NAME"),'') IS NOT NULL THEN W."WAREHOUSE_NAME"
                 WHEN NULLIF(TRIM(qh."WAREHOUSE_NAME"),'') IS NOT NULL THEN QH."WAREHOUSE_NAME"
                 ELSE 'N/A' END AS "WAREHOUSE_NAME",
-           COALESCE(w."MIN_CLUSTER_COUNT", 0) AS "MIN_CLUSTER_COUNT",
-           COALESCE(w."MAX_CLUSTER_COUNT", 0) AS "MAX_CLUSTER_COUNT",
            w."AUTO_SUSPEND" AS "AUTO_SUSPEND",
            w."AUTO_RESUME" AS "AUTO_RESUME",
            w."UUID" AS "UUID",
@@ -47,15 +45,15 @@ SELECT
          ['"WAREHOUSE_NAME"']
      )}} as id,
      WAREHOUSE_NAME as attribute_1,
-     MIN_CLUSTER_COUNT as attribute_2,
-     MAX_CLUSTER_COUNT as attribute_3,
-     AUTO_SUSPEND as attribute_4,
-     AUTO_RESUME as attribute_5,
-     UUID as attribute_6,
-     OWNER as attribute_7,
-    STATE as attribute_8,
-    WAREHOUSE_SIZE as attribute_9,
-    WAREHOUSE_TYPE as attribute_10,
+     AUTO_SUSPEND as attribute_2,
+     AUTO_RESUME as attribute_3,
+     UUID as attribute_4,
+     OWNER as attribute_5,
+    STATE as attribute_6,
+    WAREHOUSE_SIZE as attribute_7,
+    WAREHOUSE_TYPE as attribute_8,
+    '' as attribute_9,
+    '' as attribute_10,
      current_timestamp as "{{var('col_create_dts')}}",
       current_timestamp as "{{var('col_update_dts')}}"
 
